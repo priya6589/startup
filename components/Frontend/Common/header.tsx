@@ -15,11 +15,11 @@ export default function Header()
                     className="black-logo"
                     alt="image"
                   />
-                  <img
+                  {/* <img
                     src={process.env.NEXT_PUBLIC_BASE_URL + "assets/img/logo-2.png"}
                     className="white-logo"
                     alt="image"
-                  />
+                  /> */}
                 </a>
               </div>
             </div>
@@ -34,11 +34,11 @@ export default function Header()
                   className="black-logo"
                   alt="image"
                 />
-                <img
+                {/* <img
                   src={process.env.NEXT_PUBLIC_BASE_URL + "assets/img/logo-2.png"}
                   className="white-logo"
                   alt="image"
-                />
+                /> */}
               </a>
               <div
                 className="collapse navbar-collapse mean-menu"
@@ -46,7 +46,7 @@ export default function Header()
               >
                 <ul className="navbar-nav">
                   <li className="nav-item">
-                    <a href="/index" className="nav-link active">
+                    <a href="/" className="nav-link active">
                       Home
                     </a>
                     </li>
@@ -62,17 +62,17 @@ export default function Header()
                       </a>
                       <ul className="dropdown-menu">
                         <li className="nav-item">
-                          <a href="services-1.html" className="nav-link">
+                          <a href="/service" className="nav-link">
                             Services
                           </a>
                         </li>
                         <li className="nav-item">
-                          <a href="services-2.html" className="nav-link">
+                          <a href="/service-two" className="nav-link">
                             Services Two
                           </a>
                         </li>
                         <li className="nav-item">
-                          <a href="single-services.html" className="nav-link">
+                          <a href="/service-detail" className="nav-link">
                             Services Details
                           </a>
                         </li>

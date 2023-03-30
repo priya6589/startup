@@ -2,6 +2,10 @@ import React from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import Agency from "../Frontend/It-Agency";
+import ClientSection from "../Frontend/Common/client-section";
+import NextNProgress from 'nextjs-progressbar';
+
 const settings = {
   dots: true,
   infinite: true,
@@ -53,11 +57,9 @@ export default function Home() {
                 <div className="d-table-cell">
                   <div className="container">
                     <div className="main-banner-content">
-                      <h1>Make Real-Life Connections With IT</h1>
+                      <h1>Your Future Starts Here</h1>
                       <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing
-                        incididunt ut laboredolore magna aliqua elsed tempomet,
-                        consectetur adipiscing.
+                      Welcome to our startup investment platform, where your future starts today! We are dedicated to providing you with innovative investment opportunities that can help you grow your wealth and achieve your financial goals.
                       </p>
                       <div className="banner-btn">
                         <a href="startup.html" className="default-btn">
@@ -222,6 +224,7 @@ export default function Home() {
                   industry. Lorem Ipsum has been the industry's.
                 </p>
               </div>
+            
               <div className="skill-bar">
                 <p className="progress-title-holder">
                   <span className="progress-title">Developement</span>
@@ -292,6 +295,7 @@ export default function Home() {
                   <div className="progress-content" />
                 </div>
               </div>
+          
             </div>
             <div className="col-lg-6">
               <div className="creative-image">
@@ -311,138 +315,9 @@ export default function Home() {
       </section>
       {/* End Creative Area */}
 
-      {/* Start Services Area */}
-      <section className="services-section bg-color pt-100 pb-70">
-        <div className="container">
-          <div className="section-title">
-            <h2>IT Agency Services</h2>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incidiunt labore et dolore magna aliqua. Quis ipsum
-              suspendisse ultrices gravida.
-            </p>
-            <div className="bar" />
-          </div>
-          <div className="row">
-            <div className="col-lg-4 col-md-6">
-              <div className="single-services">
-                <div className="icon">
-                  <i className="flaticon-it" />
-                </div>
-                <h3>IT Consultancy</h3>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore facilisis.
-                </p>
-                <a href="single-services.html" className="read-btn">
-                  Read More
-                </a>
-              </div>
-            </div>
-            <div className="col-lg-4 col-md-6">
-              <div className="single-services">
-                <div className="icon">
-                  <i className="flaticon-setting" />
-                </div>
-                <h3>Web Development</h3>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore facilisis.
-                </p>
-                <a href="single-services.html" className="read-btn">
-                  Read More
-                </a>
-              </div>
-            </div>
-            <div className="col-lg-4 col-md-6">
-              <div className="single-services">
-                <div className="icon">
-                  <i className="flaticon-promotion" />
-                </div>
-                <h3>Digital Marketing</h3>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore facilisis.
-                </p>
-                <a href="single-services.html" className="read-btn">
-                  Read More
-                </a>
-              </div>
-            </div>
-            <div className="col-lg-4 col-md-6">
-              <div className="single-services">
-                <div className="icon">
-                  <i className="flaticon-cellphone" />
-                </div>
-                <h3>App Development</h3>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore facilisis.
-                </p>
-                <a href="single-services.html" className="read-btn">
-                  Read More
-                </a>
-              </div>
-            </div>
-            <div className="col-lg-4 col-md-6">
-              <div className="single-services">
-                <div className="icon">
-                  <i className="flaticon-shopping-cart" />
-                </div>
-                <h3>E-commerce Development</h3>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore facilisis.
-                </p>
-                <a href="single-services.html" className="read-btn">
-                  Read More
-                </a>
-              </div>
-            </div>
-            <div className="col-lg-4 col-md-6">
-              <div className="single-services">
-                <div className="icon">
-                  <i className="flaticon-optimize" />
-                </div>
-                <h3>IT Solutions</h3>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore facilisis.
-                </p>
-                <a href="single-services.html" className="read-btn">
-                  Read More
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="default-shape">
-          <div className="shape-1">
-            <img src="assets/img/shape/4.png" alt="image" />
-          </div>
-          <div className="shape-2 rotateme">
-            <img src="assets/img/shape/5.svg" alt="image" />
-          </div>
-          <div className="shape-3">
-            <img src="assets/img/shape/6.svg" alt="image" />
-          </div>
-          <div className="shape-4">
-            <img src="assets/img/shape/7.png" alt="image" />
-          </div>
-          <div className="shape-5">
-            <img src="assets/img/shape/8.png" alt="image" />
-          </div>
-        </div>
-        <div className="services-shape">
-          <img src="assets/img/cloud.png" className="white-image" alt="image" />
-          <img
-            src="assets/img/cloud-2.png"
-            className="black-image"
-            alt="image"
-          />
-        </div>
-      </section>
-      {/* End Services Area */}
+      {/* IT-Agency Section */}
+      <Agency />
+
       {/* Start Development Area */}
       <section className="development-area ptb-100">
         <div className="container">
@@ -510,6 +385,7 @@ export default function Home() {
         </div>
       </section>
       {/* End Development Area */}
+
       {/* Start Video Section */}
       <div className="video-section">
         <div className="container">
@@ -525,6 +401,7 @@ export default function Home() {
         </div>
       </div>
       {/* End Video Section */}
+
       {/* Start Choose Area */}
       <section className="choose-section ptb-100">
         <div className="container">
@@ -589,6 +466,7 @@ export default function Home() {
         </div>
       </section>
       {/* End Choose Area */}
+
       {/* Start Projects Area */}
       <section className="projects-section pb-70">
         <div className="container-fluid">
@@ -709,6 +587,101 @@ export default function Home() {
         </div>
       </section>
       {/* End Projects Area */}
+
+      {/* Client-Section */}
+      <ClientSection />
+
+      {/* Start Blog Area */}
+      <section className="blog-section pt-100 pb-70">
+        <div className="container">
+          <div className="section-title">
+            <h2>
+              Our <span>Latest</span> News
+            </h2>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incidiunt labore et dolore magna aliqua. Quis ipsum
+              suspendisse ultrices gravida.
+            </p>
+            <div className="bar" />
+          </div>
+          <div className="row">
+            <div className="col-lg-4 col-md-6">
+              <div className="single-blog">
+                <div className="image">
+                  <a href="single-blog.html">
+                    <img src="assets/img/blog/1.jpg" alt="image" />
+                  </a>
+                </div>
+                <div className="content">
+                  <span>20 March 2022</span>
+                  <h3>
+                    <a href="single-blog.html">
+                      Great Tips To Earn More Money From Digital Industry
+                    </a>
+                  </h3>
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit sed
+                    do eiusmod tempor
+                  </p>
+                  <a href="single-blog.html" className="read-more">
+                    Read More
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div className="col-lg-4 col-md-6">
+              <div className="single-blog">
+                <div className="image">
+                  <a href="single-blog.html">
+                    <img src="assets/img/blog/2.jpg" alt="image" />
+                  </a>
+                </div>
+                <div className="content">
+                  <span>25 April 2022</span>
+                  <h3>
+                    <a href="single-blog.html">
+                      The Billionaire Guide On Design That will Get You Rich
+                    </a>
+                  </h3>
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit sed
+                    do eiusmod tempor
+                  </p>
+                  <a href="single-blog.html" className="read-more">
+                    Read More
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div className="col-lg-4 col-md-6 offset-lg-0 offset-md-3">
+              <div className="single-blog">
+                <div className="image">
+                  <a href="single-blog.html">
+                    <img src="assets/img/blog/3.jpg" alt="image" />
+                  </a>
+                </div>
+                <div className="content">
+                  <span>30 July 2022</span>
+                  <h3>
+                    <a href="single-blog.html">
+                      Making Peace With The Feast Or Famine Of Freelancing
+                    </a>
+                  </h3>
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit sed
+                    do eiusmod tempor
+                  </p>
+                  <a href="single-blog.html" className="read-more">
+                    Read More
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      {/* End Blog Area */}
     </>
   );
 }

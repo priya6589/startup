@@ -18,7 +18,6 @@ jQuery(function ($) {
 
 	// Sidebar Modal
 	$(".burger-menu").on('click',  function() {
-		alert("test");
 		$('.sidebar-modal').toggleClass('active');
 	});
 	$(".sidebar-modal-close-btn").on('click',  function() {
@@ -39,34 +38,7 @@ jQuery(function ($) {
 
 
 
-	// Clients Slider
-	$('.clients-slider').owlCarousel({
-		loop: true,
-		nav: false,
-		dots: true,
-		autoplayHoverPause: true,
-		autoplay: true,
-		smartSpeed: 1000,
-		margin: 0,
-		navText: [
-			"<i class='flaticon-left'></i>",
-			"<i class='flaticon-right'></i>"
-		],
-		responsive: {
-			0: {
-				items: 1
-			},
-			576: {
-				items: 1
-			},
-			768: {
-				items: 1
-			},
-			1200: {
-				items: 1
-			}
-		}
-	});
+	
 
 	// Partner-slider
 	$('.partner-slider').owlCarousel({
@@ -213,7 +185,6 @@ jQuery(function ($) {
 
 	//skill
 	jQuery('.skill-bar').each(function() {
-		console.log("test");
 		jQuery(this).find('.progress-content').animate({
 		width:jQuery(this).attr('data-percentage')
 		},2000);
@@ -338,12 +309,4 @@ function toggleTheme() {
 	}
 }
 // Immediately invoked function to set the theme on initial load
-(function () {
-	if (localStorage.getItem('theme') === 'theme-dark') {
-		setTheme('theme-dark');
-		document.getElementById('slider').checked = false;
-	} else {
-		setTheme('theme-light');
-	  document.getElementById('slider').checked = true;
-	}
-})();
+// 
