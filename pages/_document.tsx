@@ -24,7 +24,7 @@ export default function Document() {
         <link rel="stylesheet" href={process.env.NEXT_PUBLIC_BASE_URL+'assets/css/boxicons.min.css'} />
         {/* <!-- Flaticon CSS -->  */}
         <link rel="stylesheet" href={process.env.NEXT_PUBLIC_BASE_URL+'assets/css/flaticon.css'} />
-<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"/>
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"/>
         {/* <!-- Meanmenu CSS --> */}
         <link rel="stylesheet" href={process.env.NEXT_PUBLIC_BASE_URL+'assets/css/meanmenu.css'} />
         {/* <!-- Odometer CSS--> */}
@@ -64,6 +64,7 @@ export default function Document() {
         {/* <!-- Contact JS --> */}
         <script src={process.env.NEXT_PUBLIC_BASE_URL+'assets/js/contact-form-script.js'}></script>
         {/* <!-- Wow JS --> */}
+        
         <script src={process.env.NEXT_PUBLIC_BASE_URL+'assets/js/wow.min.js'}></script>
         {/* <!-- Custom JS --> */}
         <script src={process.env.NEXT_PUBLIC_BASE_URL+'assets/js/main.js'}></script>

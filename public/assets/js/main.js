@@ -37,68 +37,36 @@ jQuery(function ($) {
 		$('.close-btn').addClass('active');
 	});
 
-	// Home Sliders
-	$('.home-sliders').owlCarousel({
-		loop:true,
-		margin:0,
-		nav:false,
-		mouseDrag: true,
-		items:1,
-		autoHeight:true,
-		dots: true,
-		autoplay: true,
-		smartSpeed: 500,
-		autoplayHoverPause: true,
-		navText: [
-			"<i class='flaticon-left'></i>",
-			"<i class='flaticon-right-1'></i>",
-		],
-	});
 
-	//Slider Text Animation
-	$(".home-sliders").on("translate.owl.carousel", function(){
-		$(".main-banner-content span, .main-banner-content h1, .main-banner-content .typewrite").removeClass("animated fadeInUp").css("opacity", "0");
-		$(".main-banner-content p").removeClass("animated fadeInDown").css("opacity", "0");
-		$(".main-banner-content a").removeClass("animated fadeInDown").css("opacity", "0");
-		$(".banner-image").removeClass("animated slideInUp").css("opacity", "0");
-	});
-	
-	$(".home-sliders").on("translated.owl.carousel", function(){
-		$(".main-banner-content span, .main-banner-content h1, .main-banner-content .typewrite").addClass("animated fadeInUp").css("opacity", "1");
-		$(".main-banner-content p").addClass("animated fadeInDown").css("opacity", "1");
-		$(".main-banner-content a").addClass("animated fadeInDown").css("opacity", "1");
-		$(".banner-image").addClass("animated slideInUp").css("opacity", "1");
-	});
-	
 
 	// Clients Slider
-	// $('.clients-slider').owlCarousel({
-	// 	loop: true,
-	// 	nav: false,
-	// 	dots: true,
-	// 	autoplayHoverPause: true,
-	// 	autoplay: true,
-	// 	smartSpeed: 1000,
-	// 	margin: 0,
-	// 	navText: [
-	// 		"<i class='flaticon-left'></i>",
-	// 		"<i class='flaticon-right'></i>"
-	// 	],
-	// 	responsive: {
-	// 		0: {
-	// 			items: 1
-	// 		},
-	// 		576: {
-	// 			items: 1
-	// 		},
-	// 		768: {
-	// 			items: 1
-	// 		},
-	// 		1200: {
-	// 			items: 1
-	// 		}
-	// 	}
-	// });
+	$('.clients-slider').owlCarousel({
+		loop: true,
+		nav: false,
+		dots: true,
+		autoplayHoverPause: true,
+		autoplay: true,
+		smartSpeed: 1000,
+		margin: 0,
+		navText: [
+			"<i class='flaticon-left'></i>",
+			"<i class='flaticon-right'></i>"
+		],
+		responsive: {
+			0: {
+				items: 1
+			},
+			576: {
+				items: 1
+			},
+			768: {
+				items: 1
+			},
+			1200: {
+				items: 1
+			}
+		}
+	});
 
 	// Partner-slider
 	$('.partner-slider').owlCarousel({

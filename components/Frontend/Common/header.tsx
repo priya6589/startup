@@ -9,7 +9,7 @@ export default function Header()
           <div className="container">
             <div className="fria-responsive-menu">
               <div className="logo">
-                <a href="/index">
+                <a href="/">
                   <img
                     src={process.env.NEXT_PUBLIC_BASE_URL + "assets/img/logo.png"}
                     className="black-logo"
@@ -28,7 +28,7 @@ export default function Header()
         <div className="fria-nav">
           <div className="container">
             <nav className="navbar navbar-expand-md navbar-light">
-              <a className="navbar-brand" href="index.html">
+              <a className="navbar-brand" href="/">
                 <img
                   src={process.env.NEXT_PUBLIC_BASE_URL + "assets/img/logo.png"}
                   className="black-logo"

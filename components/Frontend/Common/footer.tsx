@@ -16,7 +16,7 @@ const footer = () => {
 
                         <div className="col-lg-6 col-md-6">
                             <form className="newsletter-form">
-                                <input type="email" className="input-newsletter" placeholder="Enter your email" name="EMAIL" required autocomplete="off" />
+                                <input type="email" className="input-newsletter" placeholder="Enter your email" name="EMAIL" required autoComplete="off" />
                                 <button type="submit">
                                     Subscribe Now
                                 </button>
