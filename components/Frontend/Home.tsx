@@ -4,7 +4,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Agency from "../Frontend/It-Agency";
 import ClientSection from "../Frontend/Common/client-section";
-import NextNProgress from 'nextjs-progressbar';
+import NextNProgress from "nextjs-progressbar";
 
 const settings = {
   dots: true,
@@ -57,15 +57,20 @@ export default function Home() {
                 <div className="d-table-cell">
                   <div className="container">
                     <div className="main-banner-content">
-                      <h1>Your Future Starts Here</h1>
+                      <h1>
+                        Invest in <br /> the Future
+                      </h1>
                       <p>
-                      Welcome to our startup investment platform, where your future starts today! We are dedicated to providing you with innovative investment opportunities that can help you grow your wealth and achieve your financial goals.
+                        Welcome to our startup investment platform, where your
+                        future starts today! We are dedicated to providing you
+                        with innovative investment opportunities that can help
+                        you grow your wealth and achieve your financial goals.
                       </p>
                       <div className="banner-btn">
-                        <a href="startup.html" className="default-btn">
+                        <a href="/startup" className="default-btn">
                           Join to raise funds
                         </a>
-                        <a href="join-to-invest.html" className="default-btn">
+                        <a href="/join-to-invest" className="default-btn">
                           Join to Invest
                         </a>
                       </div>
@@ -83,17 +88,21 @@ export default function Home() {
                 <div className="d-table-cell">
                   <div className="container">
                     <div className="main-banner-content">
-                      <h1>Software &amp; development</h1>
+                      <h1>
+                        Start Building <br /> Your Portfolio
+                      </h1>
                       <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing
-                        incididunt ut laboredolore magna aliqua elsed tempomet,
-                        consectetur adipiscing.
+                        Start building your investment portfolio today with our
+                        expert guidance and diverse investment options. From
+                        stocks and bonds to alternative assets, we offer a range
+                        of opportunities to help you achieve your financial
+                        goals.
                       </p>
                       <div className="banner-btn">
-                        <a href="startup.html" className="default-btn">
+                        <a href="startup" className="default-btn">
                           Join to raise funds
                         </a>
-                        <a href="join-to-invest.html" className="default-btn">
+                        <a href="/join-to-invest" className="default-btn">
                           Join to Invest
                         </a>
                       </div>
@@ -111,17 +120,18 @@ export default function Home() {
                 <div className="d-table-cell">
                   <div className="container">
                     <div className="main-banner-content">
-                      <h1>Digital Agency &amp; Marketing</h1>
+                      <h1>Opportunities Await</h1>
                       <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing
-                        incididunt ut laboredolore magna aliqua elsed tempomet,
-                        consectetur adipiscing.
+                        At our investment firm, opportunities await for those
+                        who are ready to take the next step towards financial
+                        success. Discover a diverse range of investment options
+                        and seize the chance to achieve your financial goals.
                       </p>
                       <div className="banner-btn">
-                        <a href="startup.html" className="default-btn">
+                        <a href="startup" className="default-btn">
                           Join to raise funds
                         </a>
-                        <a href="join-to-invest.html" className="default-btn">
+                        <a href="/join-to-invest" className="default-btn">
                           Join to Invest
                         </a>
                       </div>
@@ -145,9 +155,7 @@ export default function Home() {
           <div className="section-title">
             <h2>Creative Features</h2>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incidiunt labore et dolore magna aliqua. Quis ipsum
-              suspendisse ultrices gravida.
+            Our investment site offers a range of creative features to help you make informed investment decisions. Explore our intuitive investment platform, personalized investment recommendations, and expert financial advice.
             </p>
             <div className="bar" />
           </div>
@@ -155,48 +163,48 @@ export default function Home() {
             <div className="col-lg-3 col-md-6">
               <div className="features-content">
                 <div className="icon">
-                  <i className="flaticon-blueprint" />
+               <img src="assets/img/icon1.jpeg" alt="risk management" />
                 </div>
-                <h3>Great Design</h3>
+                <h3>Risk Management</h3>
                 <p>
-                  Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
-                  eiusmod tempor incididunt
+                  Offer tools and services to help users manage their investment
+                  risks and protect their assets.
                 </p>
               </div>
             </div>
             <div className="col-lg-3 col-md-6">
               <div className="features-content">
                 <div className="icon">
-                  <i className="flaticon-update" />
+                <img src="assets/img/icon2.png" alt="social investing" />
                 </div>
-                <h3>Optimal Choice</h3>
+                <h3>Social Investing</h3>
                 <p>
-                  Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
-                  eiusmod tempor incididunt
+                  Enable users to connect and collaborate with other investors
+                  to share insights and ideas.
                 </p>
               </div>
             </div>
             <div className="col-lg-3 col-md-6">
               <div className="features-content">
                 <div className="icon left-icon">
-                  <i className="flaticon-security" />
+                 <img src="assets/img/icon3.png" alt="low fees" />
                 </div>
-                <h3>Finest Quality</h3>
+                <h3>Low Fees</h3>
                 <p>
-                  Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
-                  eiusmod tempor incididunt
+                  Offer competitive fees and charges to enable users to maximize
+                  their investment returns.
                 </p>
               </div>
             </div>
             <div className="col-lg-3 col-md-6">
               <div className="features-content">
                 <div className="icon">
-                  <i className="flaticon-clock" />
+                <img src="assets/img/icon4.webp" alt="" />
                 </div>
-                <h3>Time-Saving</h3>
+                <h3>Customized Portfolio</h3>
                 <p>
-                  Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
-                  eiusmod tempor incididunt
+                  Create personalized investment portfolio based on user's
+                  preferences and risk tolerance.
                 </p>
               </div>
             </div>
@@ -212,19 +220,14 @@ export default function Home() {
             <div className="col-lg-6">
               <div className="creative-content">
                 <h3>
-                  How to Generate <span>Creative</span> Ideas for your IT
-                  Business
+                 <span>Creative</span> Ideas for your Startup  Business 
                 </h3>
                 <div className="bar" />
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incidiunt labore et dolore magna aliqua.
-                  Quis ipsum suspendisse ultrices gravida. Risus do umsan lacus
-                  vel facilisis.Lorem Ipsum is simply dummy text of the
-                  industry. Lorem Ipsum has been the industry's.
+                Empower the next generation of entrepreneurs and create a better future through investment in innovative startups. Our platform is dedicated to democratizing access to capital and supporting the growth of businesses that have the potential to transform industries.
                 </p>
               </div>
-            
+
               <div className="skill-bar">
                 <p className="progress-title-holder">
                   <span className="progress-title">Developement</span>
@@ -295,7 +298,6 @@ export default function Home() {
                   <div className="progress-content" />
                 </div>
               </div>
-          
             </div>
             <div className="col-lg-6">
               <div className="creative-image">
@@ -387,7 +389,7 @@ export default function Home() {
       {/* End Development Area */}
 
       {/* Start Video Section */}
-      <div className="video-section">
+      {/* <div className="video-section">
         <div className="container">
           <div className="video-content">
             <a
@@ -399,7 +401,7 @@ export default function Home() {
             </a>
           </div>
         </div>
-      </div>
+      </div> */}
       {/* End Video Section */}
 
       {/* Start Choose Area */}
@@ -408,9 +410,7 @@ export default function Home() {
           <div className="section-title">
             <h2>Why Choose Us</h2>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incidiunt labore et dolore magna aliqua. Quis ipsum
-              suspendisse ultrices gravida.
+            Choose us because we are dedicated to helping investors find the best startup opportunities. Our platform offers unparalleled access to high-potential startups and expert guidance to help make informed investment decisions. With a commitment to transparency and community, we provide a unique and rewarding investment experience.
             </p>
             <div className="bar" />
           </div>
@@ -420,40 +420,36 @@ export default function Home() {
                 <div className="icon">
                   <i className="flaticon-shared-folder" />
                 </div>
-                <h3>Consulting</h3>
+                <h3>Community</h3>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod.
+                We foster a sense of community among our investors and portfolio companies, providing opportunities for networking, collaboration, and knowledge sharing.
                 </p>
               </div>
               <div className="choose-content">
                 <div className="icon">
                   <i className="flaticon-blog" />
                 </div>
-                <h3>Data Management</h3>
+                <h3>Support</h3>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod.
+                We provide our investors with a high level of support and guidance, from expert advice on investment decisions to tools to help track and manage investments.
                 </p>
               </div>
               <div className="choose-content">
                 <div className="icon">
                   <i className="flaticon-quality" />
                 </div>
-                <h3>Page Ranking</h3>
+                <h3>Risk management</h3>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod.
+                We take a rigorous approach to risk management, conducting thorough due diligence on all potential investments and diversifying our portfolio to mitigate risk.
                 </p>
               </div>
               <div className="choose-content">
                 <div className="icon">
                   <i className="flaticon-target" />
                 </div>
-                <h3>Location Targeting</h3>
+                <h3>Access</h3>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod.
+                We provide access to investment opportunities that would otherwise be difficult or impossible for individual investors to access, providing a level of access and exposure typically reserved for institutional investors.
                 </p>
               </div>
             </div>
@@ -596,7 +592,7 @@ export default function Home() {
         <div className="container">
           <div className="section-title">
             <h2>
-              Our <span>Latest</span> News
+              Our <span>Latest</span> Companies
             </h2>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do

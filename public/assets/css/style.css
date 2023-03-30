@@ -1486,9 +1486,25 @@ Services Area CSS
   right: 0;
   bottom: 0;
 }
+#service-title h3{
+  font-size: 20px; 
+  margin:0;
+}
+#service-title .single-agency .content {
+  -webkit-box-shadow: 0 5px 40px 0 rgba(0, 0, 0, 0.11);
+  box-shadow: 0 5px 40px 0 rgba(0, 0, 0, 0.11);
+  background-color: #ffffff;
+  padding: 10px;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  /* max-width: 320px; */
+  margin: -50px auto 0px;
+}
 
 .single-services {
   text-align: center;
+  height: 100%;
   margin-bottom: 30px;
   background-color: #ffffff;
   padding: 30px;
@@ -5401,7 +5417,7 @@ Contact Area CSS
   line-height: initial;
   color: #212121;
   background-color: #f8f6f6;
-  border: 1px solid #0967d1;
+  /* border: 1px solid #0967d1; */
   border-radius: 5px;
   -webkit-transition: 0.5s;
   transition: 0.5s;
@@ -5412,7 +5428,7 @@ Contact Area CSS
 }
 
 .contact-form form .form-control:focus {
-  border-color: #086AD8;
+  /* border-color: #086AD8; */
 }
 
 .contact-form form .form-control::-webkit-input-placeholder {
@@ -7960,3 +7976,10 @@ Buy Now Btn
 }
 /*# sourceMappingURL=style.css.map */
 
+
+section#footer-sec {
+  padding: 50px 0;
+}
+section#service-title {
+  padding: 70px 0;
+}

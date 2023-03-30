@@ -36,7 +36,7 @@ export default function Document() {
         <link rel="stylesheet" href={process.env.NEXT_PUBLIC_BASE_URL+'assets/css/dark.css'} />
         {/* <!-- Responsive CSS --> */}
         <link rel="stylesheet" href={process.env.NEXT_PUBLIC_BASE_URL+'assets/css/responsive.css'} />
-
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="   />
         <link rel="icon" type="image/png" href={process.env.NEXT_PUBLIC_BASE_URL+'assets/img/favicon.png'} />
       </Head>
       <body>

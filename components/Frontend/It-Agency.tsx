@@ -7,28 +7,25 @@ const It = () => {
       <section className="services-section bg-color pt-100 pb-70">
         <div className="container">
           <div className="section-title">
-            <h2>IT Agency Services</h2>
+            <h2>Our Services</h2>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incidiunt labore et dolore magna aliqua. Quis ipsum
-              suspendisse ultrices gravida.
+            Our team of experienced investment professionals will work with you to develop a customized investment strategy that aligns with your risk tolerance, time horizon, and financial objectives.
             </p>
             <div className="bar" />
           </div>
-          <div className="row">
+          <div className="row g-4">
             <div className="col-lg-4 col-md-6">
               <div className="single-services">
                 <div className="icon">
                   <i className="flaticon-it" />
                 </div>
-                <h3>IT Consultancy</h3>
+                <h3>Investment research</h3>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore facilisis.
+                We provide investment research and analysis on various investment options, helping clients make informed decisions about their investments.
                 </p>
-                <a href="single-services.html" className="read-btn">
+                {/* <a href="single-services.html" className="read-btn">
                   Read More
-                </a>
+                </a> */}
               </div>
             </div>
             <div className="col-lg-4 col-md-6">
@@ -36,14 +33,13 @@ const It = () => {
                 <div className="icon">
                   <i className="flaticon-setting" />
                 </div>
-                <h3>Web Development</h3>
+                <h3>Advisory services</h3>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore facilisis.
+                We offer investment advisory services, providing guidance on investment strategies and helping clients to build and manage their investment portfolios.
                 </p>
-                <a href="single-services.html" className="read-btn">
+                {/* <a href="single-services.html" className="read-btn">
                   Read More
-                </a>
+                </a> */}
               </div>
             </div>
             <div className="col-lg-4 col-md-6">
@@ -51,14 +47,13 @@ const It = () => {
                 <div className="icon">
                   <i className="flaticon-promotion" />
                 </div>
-                <h3>Digital Marketing</h3>
+                <h3>Fundraising</h3>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore facilisis.
+                Startup platform offer crowdfunding and fundraising services, allowing entrepreneurs to raise capital from a large pool of investors.
                 </p>
-                <a href="single-services.html" className="read-btn">
+                {/* <a href="single-services.html" className="read-btn">
                   Read More
-                </a>
+                </a> */}
               </div>
             </div>
             <div className="col-lg-4 col-md-6">
@@ -66,14 +61,13 @@ const It = () => {
                 <div className="icon">
                   <i className="flaticon-cellphone" />
                 </div>
-                <h3>App Development</h3>
+                <h3>Business networking</h3>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore facilisis.
+                It enables entrepreneurs to connect with potential investors, partners, and other industry professionals.
                 </p>
-                <a href="single-services.html" className="read-btn">
+                {/* <a href="single-services.html" className="read-btn">
                   Read More
-                </a>
+                </a> */}
               </div>
             </div>
             <div className="col-lg-4 col-md-6">
@@ -81,14 +75,13 @@ const It = () => {
                 <div className="icon">
                   <i className="flaticon-shopping-cart" />
                 </div>
-                <h3>E-commerce Development</h3>
+                <h3>Online investment </h3>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore facilisis.
+                It allows investors to easily buy and sell securities, track their investments, and monitor market trends.
                 </p>
-                <a href="single-services.html" className="read-btn">
+                {/* <a href="single-services.html" className="read-btn">
                   Read More
-                </a>
+                </a> */}
               </div>
             </div>
             <div className="col-lg-4 col-md-6">
@@ -96,14 +89,13 @@ const It = () => {
                 <div className="icon">
                   <i className="flaticon-optimize" />
                 </div>
-                <h3>IT Solutions</h3>
+                <h3>Investment management</h3>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore facilisis.
+                It offers tailored investment strategies that align with their clients' financial goals and risk profiles,provide customized investment solutions.
                 </p>
-                <a href="single-services.html" className="read-btn">
+                {/* <a href="single-services.html" className="read-btn">
                   Read More
-                </a>
+                </a> */}
               </div>
             </div>
           </div>

@@ -3,30 +3,8 @@ import React from 'react'
 const footer = () => {
   return (
     <div>
-      <section className="footer-section pt-100 pb-70">
+      <section className="footer-section pt-100 pb-70" id="footer-sec">
             <div className="container">
-                <div className="subscribe-area">
-                    <div className="row align-items-center">
-                        <div className="col-lg-6 col-md-6">
-                            <div className="subscribe-content">
-                                <h2>Join Our Newsletter</h2>
-                                <p>News letter dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
-                            </div>
-                        </div>
-
-                        <div className="col-lg-6 col-md-6">
-                            <form className="newsletter-form">
-                                <input type="email" className="input-newsletter" placeholder="Enter your email" name="EMAIL" required autoComplete="off" />
-                                <button type="submit">
-                                    Subscribe Now
-                                </button>
-								
-                                <div id="validator-newsletter" className="form-result"></div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-
                 <div className="row">
                     <div className="col-lg-3 col-md-6 col-sm-6">
                         <div className="single-footer-widget">

@@ -149,5 +149,7 @@
         font-weight: 700;
     }
 }
-
+.icon img {
+    width: 80px;
+}
 
