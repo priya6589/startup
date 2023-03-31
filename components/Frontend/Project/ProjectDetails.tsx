@@ -23,12 +23,12 @@ export default function ProjectDetails() {
                     <div className="row">
                         <div className="col-lg-6 col-md-6">
                             <div className="project-details-image">
-                                <img src="assets/img/services-details/1.jpg" alt="projects" />
+                                <img src="assets/img/services-details/4.jpg" alt="projects" />
                             </div>
                         </div>
                         <div className="col-lg-6 col-md-6">
                             <div className="project-details-image">
-                                <img src="assets/img/services-details/2.jpg" alt="projects" />
+                                <img src="assets/img/services-details/img1.jpg" alt="projects" />
                             </div>
                         </div>
                         <div className="col-lg-12 col-md-12">

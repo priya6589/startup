@@ -3,7 +3,7 @@ import React from 'react'
 export default function FrequentlyQuestions() {
     return (
         <>
-            <section className="faq-section pb-100">
+            <section className="faq-section ptb-100">
                 <div className="container">
                     <div className="section-title">
                         <h2>

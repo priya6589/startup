@@ -481,7 +481,7 @@ export default function Home() {
               Our <span>Latest</span> Companies
             </h2>
             <p>
-              Latest new Startup companies...
+            Discover the newest and most exciting startup companies on our platform. Our team of experts scours the market for the latest innovations and high-potential startups, providing you with access to the most promising investment opportunities.
             </p>
             <div className="bar" />
           </div>
