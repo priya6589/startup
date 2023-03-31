@@ -53,36 +53,7 @@ export default function Home() {
         <div className="home-sliders">
           <Slider {...settings}>
             <div className="home-item item-bg1">
-              <div className="d-table">
-                <div className="d-table-cell">
-                  <div className="container">
-                    <div className="main-banner-content">
-                      <h1>Opportunities Await</h1>
-                      <p>
-                        At our investment firm, opportunities await for those
-                        who are ready to take the next step towards financial
-                        success. Discover a diverse range of investment options
-                        and seize the chance to achieve your financial goals.
-                      </p>
-                      <div className="banner-btn">
-                        <a href="startup" className="default-btn">
-                          Join to raise funds
-                        </a>
-                        <a href="/join-to-invest" className="default-btn">
-                          Join to Invest
-                        </a>
-                      </div>
-                    </div>
-                    <div className="banner-image">
-                      {/* <img src="assets/img/home-one/shape.png" alt="image"> */}
-                      {/* <img src="assets/img/home-one/image-3.png" class="banner-img" alt="image"> */}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="home-item item-bg2">
-              <div className="d-table">
+            <div className="d-table">
                 <div className="d-table-cell">
                   <div className="container">
                     <div className="main-banner-content">
@@ -112,6 +83,36 @@ export default function Home() {
                   </div>
                 </div>
               </div>
+            </div>
+            <div className="home-item item-bg2">
+            <div className="d-table">
+                <div className="d-table-cell">
+                  <div className="container">
+                    <div className="main-banner-content">
+                      <h1>Opportunities Await</h1>
+                      <p>
+                        At our investment firm, opportunities await for those
+                        who are ready to take the next step towards financial
+                        success. Discover a diverse range of investment options
+                        and seize the chance to achieve your financial goals.
+                      </p>
+                      <div className="banner-btn">
+                        <a href="startup" className="default-btn">
+                          Join to raise funds
+                        </a>
+                        <a href="/join-to-invest" className="default-btn">
+                          Join to Invest
+                        </a>
+                      </div>
+                    </div>
+                    <div className="banner-image">
+                      {/* <img src="assets/img/home-one/shape.png" alt="image"> */}
+                      {/* <img src="assets/img/home-one/image-3.png" class="banner-img" alt="image"> */}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            
             </div>
             <div className="home-item item-bg3">
               <div className="d-table">
