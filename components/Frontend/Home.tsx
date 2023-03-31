@@ -477,9 +477,7 @@ export default function Home() {
       <section className="blog-section pt-100 pb-70">
         <div className="container">
           <div className="section-title">
-            <h2>
-              Our <span>Latest</span> Companies
-            </h2>
+            <h2>Our <span>Latest</span> Blogs</h2>  
             <p>
             Discover the newest and most exciting startup companies on our platform. Our team of experts scours the market for the latest innovations and high-potential startups, providing you with access to the most promising investment opportunities.
             </p>

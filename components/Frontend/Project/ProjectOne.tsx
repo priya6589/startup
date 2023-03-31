@@ -39,10 +39,10 @@ export default function ProjectOne() {
                   <img src="assets/img/projects/1.jpg" alt="image" />
                 </div>
                 <div className="projects-content">
-                  <a href="single-projects.html">
+                  <a href="/single-project">
                     <h3>App Update &amp; Rebrand</h3>
                   </a>
-                  <a href="single-projects.html">
+                  <a href="/single-project">
                     <span>
                     Research and startup
                     </span>
@@ -56,11 +56,11 @@ export default function ProjectOne() {
                   <img src="assets/img/projects/2.jpg" alt="image" />
                 </div>
                 <div className="projects-content">
-                  <a href="single-projects.html">
+                  <a href="/single-project">
                     <h3>IT Consultancy</h3>
                     {/* <h3>Funding Trends</h3> */}
                   </a>
-                  <a href="single-projects.html">
+                  <a href="/single-project">
                     <span>
                     Research and startup
                     </span>
@@ -74,10 +74,10 @@ export default function ProjectOne() {
                   <img src="assets/img/projects/3.jpg" alt="image" />
                 </div>
                 <div className="projects-content">
-                  <a href="single-projects.html">
+                  <a href="/single-project">
                   <h3>Funding Trends</h3>
                   </a>
-                  <a href="single-projects.html">
+                  <a href="/single-project">
                     <span>
                     Research and startup
                     </span>
@@ -91,10 +91,10 @@ export default function ProjectOne() {
                   <img src="assets/img/projects/4.jpg" alt="image" />
                 </div>
                 <div className="projects-content">
-                  <a href="single-projects.html">
+                  <a href="/single-project">
                   <h3>App Development</h3>
                   </a>
-                  <a href="single-projects.html">
+                  <a href="/single-project">
                     <span>
                     Research and startup
                     </span>
@@ -108,10 +108,10 @@ export default function ProjectOne() {
                   <img src="assets/img/projects/5.jpg" alt="image" />
                 </div>
                 <div className="projects-content">
-                  <a href="single-projects.html">
+                  <a href="/single-project">
                   <h3>IT Solutions</h3>
                   </a>
-                  <a href="single-projects.html">
+                  <a href="/single-project">
                     <span>
                     Research and startup
                     </span>
@@ -123,10 +123,10 @@ export default function ProjectOne() {
                   <img src="assets/img/projects/6.jpg" alt="image" />
                 </div>
                 <div className="projects-content">
-                  <a href="single-projects.html">
+                  <a href="/single-project">
                   <h3>Data Management</h3>
                   </a>
-                  <a href="single-projects.html">
+                  <a href="/single-project">
                     <span>
                     Research and startup
                     </span>
@@ -140,10 +140,10 @@ export default function ProjectOne() {
                   <img src="assets/img/projects/7.jpg" alt="image" />
                 </div>
                 <div className="projects-content">
-                  <a href="single-projects.html">
+                  <a href="/single-project">
                   <h3>E-commerce Development</h3>
                   </a>
-                  <a href="single-projects.html">
+                  <a href="/single-project">
                     <span>
                      Research and startup
                     </span>
