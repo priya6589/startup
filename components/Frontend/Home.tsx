@@ -57,17 +57,15 @@ export default function Home() {
                 <div className="d-table-cell">
                   <div className="container">
                     <div className="main-banner-content">
-                      <h1>
-                        Invest in <br /> the Future
-                      </h1>
+                      <h1>Opportunities Await</h1>
                       <p>
-                        Welcome to our startup investment platform, where your
-                        future starts today! We are dedicated to providing you
-                        with innovative investment opportunities that can help
-                        you grow your wealth and achieve your financial goals.
+                        At our investment firm, opportunities await for those
+                        who are ready to take the next step towards financial
+                        success. Discover a diverse range of investment options
+                        and seize the chance to achieve your financial goals.
                       </p>
                       <div className="banner-btn">
-                        <a href="/startup" className="default-btn">
+                        <a href="startup" className="default-btn">
                           Join to raise funds
                         </a>
                         <a href="/join-to-invest" className="default-btn">
@@ -77,7 +75,7 @@ export default function Home() {
                     </div>
                     <div className="banner-image">
                       {/* <img src="assets/img/home-one/shape.png" alt="image"> */}
-                      {/* <img src="assets/img/home-one/image-1.png" class="banner-img" alt="image"> */}
+                      {/* <img src="assets/img/home-one/image-3.png" class="banner-img" alt="image"> */}
                     </div>
                   </div>
                 </div>
@@ -120,15 +118,17 @@ export default function Home() {
                 <div className="d-table-cell">
                   <div className="container">
                     <div className="main-banner-content">
-                      <h1>Opportunities Await</h1>
+                      <h1>
+                        Invest in <br /> the Future
+                      </h1>
                       <p>
-                        At our investment firm, opportunities await for those
-                        who are ready to take the next step towards financial
-                        success. Discover a diverse range of investment options
-                        and seize the chance to achieve your financial goals.
+                        Welcome to our startup investment platform, where your
+                        future starts today! We are dedicated to providing you
+                        with innovative investment opportunities that can help
+                        you grow your wealth and achieve your financial goals.
                       </p>
                       <div className="banner-btn">
-                        <a href="startup" className="default-btn">
+                        <a href="/startup" className="default-btn">
                           Join to raise funds
                         </a>
                         <a href="/join-to-invest" className="default-btn">
@@ -138,7 +138,7 @@ export default function Home() {
                     </div>
                     <div className="banner-image">
                       {/* <img src="assets/img/home-one/shape.png" alt="image"> */}
-                      {/* <img src="assets/img/home-one/image-3.png" class="banner-img" alt="image"> */}
+                      {/* <img src="assets/img/home-one/image-1.png" class="banner-img" alt="image"> */}
                     </div>
                   </div>
                 </div>
@@ -155,7 +155,10 @@ export default function Home() {
           <div className="section-title">
             <h2>Creative Features</h2>
             <p>
-            Our investment site offers a range of creative features to help you make informed investment decisions. Explore our intuitive investment platform, personalized investment recommendations, and expert financial advice.
+              Our investment site offers a range of creative features to help
+              you make informed investment decisions. Explore our intuitive
+              investment platform, personalized investment recommendations, and
+              expert financial advice.
             </p>
             <div className="bar" />
           </div>
@@ -163,7 +166,7 @@ export default function Home() {
             <div className="col-lg-3 col-md-6">
               <div className="features-content">
                 <div className="icon">
-               <img src="assets/img/icon1.jpeg" alt="risk management" />
+                  <img src="assets/img/icon1.jpeg" alt="risk management" />
                 </div>
                 <h3>Risk Management</h3>
                 <p>
@@ -175,7 +178,7 @@ export default function Home() {
             <div className="col-lg-3 col-md-6">
               <div className="features-content">
                 <div className="icon">
-                <img src="assets/img/icon2.png" alt="social investing" />
+                  <img src="assets/img/icon2.png" alt="social investing" />
                 </div>
                 <h3>Social Investing</h3>
                 <p>
@@ -187,7 +190,7 @@ export default function Home() {
             <div className="col-lg-3 col-md-6">
               <div className="features-content">
                 <div className="icon left-icon">
-                 <img src="assets/img/icon3.png" alt="low fees" />
+                  <img src="assets/img/icon3.png" alt="low fees" />
                 </div>
                 <h3>Low Fees</h3>
                 <p>
@@ -199,7 +202,7 @@ export default function Home() {
             <div className="col-lg-3 col-md-6">
               <div className="features-content">
                 <div className="icon">
-                <img src="assets/img/icon4.webp" alt="" />
+                  <img src="assets/img/icon4.webp" alt="" />
                 </div>
                 <h3>Customized Portfolio</h3>
                 <p>
@@ -231,12 +234,12 @@ export default function Home() {
             </div>
             <div className="col-lg-6">
               <div className="development-text">
-                <h3>
-                    Other  Services
-                </h3>
+                <h3>Other Services</h3>
                 <div className="bar" />
                 <p>
-                Our platform offers socially responsible investment options, allowing you to invest in companies that align with your values.
+                  Our platform offers socially responsible investment options,
+                  allowing you to invest in companies that align with your
+                  values.
                 </p>
               </div>
               <div className="development-content">
@@ -245,7 +248,8 @@ export default function Home() {
                 </div>
                 <h3>Investment Research</h3>
                 <p>
-                We provide investment research and analysis on various investment options.
+                  We provide investment research and analysis on various
+                  investment options.
                 </p>
               </div>
               <div className="development-content">
@@ -254,7 +258,9 @@ export default function Home() {
                 </div>
                 <h3>Investment Management</h3>
                 <p>
-                It offers tailored investment strategies that align with their clients' financial goals and risk profiles,provide customized investment solutions.
+                  It offers tailored investment strategies that align with their
+                  clients' financial goals and risk profiles,provide customized
+                  investment solutions.
                 </p>
               </div>
               <div className="development-content">
@@ -263,7 +269,8 @@ export default function Home() {
                 </div>
                 <h3>Online Investment</h3>
                 <p>
-                It allows investors to easily buy and sell securities, track their investments, and monitor it.
+                  It allows investors to easily buy and sell securities, track
+                  their investments, and monitor it.
                 </p>
               </div>
               {/* <div className="development-content">
@@ -304,7 +311,12 @@ export default function Home() {
           <div className="section-title">
             <h2>Why Choose Us</h2>
             <p>
-            Choose us because we are dedicated to helping investors find the best startup opportunities. Our platform offers unparalleled access to high-potential startups and expert guidance to help make informed investment decisions. With a commitment to transparency and community, we provide a unique and rewarding investment experience.
+              Choose us because we are dedicated to helping investors find the
+              best startup opportunities. Our platform offers unparalleled
+              access to high-potential startups and expert guidance to help make
+              informed investment decisions. With a commitment to transparency
+              and community, we provide a unique and rewarding investment
+              experience.
             </p>
             <div className="bar" />
           </div>
@@ -316,7 +328,9 @@ export default function Home() {
                 </div>
                 <h3>Community</h3>
                 <p>
-                We foster a sense of community among our investors and portfolio companies, providing opportunities for networking, collaboration, and knowledge sharing.
+                  We foster a sense of community among our investors and
+                  portfolio companies, providing opportunities for networking,
+                  collaboration, and knowledge sharing.
                 </p>
               </div>
               <div className="choose-content">
@@ -325,7 +339,9 @@ export default function Home() {
                 </div>
                 <h3>Support</h3>
                 <p>
-                We provide our investors with a high level of support and guidance, from expert advice on investment decisions to tools to help track and manage investments.
+                  We provide our investors with a high level of support and
+                  guidance, from expert advice on investment decisions to tools
+                  to help track and manage investments.
                 </p>
               </div>
               <div className="choose-content">
@@ -334,7 +350,8 @@ export default function Home() {
                 </div>
                 <h3>Risk management</h3>
                 <p>
-                We take a rigorous approach to risk management, conducting  all potential investments our portfolio to mitigate risk.
+                  We take a rigorous approach to risk management, conducting all
+                  potential investments our portfolio to mitigate risk.
                 </p>
               </div>
             </div>
@@ -399,7 +416,7 @@ export default function Home() {
                 </div>
                 <div className="projects-content">
                   <a href="single-projects.html">
-                  <h3>Funding Trends</h3>
+                    <h3>Funding Trends</h3>
                   </a>
                   <a href="single-projects.html">
                     <span>Research and startup</span>
@@ -477,9 +494,14 @@ export default function Home() {
       <section className="blog-section pt-100 pb-70">
         <div className="container">
           <div className="section-title">
-            <h2>Our <span>Latest</span> Blogs</h2>  
+            <h2>
+              Our <span>Latest</span> Blogs
+            </h2>
             <p>
-            Discover the newest and most exciting startup companies on our platform. Our team of experts scours the market for the latest innovations and high-potential startups, providing you with access to the most promising investment opportunities.
+              Discover the newest and most exciting startup companies on our
+              platform. Our team of experts scours the market for the latest
+              innovations and high-potential startups, providing you with access
+              to the most promising investment opportunities.
             </p>
             <div className="bar" />
           </div>
@@ -487,14 +509,14 @@ export default function Home() {
             <div className="col-lg-4 col-md-6">
               <div className="single-blog">
                 <div className="image">
-                  <a href="single-blog.html">
+                  <a href="/single-blog">
                     <img src="assets/img/blog/1.jpg" alt="image" />
                   </a>
                 </div>
                 <div className="content">
                   <span>20 March 2022</span>
                   <h3>
-                    <a href="single-blog.html">
+                    <a href="/single-blog">
                       Great Tips To Earn More Money From Digital Industry
                     </a>
                   </h3>
@@ -502,7 +524,7 @@ export default function Home() {
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit sed
                     do eiusmod tempor
                   </p>
-                  <a href="single-blog.html" className="read-more">
+                  <a href="/single-blog" className="read-more">
                     Read More
                   </a>
                 </div>
@@ -511,14 +533,14 @@ export default function Home() {
             <div className="col-lg-4 col-md-6">
               <div className="single-blog">
                 <div className="image">
-                  <a href="single-blog.html">
+                  <a href="/single-blog">
                     <img src="assets/img/blog/2.jpg" alt="image" />
                   </a>
                 </div>
                 <div className="content">
                   <span>25 April 2022</span>
                   <h3>
-                    <a href="single-blog.html">
+                    <a href="/single-blog">
                       The Billionaire Guide On Design That will Get You Rich
                     </a>
                   </h3>
@@ -526,7 +548,7 @@ export default function Home() {
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit sed
                     do eiusmod tempor
                   </p>
-                  <a href="single-blog.html" className="read-more">
+                  <a href="/single-blog" className="read-more">
                     Read More
                   </a>
                 </div>
@@ -535,14 +557,14 @@ export default function Home() {
             <div className="col-lg-4 col-md-6 offset-lg-0 offset-md-3">
               <div className="single-blog">
                 <div className="image">
-                  <a href="single-blog.html">
+                  <a href="/single-blog">
                     <img src="assets/img/blog/3.jpg" alt="image" />
                   </a>
                 </div>
                 <div className="content">
                   <span>30 July 2022</span>
                   <h3>
-                    <a href="single-blog.html">
+                    <a href="/single-blog">
                       Making Peace With The Feast Or Famine Of Freelancing
                     </a>
                   </h3>
@@ -550,7 +572,7 @@ export default function Home() {
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit sed
                     do eiusmod tempor
                   </p>
-                  <a href="single-blog.html" className="read-more">
+                  <a href="/single-blog" className="read-more">
                     Read More
                   </a>
                 </div>

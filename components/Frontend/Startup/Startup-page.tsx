@@ -70,7 +70,7 @@ const Startup = () => {
                   </div>
                 </div>
                 <div className="banner-btn">
-                  <a href="starup-bussiness.html" className="default-btn">
+                  <a href="/startup-buisness" className="default-btn">
                     Let’s Build Together
                   </a>
                 </div>

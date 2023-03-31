@@ -10,7 +10,7 @@ export default function Service() {
                             <div className="page-title-content">
                                 <h2>Services</h2>
                                 <ul>
-                                    <li><a href="index.html">Home</a></li>
+                                    <li><a href="/">Home</a></li>
                                     <li>Services</li>
                                 </ul>
                             </div>
