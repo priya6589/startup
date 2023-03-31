@@ -18,6 +18,7 @@ export default function FAQ() {
                     </div>
                 </div>
             </div>
+            {/* faq */}
             <section className="faq-section ptb-100">
                 <div className="container">
                     <div className="section-title">
