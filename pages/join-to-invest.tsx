@@ -8,8 +8,4 @@ const jointoinvest = () => {
   )
 }
 
-.icon img {
-    width: 80px;
-}
-
 export default jointoinvest

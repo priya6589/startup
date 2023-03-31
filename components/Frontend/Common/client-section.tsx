@@ -50,9 +50,9 @@ const client = () => {
           <div className="section-title">
             <h2>What Our Clients Says</h2>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              {/* Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incidiunt labore et dolore magna aliqua. Quis ipsum
-              suspendisse ultrices gravida.
+              suspendisse ultrices gravida. */}
             </p>
             <div className="bar" />
           </div>
@@ -63,17 +63,11 @@ const client = () => {
                 <i className="flaticon-left-quotes-sign" />
               </div>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis
-                ipsum suspendisse ultrices gravida. Risus commodo viverra
-                maecenas accumsan lacus vel facilisis. Lorem Ipsum is simply
-                dummy text of the printing and typesetting industry. Lorem Ipsum
-                has been the industry's standard dummy text ever since the
-                1500s, when an unknown printer took a galley
+               These platform is providing a genuine and verified startup companies and investors to deal with.The educational resources provided are extremely helpful and have given me a better understanding of investing and the market.
               </p>
               <div className="clients-content">
                 <h3>Moris Jacker</h3>
-                <span>Web Developer</span>
+                <span>HTPL Pvt. Ltd.</span>
               </div>
             </div>
             <div className="clients-item">
@@ -81,17 +75,11 @@ const client = () => {
                 <i className="flaticon-left-quotes-sign" />
               </div>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis
-                ipsum suspendisse ultrices gravida. Risus commodo viverra
-                maecenas accumsan lacus vel facilisis. Lorem Ipsum is simply
-                dummy text of the printing and typesetting industry. Lorem Ipsum
-                has been the industry's standard dummy text ever since the
-                1500s, when an unknown printer took a galley
+              I love how user-friendly and intuitive the platform is, making it easy for even a beginner investor like myself to navigate and invest with confidence.I really like it.
               </p>
               <div className="clients-content">
                 <h3>Alex Maxwel</h3>
-                <span>Agent Management</span>
+                <span>TechnoSoft Technologies</span>
               </div>
             </div>
             <div className="clients-item">
@@ -99,17 +87,11 @@ const client = () => {
                 <i className="flaticon-left-quotes-sign" />
               </div>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis
-                ipsum suspendisse ultrices gravida. Risus commodo viverra
-                maecenas accumsan lacus vel facilisis. Lorem Ipsum is simply
-                dummy text of the printing and typesetting industry. Lorem Ipsum
-                has been the industry's standard dummy text ever since the
-                1500s, when an unknown printer took a galley
+              The portfolio management tools are fantastic, allowing me to track my investments and make informed decisions to maximize my returns and one more thing it is user-friendly web-app.
               </p>
               <div className="clients-content">
                 <h3>Edmond Halley</h3>
-                <span>Web Designer</span>
+                <span>Steelo.com</span>
               </div>
             </div>
             </Slider>

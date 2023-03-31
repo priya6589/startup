@@ -332,47 +332,41 @@ export default function Home() {
             <div className="col-lg-6">
               <div className="development-text">
                 <h3>
-                  Web &amp; Mobile <span>Development</span>
+                    Other  Services
                 </h3>
                 <div className="bar" />
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  Quis ipsum suspendisse ultrices gravida. Risus commodo viverra
-                  maecenas accumsan.
+                Our platform offers socially responsible investment options, allowing you to invest in companies that align with your values.
                 </p>
               </div>
               <div className="development-content">
                 <div className="icon">
                   <i className="flaticon-blog" />
                 </div>
-                <h3>UI/UX Design</h3>
+                <h3>Investment Research</h3>
                 <p>
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry. Lorem Ipsum has been the industry.
+                We provide investment research and analysis on various investment options.
                 </p>
               </div>
               <div className="development-content">
                 <div className="icon bg-05dbcf">
                   <i className="flaticon-setting" />
                 </div>
-                <h3>Web Development</h3>
+                <h3>Investment Management</h3>
                 <p>
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry. Lorem Ipsum has been the industry.
+                It offers tailored investment strategies that align with their clients' financial goals and risk profiles,provide customized investment solutions.
                 </p>
               </div>
               <div className="development-content">
                 <div className="icon bg-fec66f">
                   <i className="flaticon-cellphone" />
                 </div>
-                <h3>Mobile Development</h3>
+                <h3>Online Investment</h3>
                 <p>
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry. Lorem Ipsum has been the industry.
+                It allows investors to easily buy and sell securities, track their investments, and monitor it.
                 </p>
               </div>
-              <div className="development-content">
+              {/* <div className="development-content">
                 <div className="icon bg-66a6ff">
                   <i className="flaticon-devices" />
                 </div>
@@ -381,7 +375,7 @@ export default function Home() {
                   Lorem Ipsum is simply dummy text of the printing and
                   typesetting industry. Lorem Ipsum has been the industry.
                 </p>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
@@ -405,7 +399,7 @@ export default function Home() {
       {/* End Video Section */}
 
       {/* Start Choose Area */}
-      <section className="choose-section ptb-100">
+      <section className="choose-section p-0 ptb-100">
         <div className="container">
           <div className="section-title">
             <h2>Why Choose Us</h2>
@@ -440,18 +434,18 @@ export default function Home() {
                 </div>
                 <h3>Risk management</h3>
                 <p>
-                We take a rigorous approach to risk management, conducting thorough due diligence on all potential investments and diversifying our portfolio to mitigate risk.
+                We take a rigorous approach to risk management, conducting  all potential investments our portfolio to mitigate risk.
                 </p>
               </div>
-              <div className="choose-content">
+              {/* <div className="choose-content">
                 <div className="icon">
                   <i className="flaticon-target" />
                 </div>
                 <h3>Access</h3>
                 <p>
-                We provide access to investment opportunities that would otherwise be difficult or impossible for individual investors to access, providing a level of access and exposure typically reserved for institutional investors.
+                We provide access to investment opportunities that would otherwise be difficult or impossible for individual investors to access.
                 </p>
-              </div>
+              </div> */}
             </div>
             <div className="col-lg-6">
               <div className="choose-image">
@@ -469,9 +463,10 @@ export default function Home() {
           <div className="section-title">
             <h2>Projects</h2>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incidiunt labore et dolore magna aliqua. Quis ipsum
-              suspendisse ultrices gravida.
+              At Startup or Invesment, we're committed to investing in
+              innovative startups and bringing cutting-edge solutions to the
+              market. Here are some of the exciting projects we're currently
+              working on.
             </p>
             <div className="bar" />
           </div>
@@ -513,7 +508,7 @@ export default function Home() {
                 </div>
                 <div className="projects-content">
                   <a href="single-projects.html">
-                    <h3>Digital Marketing</h3>
+                  <h3>Funding Trends</h3>
                   </a>
                   <a href="single-projects.html">
                     <span>Research and startup</span>

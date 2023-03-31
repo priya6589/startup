@@ -50,11 +50,7 @@ export default function Header()
                       Home
                     </a>
                     </li>
-                    <li className="nav-item">
-                      <a href="/about" className="nav-link">
-                        About
-                      </a>
-                    </li>
+                   
                     <li className="nav-item">
                       <a href="/service" className="nav-link">
                         Services 
@@ -101,7 +97,7 @@ export default function Header()
                         </li>
                       </ul>
                     </li>
-                    <li className="nav-item">
+                    {/* <li className="nav-item">
                       <a href="#" className="nav-link">
                         Pages 
                         <i className="bx bx-chevron-down" />
@@ -127,7 +123,7 @@ export default function Header()
                             FAQ
                           </a>
                         </li>
-                        {/* <li className="nav-item">
+                        <li className="nav-item">
                           <a href="/login" className="nav-link">
                             User 
                           </a>
@@ -143,7 +139,7 @@ export default function Header()
                               </a>
                             </li>
                           </ul>
-                        </li> */}
+                        </li>
                         <li className="nav-item">
                           <a href="/terms-condition" className="nav-link">
                             Terms &amp; Conditions
@@ -155,13 +151,13 @@ export default function Header()
                           </a>
                         </li>
                     
-                        {/* <li className="nav-item">
+                         <li className="nav-item">
                           <a href="/contact" className="nav-link">
                             Contact
                           </a>
-                        </li> */}
+                        </li> 
                       </ul>
-                    </li>
+                    </li> */}
                     <li className="nav-item">
                       <a href="/blog" className="nav-link">
                         Blog 
@@ -184,6 +180,11 @@ export default function Header()
                           </a>
                         </li>
                       </ul>
+                    </li>
+                    <li className="nav-item">
+                      <a href="/about" className="nav-link">
+                        About
+                      </a>
                     </li>
                     <li className="nav-item">
                       <a href="/contact" className="nav-link">
@@ -224,7 +225,7 @@ export default function Header()
             <div className="sidebar-about-area">
               <div className="title">
                 <h2>About Us</h2>
-                <p>We believe brand interaction is key in communication. Real innovations and a positive customer experience are the heart of successful communication. No fake products and services. The customer is king, their lives and needs are the inspiration.</p>
+                <p>Our team of experts has extensive experience in the finance and investment industry, ensuring that you receive the best advice and support.</p>
               </div>
             </div>
             <div className="sidebar-contact-feed">
@@ -279,12 +280,12 @@ export default function Header()
               <div className="contact-info">
                 <div className="contact-info-content">
                   <h2>
-                    <a href="tel:+0881306298615">
-                      +088 130 629 8615
+                
+                    <a href="tel:+882-569-756">
+                    +882-569-756
                     </a>
                     <span>OR</span>
-                    <a href="/cdn-cgi/l/email-protection#1f796d767e5f78727e7673317c7072">
-                      <span className="__cf_email__" data-cfemail="5c3a2e353d1c3b313d3530723f3331">[email&nbsp;protected]</span>
+                    <a href="mailto:example@gmail.com" >example@gmail.com
                     </a>
                   </h2>
                   <ul className="social">
