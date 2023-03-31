@@ -50,7 +50,11 @@ export default function Header()
                       Home
                     </a>
                     </li>
-                   
+                    <li className="nav-item">
+                      <a href="/about" className="nav-link">
+                        About
+                      </a>
+                    </li>
                     <li className="nav-item">
                       <a href="/service" className="nav-link">
                         Services 
@@ -92,7 +96,7 @@ export default function Header()
                         </li> */}
                         <li className="nav-item">
                           <a href="/project-details" className="nav-link">
-                            Projects details
+                            Single Project
                           </a>
                         </li>
                       </ul>
@@ -181,11 +185,7 @@ export default function Header()
                         </li>
                       </ul>
                     </li>
-                    <li className="nav-item">
-                      <a href="/about" className="nav-link">
-                        About
-                      </a>
-                    </li>
+                   
                     <li className="nav-item">
                       <a href="/contact" className="nav-link">
                         Contact

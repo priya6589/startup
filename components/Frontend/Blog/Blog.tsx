@@ -11,7 +11,7 @@ export default function Blog() {
                                 <h2>Blog</h2>
                                 <ul>
                                     <li><a href="index.html">Home</a></li>
-                                    <li>Blog One</li>
+                                    <li>Blogs</li>
                                 </ul>
                             </div>
                         </div>
@@ -146,7 +146,7 @@ Provide some tips on how to create compelling social media content, such as usin
                                 </div>
                             </div>
                         </div>
-                        <div className="col-lg-12 col-md-12">
+                        {/* <div className="col-lg-12 col-md-12">
                             <div className="pagination-area">
                                 <a href="#" className="prev page-numbers">
                                     <i className="flaticon-left" />
@@ -159,7 +159,7 @@ Provide some tips on how to create compelling social media content, such as usin
                                     <i className="flaticon-right" />
                                 </a>
                             </div>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             </section>
