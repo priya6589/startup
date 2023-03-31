@@ -22,9 +22,9 @@ export default function PrivacyPolicy() {
                 <div className="container">
                     <div className="single-privacy">
                         <h3 className="mt-0">Introduction</h3>
-                        <p>[Website name] is committed to protecting your privacy. This Privacy Policy explains how we collect, use, and disclose your personal information.</p>
+                        <p>Startup is committed to protecting your privacy. This Privacy Policy explains how we collect, use, and disclose your personal information.</p>
                         <h3 className="mt-0">Collection of Personal Information</h3>
-                        <p>e collect personal information when you register for an account, use our services, or otherwise provide us with your information. This may include your name, email address, phone number, and other contact information.</p>
+                        <p>We collect personal information when you register for an account, use our services, or otherwise provide us with your information. This may include your name, email address, phone number, and other contact information.</p>
                         <h3 className="mt-0">Use of Personal Information</h3>
                         <p>We use your personal information to provide you with our services, to communicate with you about your account and our services, and to improve our services. We may also use your personal information for marketing and promotional purposes, but only with your consent.</p>
                         <h3 className="mt-0">Disclosure of Personal Information</h3>
