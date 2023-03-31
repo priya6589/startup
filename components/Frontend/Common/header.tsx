@@ -44,7 +44,7 @@ export default function Header()
                 className="collapse navbar-collapse mean-menu"
                 id="navbarSupportedContent"
               >
-                <ul className="navbar-nav">
+                  <ul className="navbar-nav">
                   <li className="nav-item">
                     <a href="/" className="nav-link active">
                       Home
@@ -56,21 +56,21 @@ export default function Header()
                       </a>
                     </li>
                     <li className="nav-item">
-                      <a href="#" className="nav-link">
+                      <a href="/service" className="nav-link">
                         Services 
                         <i className="bx bx-chevron-down" />
                       </a>
                       <ul className="dropdown-menu">
-                        <li className="nav-item">
+                        {/* <li className="nav-item">
                           <a href="/service" className="nav-link">
                             Services
                           </a>
-                        </li>
-                        <li className="nav-item">
+                        </li> */}
+                        {/* <li className="nav-item">
                           <a href="/service-two" className="nav-link">
-                            Services Two
+                            Services ||
                           </a>
-                        </li>
+                        </li> */}
                         <li className="nav-item">
                           <a href="/service-detail" className="nav-link">
                             Services Details
@@ -79,23 +79,23 @@ export default function Header()
                       </ul>
                     </li>
                     <li className="nav-item">
-                      <a href="#" className="nav-link">
+                      <a href="/project-one" className="nav-link">
                         Projects 
                         <i className="bx bx-chevron-down" />
                       </a>
                       <ul className="dropdown-menu">
-                        <li className="nav-item">
-                          <a href="projects-1.html" className="nav-link">
-                            Projects One
+                        {/* <li className="nav-item">
+                          <a href="/project-one" className="nav-link">
+                            Projects 
                           </a>
-                        </li>
-                        <li className="nav-item">
-                          <a href="projects-2.html" className="nav-link">
-                            Projects Two
+                        </li> */}
+                        {/* <li className="nav-item">
+                          <a href="/project-two" className="nav-link">
+                            Projects ||
                           </a>
-                        </li>
+                        </li> */}
                         <li className="nav-item">
-                          <a href="single-projects.html" className="nav-link">
+                          <a href="/project-details" className="nav-link">
                             Projects details
                           </a>
                         </li>
@@ -108,88 +108,79 @@ export default function Header()
                       </a>
                       <ul className="dropdown-menu">
                         <li className="nav-item">
-                          <a href="about.html" className="nav-link">
+                          <a href="/about" className="nav-link">
                             About
                           </a>
                         </li>
                         <li className="nav-item">
-                          <a href="team.html" className="nav-link">
+                          <a href="/team" className="nav-link">
                             Team
                           </a>
                         </li>
                         <li className="nav-item">
-                          <a href="pricing.html" className="nav-link">
+                          <a href="/pricing" className="nav-link">
                             Pricing
                           </a>
                         </li>
                         <li className="nav-item">
-                          <a href="faq.html" className="nav-link">
+                          <a href="/faq" className="nav-link">
                             FAQ
                           </a>
                         </li>
-                        <li className="nav-item">
-                          <a href="#" className="nav-link">
+                        {/* <li className="nav-item">
+                          <a href="/login" className="nav-link">
                             User 
                           </a>
                           <ul className="dropdown-menu">
                             <li className="nav-item">
-                              <a href="log-in.html" className="nav-link">
+                              <a href="/login" className="nav-link">
                                 Log In
                               </a>
                             </li>
                             <li className="nav-item">
-                              <a href="sign-up.html" className="nav-link">
+                              <a href="/signup" className="nav-link">
                                 Sign Up
                               </a>
                             </li>
                           </ul>
-                        </li>
+                        </li> */}
                         <li className="nav-item">
-                          <a href="terms-condition.html" className="nav-link">
+                          <a href="/terms-condition" className="nav-link">
                             Terms &amp; Conditions
                           </a>
                         </li>
                         <li className="nav-item">
-                          <a href="privacy-policy.html" className="nav-link">
+                          <a href="/privacy-policy" className="nav-link">
                             Privacy Policy
                           </a>
                         </li>
-                        <li className="nav-item">
-                          <a href="error-404.html" className="nav-link">
-                            404 Error
-                          </a>
-                        </li>
-                        <li className="nav-item">
-                          <a href="coming-soon.html" className="nav-link">
-                            Coming Soon
-                          </a>
-                        </li>
-                        <li className="nav-item">
+                    
+                        {/* <li className="nav-item">
                           <a href="/contact" className="nav-link">
                             Contact
                           </a>
-                        </li>
+                        </li> */}
                       </ul>
                     </li>
                     <li className="nav-item">
-                      <a href="#" className="nav-link">
+                      <a href="/blog" className="nav-link">
                         Blog 
                         <i className="bx bx-chevron-down" />
                       </a>
                       <ul className="dropdown-menu">
-                        <li className="nav-item">
-                          <a href="blog-1.html" className="nav-link">
-                            Blog Grid
+                        {/* <li className="nav-item">
+                          <a href="/blog" className="nav-link">
+                            Blogs
                           </a>
-                        </li>
-                        <li className="nav-item">
-                          <a href="blog-2.html" className="nav-link">
-                            Blog Right Sidebar
+                        </li> */}
+                        {/* <li className="nav-item">
+                          <a href="/blog-right-sidebar" className="nav-link">
+                            Blogs ||
                           </a>
-                        </li>
+                        </li> */}
                         <li className="nav-item">
-                          <a href="single-blog.html" className="nav-link">
-                            Blog Details
+                          <a href="/single-blog" className="nav-link">
+                            Single Blog
                           </a>
                         </li>
                       </ul>
