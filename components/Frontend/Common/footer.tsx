@@ -61,10 +61,10 @@ const footer = () => {
                                         <a href="/project-one">Project</a>
                                     </li>
                                     <li>
-                                        <a href="/service">Services</a>
+                                        <a href="/services">Services</a>
                                     </li>
                                     <li>
-                                        <a href="/blog">Blog</a>
+                                        <a href="/blogs">Blog</a>
                                     </li>
                                     <li>
                                         <a href="/contact">Contact</a>
