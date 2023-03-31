@@ -18,10 +18,10 @@ const copyright = () => {
               <div className="col-lg-6 col-md-6">
                 <ul>
                   <li>
-                    <a href="terms-condition.html">Terms & Conditions</a>
+                    <a href="/terms-condition">Terms & Conditions</a>
                   </li>
                   <li>
-                    <a href="privacy-policy.html">Privacy Policy</a>
+                    <a href="/privacy-policy">Privacy Policy</a>
                   </li>
                 </ul>
               </div>
