@@ -23,9 +23,9 @@ const It = () => {
                 <p>
                 We provide investment research and analysis on various investment options, helping clients make informed decisions about their investments.
                 </p>
-                {/* <a href="single-services.html" className="read-btn">
+                <a href="/service-detail" className="read-btn">
                   Read More
-                </a> */}
+                </a>
               </div>
             </div>
             <div className="col-lg-4 col-md-6">
@@ -37,9 +37,9 @@ const It = () => {
                 <p>
                 We offer investment advisory services, providing guidance on investment strategies and helping clients to build and manage their investment portfolios.
                 </p>
-                {/* <a href="single-services.html" className="read-btn">
+                <a href="/service-detail" className="read-btn">
                   Read More
-                </a> */}
+                </a>
               </div>
             </div>
             <div className="col-lg-4 col-md-6">
@@ -51,9 +51,9 @@ const It = () => {
                 <p>
                 Startup platform offer crowdfunding and fundraising services, allowing entrepreneurs to raise capital from a large pool of investors.
                 </p>
-                {/* <a href="single-services.html" className="read-btn">
+                <a href="/service-detail" className="read-btn">
                   Read More
-                </a> */}
+                </a>
               </div>
             </div>
             <div className="col-lg-4 col-md-6">
@@ -65,9 +65,9 @@ const It = () => {
                 <p>
                 It enables entrepreneurs to connect with potential investors, partners, and other industry professionals.
                 </p>
-                {/* <a href="single-services.html" className="read-btn">
+                <a href="/service-detail" className="read-btn">
                   Read More
-                </a> */}
+                </a>
               </div>
             </div>
             <div className="col-lg-4 col-md-6">
@@ -79,9 +79,9 @@ const It = () => {
                 <p>
                 It allows investors to easily buy and sell securities, track their investments, and monitor market trends.
                 </p>
-                {/* <a href="single-services.html" className="read-btn">
+                <a href="/service-detail" className="read-btn">
                   Read More
-                </a> */}
+                </a>
               </div>
             </div>
             <div className="col-lg-4 col-md-6">
@@ -93,9 +93,9 @@ const It = () => {
                 <p>
                 It offers tailored investment strategies that align with their clients' financial goals and risk profiles,provide customized investment solutions.
                 </p>
-                {/* <a href="single-services.html" className="read-btn">
+                <a href="/service-detail" className="read-btn">
                   Read More
-                </a> */}
+                </a>
               </div>
             </div>
           </div>
