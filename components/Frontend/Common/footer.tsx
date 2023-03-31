@@ -9,7 +9,7 @@ const footer = () => {
                         <div className="col-lg-3 col-md-6 col-sm-6">
                             <div className="single-footer-widget">
                                 <div className="footer-heading">
-                                    <div className="logo">
+                                    <div className="logo" id="logo-id">
                                         <a href="/">
                                             <img
                                                 src={process.env.NEXT_PUBLIC_BASE_URL + "assets/img/logo.png"}
@@ -17,29 +17,30 @@ const footer = () => {
                                                 alt="image"
                                             />
                                         </a>
+                                        <p>We are dedicated to providing you with innovative investment opportunities that can help you grow your wealth and achieve your financial goals.</p>
                                     </div>
                                 </div>
                                 <ul className="footer-social">
                                     <li>
-                                        <a href="#">
+                                        <a href="https://www.facebook.com/">
                                             <i className="flaticon-facebook"></i>
                                         </a>
                                     </li>
 
                                     <li>
-                                        <a href="#">
+                                        <a href="https://twitter.com/">
                                             <i className="flaticon-twitter"></i>
                                         </a>
                                     </li>
 
                                     <li>
-                                        <a href="#">
+                                        <a href="https://in.pinterest.com/">
                                             <i className="flaticon-pinterest"></i>
                                         </a>
                                     </li>
 
                                     <li>
-                                        <a href="#">
+                                        <a href="https://www.instagram.com/">
                                             <i className="flaticon-instagram"></i>
                                         </a>
                                     </li>
@@ -52,7 +53,6 @@ const footer = () => {
                                 <div className="footer-heading">
                                     <h3>Important Links</h3>
                                 </div>
-
                                 <ul className="footer-quick-links">
                                     <li>
                                         <a href="/about">About Us</a>
@@ -113,7 +113,7 @@ const footer = () => {
                                 <div className="footer-info-contact">
                                     <i className="flaticon-envelope"></i>
                                     <h3>Email</h3>
-                                    <span><a href="/cdn-cgi/l/email-protection#86eee3eaeae9c6e0f4efe7a8e5e9eb"><span className="__cf_email__" data-cfemail="432b262f2f2c0325312a226d202c2e">[email&#160;protected]</span></a></span>
+                                    <span><a href="mailto:example@gmail.com"><span>example@gmail.com</span></a></span>
                                 </div>
 
                                 <div className="footer-info-contact">
