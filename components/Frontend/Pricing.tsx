@@ -22,7 +22,7 @@ export default function Pricing() {
                 <div className="container">
                     <div className="section-title">
                         <h2>Our <span>Pricing</span> Plan</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incidiunt labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.</p>
+                        <p>At our startup and investment website, we offer a range of pricing plans designed to meet the needs of businesses and investors of all sizes. Our pricing plans are designed to be affordable and flexible, allowing you to choose the plan that best fits your needs and budget. Here are some of the pricing plans we offer:</p>
                         <div className="bar" />
                     </div>
                     <div className="row">
@@ -35,32 +35,9 @@ export default function Pricing() {
                                 <div className="price">
                                     <sup>$</sup>29<sub>/mo</sub>
                                 </div>
-                                <ul className="pricing-list">
-                                    <li>
-                                        <i className="flaticon-checked" />
-                                        10 GB Hosting
-                                    </li>
-                                    <li>
-                                        <i className="flaticon-checked" />
-                                        2 Unique Users
-                                    </li>
-                                    <li>
-                                        <i className="flaticon-checked" />
-                                        12 GB Capacity
-                                    </li>
-                                    <li>
-                                        <i className="flaticon-cancel" />
-                                        Any Where Access
-                                    </li>
-                                    <li>
-                                        <i className="flaticon-cancel" />
-                                        Weekly Backup
-                                    </li>
-                                    <li>
-                                        <i className="flaticon-cancel" />
-                                        Support 24/Hour
-                                    </li>
-                                </ul>
+                                <p>
+                                Our basic plan is designed for businesses and investors who are just getting started and need a simple, affordable solution. This plan includes access to our trading and investment platform, as well as basic research and analysis tools. Pricing for our basic plan starts at $29 per month.<br/><br/><br/>
+                                </p>
                                 <div className="price-btn">
                                     <a href="pricing.html" className="default-btn">
                                         Buy Now
@@ -77,32 +54,9 @@ export default function Pricing() {
                                 <div className="price">
                                     <sup>$</sup>79<sub>/mo</sub>
                                 </div>
-                                <ul className="pricing-list">
-                                    <li>
-                                        <i className="flaticon-checked" />
-                                        Visitor Info
-                                    </li>
-                                    <li>
-                                        <i className="flaticon-checked" />
-                                        Quick Responses
-                                    </li>
-                                    <li>
-                                        <i className="flaticon-checked" />
-                                        12 GB Capacity
-                                    </li>
-                                    <li>
-                                        <i className="flaticon-checked" />
-                                        Any Where Access
-                                    </li>
-                                    <li>
-                                        <i className="flaticon-cancel" />
-                                        Weekly Backup
-                                    </li>
-                                    <li>
-                                        <i className="flaticon-cancel" />
-                                        Support 24/Hour
-                                    </li>
-                                </ul>
+                                <p>
+                                Our standard plan is designed for businesses and investors who require more advanced research. This plan includes access to our trading and investment platform, as well as more advanced research and analysis tools, including real-time market data and news. Pricing for our standard plan starts at $79 per month.<br/><br/>
+                                </p>
                                 <div className="price-btn">
                                     <a href="pricing.html" className="default-btn">
                                         Buy Now
@@ -119,32 +73,9 @@ export default function Pricing() {
                                 <div className="price">
                                     <sup>$</sup>99<sub>/mo</sub>
                                 </div>
-                                <ul className="pricing-list">
-                                    <li>
-                                        <i className="flaticon-checked" />
-                                        10 GB Hosting
-                                    </li>
-                                    <li>
-                                        <i className="flaticon-checked" />
-                                        2 Unique Users
-                                    </li>
-                                    <li>
-                                        <i className="flaticon-checked" />
-                                        12 GB Capacity
-                                    </li>
-                                    <li>
-                                        <i className="flaticon-checked" />
-                                        Any Where Access
-                                    </li>
-                                    <li>
-                                        <i className="flaticon-checked" />
-                                        Weekly Backup
-                                    </li>
-                                    <li>
-                                        <i className="flaticon-cancel" />
-                                        Support 24/Hour
-                                    </li>
-                                </ul>
+                                <p>
+                                Our premium plan is designed for businesses and investors who require advanced research and analysis tools. This plan includes access to our trading and investment platform, as well as personalized investment advice from our team of experts. Pricing for our premium plan starts at $99.99 per month.
+                                </p>
                                 <div className="price-btn">
                                     <a href="pricing.html" className="default-btn">
                                         Buy Now

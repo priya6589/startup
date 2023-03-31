@@ -21,8 +21,8 @@ export default function Team() {
             <section className="team-section pt-100 pb-100">
                 <div className="container">
                     <div className="section-title">
-                        <h2>Our Expert Team</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incidiunt labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.</p>
+                        <h2>Our <span>Expert</span> Team</h2>
+                        <p>At our startup and investment website, we are proud to have assembled a team of experts with decades of combined experience in the financial industry. Our team includes professionals from a range of backgrounds, including finance, economics, technology, and more.</p>
                         <div className="bar" />
                     </div>
                     <div className="row">

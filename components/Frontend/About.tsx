@@ -1,4 +1,5 @@
 import React from "react";
+import FrequentlyQuestions from "./FrequentlyQuestions";
 
 const About = () => {
   return (
@@ -34,13 +35,10 @@ const About = () => {
               </div>
               <div className="col-lg-6">
                 <div className="about-tab">
-                  <h2>About Our Fria Agency</h2>
+                  <h2>About Our Agency</h2>
                   <div className="bar" />
                   <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Quis ipsum suspendisse ultrices gravida. Risus
-                    commodo.
+                  <b>Welcome to our startup and investment website!</b> We are a team of passionate professionals dedicated to helping people make informed decisions about their investments. Our platform provides you with the tools and resources you need to take control of your financial future.
                   </p>
                   <div className="tab about-list-tab">
                     <ul className="tabs">
@@ -56,105 +54,30 @@ const About = () => {
                     </ul>
                     <div className="tab_content">
                       <div className="tabs_item">
-                        <div className="text">
-                          <h3>
-                            How to generate your Creative Idea With IT Business
-                          </h3>
-                        </div>
-                        <ul className="list">
-                          <li>
-                            <i className="flaticon-tick" />
-                            The Philosopy of Business Analytics
-                          </li>
-                          <li>
-                            <i className="flaticon-tick" />
-                            Fast Track Your Business
-                          </li>
-                          <li>
-                            <i className="flaticon-tick" />
-                            Lies &amp; Damn Lies About Your Business
-                          </li>
-                          <li>
-                            <i className="flaticon-tick" />
-                            The Ultimate Deal on Business
-                          </li>
-                        </ul>
                         <p>
-                          Lorem ipsum dolor sit amet, consectetur adipiscing
-                          elit, sed do eiusmod tempor incididunt ut labore et
-                          dolore magna aliqua. Quis ipsum suspendisse ultrices
-                          gravida. Risus commodo viverra maecenas accumsan
-                          facilisis.
+                        <b>Our startup and investment</b> website was founded in [year] with a mission to revolutionize the way people invest their money. Our team of financial experts and technology enthusiasts recognized the need for a platform that provides everyone with the ability to make informed investment decisions, regardless of their financial knowledge or experience.
+
+Over the years, we have grown into a trusted resource for investors around the world. With our commitment to transparency, security, and user-friendliness, we have earned a reputation as one of the most reliable investment platforms on the market.
                         </p>
                         <a className="default-btn" href="#">
                           Discover More
                         </a>
                       </div>
                       <div className="tabs_item">
-                        <div className="text">
-                          <h3>
-                            How to generate your Creative Idea With IT Business
-                          </h3>
-                        </div>
-                        <ul className="list">
-                          <li>
-                            <i className="flaticon-tick" />
-                            The Philosopy of Business Analytics
-                          </li>
-                          <li>
-                            <i className="flaticon-tick" />
-                            Fast Track Your Business
-                          </li>
-                          <li>
-                            <i className="flaticon-tick" />
-                            Lies &amp; Damn Lies About Your Business
-                          </li>
-                          <li>
-                            <i className="flaticon-tick" />
-                            The Ultimate Deal on Business
-                          </li>
-                        </ul>
                         <p>
-                          Lorem ipsum dolor sit amet, consectetur adipiscing
-                          elit, sed do eiusmod tempor incididunt ut labore et
-                          dolore magna aliqua. Quis ipsum suspendisse ultrices
-                          gravida. Risus commodo viverra maecenas accumsan
-                          facilisis.
+                        <b>Our mission</b> is to empower individuals to take control of their financial future by providing them with the knowledge, tools, and resources they need to make informed investment decisions. We believe that everyone should have access to the same opportunities and information, regardless of their financial status, and we are committed to creating a platform that levels the playing field.
+
+Our team of experienced professionals is dedicated to helping our users achieve their financial goals. We are constantly innovating and improving our platform to ensure that it remains the best resource for anyone who wants to invest wisely and confidently.
                         </p>
                         <a className="default-btn" href="#">
                           Discover More
                         </a>
                       </div>
                       <div className="tabs_item">
-                        <div className="text">
-                          <h3>
-                            How to generate your Creative Idea With IT Business
-                          </h3>
-                        </div>
-                        <ul className="list">
-                          <li>
-                            <i className="flaticon-tick" />
-                            The Philosopy of Business Analytics
-                          </li>
-                          <li>
-                            <i className="flaticon-tick" />
-                            Fast Track Your Business
-                          </li>
-                          <li>
-                            <i className="flaticon-tick" />
-                            Lies &amp; Damn Lies About Your Business
-                          </li>
-                          <li>
-                            <i className="flaticon-tick" />
-                            The Ultimate Deal on Business
-                          </li>
-                        </ul>
                         <p>
-                          Lorem ipsum dolor sit amet, consectetur adipiscing
-                          elit, sed do eiusmod tempor incididunt ut labore et
-                          dolore magna aliqua. Quis ipsum suspendisse ultrices
-                          gravida. Risus commodo viverra maecenas accumsan
-                          facilisis.
+                        <b>At our startup and investment</b> website, we pride ourselves on providing friendly and helpful support to our users. Whether you have a question about your account, need help navigating the platform, or want to learn more about investing, our team is here to assist you.
+
+We understand that investing can be intimidating, which is why we take a personalized approach to support. Our team of experts is always available to answer your questions, provide guidance, and help you make the most of our platform. Whether you are a beginner or a seasoned investor, you can count on us to provide the support you need to succeed.
                         </p>
                         <a className="default-btn" href="#">
                           Discover More
@@ -172,11 +95,9 @@ const About = () => {
         <section className="team-section pb-70">
           <div className="container">
             <div className="section-title">
-              <h2>Our Expert Team</h2>
+              <h2>Our <span> Expert </span> Team</h2>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incidiunt labore et dolore magna aliqua. Quis
-                ipsum suspendisse ultrices gravida.
+              <b>At our startup and investment website</b> , we are proud to have assembled a team of experts with decades of combined experience in the financial industry. Our team includes professionals from a range of backgrounds, including finance, economics, technology, and more.
               </p>
               <div className="bar" />
             </div>
@@ -302,97 +223,7 @@ const About = () => {
         </section>
         {/* End Team Area */}
         {/* Start Faq Area */}
-        <section className="faq-section pb-100">
-          <div className="container">
-            <div className="section-title">
-              <h2>
-                Frequently <span>Asked</span> Questions
-              </h2>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incidiunt labore et dolore magna aliqua. Quis
-                ipsum suspendisse ultrices gravida.
-              </p>
-              <div className="bar" />
-            </div>
-            <div className="row align-items-center">
-              <div className="col-lg-6">
-                <div className="faq-accordion">
-                  <ul className="accordion">
-                    <li className="accordion-item">
-                      <a
-                        className="accordion-title active"
-                        href="javascript:void(0)"
-                      >
-                        <i className="bx bx-chevron-down" />
-                        What access do I have on the free plan?
-                      </a>
-                      <div className="accordion-content show">
-                        <p>
-                          Lorem ipsum dolor sit amet, consectetur adipiscing
-                          elit, sed do eiusmod tempor incididunt.
-                        </p>
-                      </div>
-                    </li>
-                    <li className="accordion-item">
-                      <a className="accordion-title" href="javascript:void(0)">
-                        <i className="bx bx-chevron-down" />
-                        What access do I have on a free trial?
-                      </a>
-                      <div className="accordion-content">
-                        <p>
-                          Lorem ipsum dolor sit amet, consectetur adipiscing
-                          elit, sed do eiusmod tempor incididunt.
-                        </p>
-                      </div>
-                    </li>
-                    <li className="accordion-item">
-                      <a className="accordion-title" href="javascript:void(0)">
-                        <i className="bx bx-chevron-down" />
-                        Does the price go up as my team gets larger?
-                      </a>
-                      <div className="accordion-content">
-                        <p>
-                          Lorem ipsum dolor sit amet, consectetur adipiscing
-                          elit, sed do eiusmod tempor incididunt.
-                        </p>
-                      </div>
-                    </li>
-                    <li className="accordion-item">
-                      <a className="accordion-title" href="javascript:void(0)">
-                        <i className="bx bx-chevron-down" />
-                        How can I cancel my subscription?
-                      </a>
-                      <div className="accordion-content">
-                        <p>
-                          Lorem ipsum dolor sit amet, consectetur adipiscing
-                          elit, sed do eiusmod tempor incididunt.
-                        </p>
-                      </div>
-                    </li>
-                    <li className="accordion-item">
-                      <a className="accordion-title" href="javascript:void(0)">
-                        <i className="bx bx-chevron-down" />
-                        Can I pay via an Invoice?
-                      </a>
-                      <div className="accordion-content">
-                        <p>
-                          Lorem ipsum dolor sit amet, consectetur adipiscing
-                          elit, sed do eiusmod tempor incididunt.
-                        </p>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-              <div className="col-lg-6">
-                <div className="faq-image">
-                  <img src="assets/img/faq.png" alt="image" />
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+        <FrequentlyQuestions/>
         {/* End Faq Area */}
         {/* Start Clients Area */}
         <section className="clients-section pb-100">
@@ -400,9 +231,7 @@ const About = () => {
             <div className="section-title">
               <h2>What Clients Say About Us</h2>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incidiunt labore et dolore magna aliqua. Quis
-                ipsum suspendisse ultrices gravida.
+              We are grateful for the feedback we receive from our clients and are committed to continuing to provide the highest level of service and support. If you are looking for a reliable and trustworthy platform to help you achieve your financial goals, we invite you to join our community of satisfied clients today.
               </p>
               <div className="bar" />
             </div>
