@@ -6304,6 +6304,7 @@ Contact Section CSS
   -webkit-box-shadow: 0 0 11px 3px rgba(0, 0, 0, 0.05);
           box-shadow: 0 0 11px 3px rgba(0, 0, 0, 0.05);
   padding: 30px;
+  height: 100%;
   margin-bottom: 30px;
   border-radius: 5px;
 }
@@ -7982,4 +7983,7 @@ section#footer-sec {
 }
 section#service-title {
   padding: 70px 0;
+}
+#logo-id{
+  margin-top: -23px;
 }

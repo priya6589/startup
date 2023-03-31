@@ -11,7 +11,7 @@ export default function Service() {
                                 <h2>Services</h2>
                                 <ul>
                                     <li><a href="index.html">Home</a></li>
-                                    <li>Services One</li>
+                                    <li>Services</li>
                                 </ul>
                             </div>
                         </div>

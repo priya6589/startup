@@ -41,14 +41,7 @@ const Contact = () => {
                   <i className="flaticon-envelope" />
                   <div className="content-title">
                     <h3>Email</h3>
-                    <a href="/cdn-cgi/l/email-protection#80e8e5ececefc0e6f2e9e1aee3efed">
-                      <span
-                        className="__cf_email__"
-                        data-cfemail="d0b8b5bcbcbf90b6a2b9b1feb3bfbd"
-                      >
-                        [email&nbsp;protected]
-                      </span>
-                    </a>
+                     <span><a href="mailto:example@gmail.com"><span>example@gmail.com</span></a></span>
                   </div>
                 </div>
               </div>
@@ -73,8 +66,7 @@ const Contact = () => {
                 <div className="contact-text">
                   <h3>Have Any Questions About Us?</h3>
                   <p>
-                    Lorem ipsum dolor sit amet consectetur adipiscing elit sed
-                    eiusmod tempor incididunt ut labore{" "}
+                  If you have any questions or concerns about our company or services, please don't hesitate to contact us. Our team is dedicated to providing the best support and assistance possible to ensure your satisfaction.
                   </p>
                 </div>
                 <div className="contact-form">
