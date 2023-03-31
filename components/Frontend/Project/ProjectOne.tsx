@@ -39,12 +39,12 @@ export default function ProjectOne() {
                   <img src="assets/img/projects/1.jpg" alt="image" />
                 </div>
                 <div className="projects-content">
-                  <a href="/single-project">
-                    <h3>App Update &amp; Rebrand</h3>
+                  <a href="single-projects.html">
+                    <h3>Sustainable Housing Development</h3>
                   </a>
-                  <a href="/single-project">
+                  <a href="single-projects.html">
                     <span>
-                    Research and startup
+                    A project to build affordable, energy-efficient housing for low-income families.
                     </span>
                   </a>
                 </div>
@@ -56,13 +56,12 @@ export default function ProjectOne() {
                   <img src="assets/img/projects/2.jpg" alt="image" />
                 </div>
                 <div className="projects-content">
-                  <a href="/single-project">
-                    <h3>IT Consultancy</h3>
-                    {/* <h3>Funding Trends</h3> */}
+                  <a href="single-projects.html">
+                    <h3>Clean Water Initiative</h3>
                   </a>
-                  <a href="/single-project">
+                  <a href="single-projects.html">
                     <span>
-                    Research and startup
+                    A project to provide clean drinking water to communities in need.
                     </span>
                   </a>
                 </div>
@@ -74,12 +73,12 @@ export default function ProjectOne() {
                   <img src="assets/img/projects/3.jpg" alt="image" />
                 </div>
                 <div className="projects-content">
-                  <a href="/single-project">
-                  <h3>Funding Trends</h3>
+                  <a href="single-projects.html">
+                  <h3>Community Solar Farm</h3>
                   </a>
-                  <a href="/single-project">
+                  <a href="single-projects.html">
                     <span>
-                    Research and startup
+                    A project to build a solar farm that provides clean energy to the surrounding community.
                     </span>
                   </a>
                 </div>
@@ -91,12 +90,12 @@ export default function ProjectOne() {
                   <img src="assets/img/projects/4.jpg" alt="image" />
                 </div>
                 <div className="projects-content">
-                  <a href="/single-project">
-                  <h3>App Development</h3>
+                  <a href="single-projects.html">
+                  <h3>Urban Garden Initiative</h3>
                   </a>
-                  <a href="/single-project">
+                  <a href="single-projects.html">
                     <span>
-                    Research and startup
+                    A project to establish community gardens in urban areas with limited access to fresh produce.
                     </span>
                   </a>
                 </div>
@@ -108,12 +107,12 @@ export default function ProjectOne() {
                   <img src="assets/img/projects/5.jpg" alt="image" />
                 </div>
                 <div className="projects-content">
-                  <a href="/single-project">
-                  <h3>IT Solutions</h3>
+                  <a href="single-projects.html">
+                  <h3>Youth Mentorship Program</h3>
                   </a>
-                  <a href="/single-project">
+                  <a href="single-projects.html">
                     <span>
-                    Research and startup
+                    A project to provide mentorship and guidance to at-risk youth in the community.
                     </span>
                   </a>
                 </div>
@@ -123,12 +122,12 @@ export default function ProjectOne() {
                   <img src="assets/img/projects/6.jpg" alt="image" />
                 </div>
                 <div className="projects-content">
-                  <a href="/single-project">
-                  <h3>Data Management</h3>
+                  <a href="single-projects.html">
+                  <h3>Road Safety Campaign</h3>
                   </a>
-                  <a href="/single-project">
+                  <a href="single-projects.html">
                     <span>
-                    Research and startup
+                    A project to promote road safety awareness and reduce the number of accidents on the roads.
                     </span>
                   </a>
                 </div>
@@ -140,12 +139,12 @@ export default function ProjectOne() {
                   <img src="assets/img/projects/7.jpg" alt="image" />
                 </div>
                 <div className="projects-content">
-                  <a href="/single-project">
-                  <h3>E-commerce Development</h3>
+                  <a href="single-projects.html">
+                  <h3>Online Learning Platform</h3>
                   </a>
-                  <a href="/single-project">
+                  <a href="single-projects.html">
                     <span>
-                     Research and startup
+                    A project to create an online learning platform that provides free educational resources to the public. 
                     </span>
                   </a>
                 </div>
