@@ -60,14 +60,11 @@ export default function ProjectDetails() {
                                     <div className="single-info-box">
                                         <h4>Share</h4>
                                         <ul className="social">
-                                            <li><a href="#" target="_blank"><i className="flaticon-facebook" /></a></li>
-                                            <li><a href="#" target="_blank"><i className="flaticon-twitter" /></a></li>
-                                            <li><a href="#" target="_blank"><i className="flaticon-pinterest" /></a></li>
-                                            <li><a href="#" target="_blank"><i className="flaticon-instagram" /></a></li>
+                                            <li><a href="https://www.facebook.com/" target="_blank"><i className="flaticon-facebook" /></a></li>
+                                            <li><a href="https://twitter.com/" target="_blank"><i className="flaticon-twitter" /></a></li>
+                                            <li><a href="https://in.pinterest.com/" target="_blank"><i className="flaticon-pinterest" /></a></li>
+                                            <li><a href="https://www.instagram.com/" target="_blank"><i className="flaticon-instagram" /></a></li>
                                         </ul>
-                                    </div>
-                                    <div className="single-info-box">
-                                        <a href="#" className="default-btn">Live Preview</a>
                                     </div>
                                 </div>
                             </div>

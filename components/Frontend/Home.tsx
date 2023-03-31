@@ -214,107 +214,7 @@ export default function Home() {
       {/* End Features Area */}
 
       {/* Start Creative Area */}
-      <section className="creative-secton pb-100">
-        <div className="container">
-          <div className="row align-items-center">
-            <div className="col-lg-6">
-              <div className="creative-content">
-                <h3>
-                 <span>Creative</span> Ideas for your Startup  Business 
-                </h3>
-                <div className="bar" />
-                <p>
-                Empower the next generation of entrepreneurs and create a better future through investment in innovative startups. Our platform is dedicated to democratizing access to capital and supporting the growth of businesses that have the potential to transform industries.
-                </p>
-              </div>
-
-              <div className="skill-bar">
-                <p className="progress-title-holder">
-                  <span className="progress-title">Developement</span>
-                  <span className="progress-number-wrapper">
-                    <span className="progress-number-mark">
-                      <span className="percent" />
-                      <span className="down-arrow" />
-                    </span>
-                  </span>
-                </p>
-                <div className="progress-content-outter">
-                  <div className="progress-content" />
-                </div>
-              </div>
-              <div className="skill-bar">
-                <p className="progress-title-holder">
-                  <span className="progress-title">Design</span>
-                  <span className="progress-number-wrapper">
-                    <span className="progress-number-mark">
-                      <span className="percent" />
-                      <span className="down-arrow" />
-                    </span>
-                  </span>
-                </p>
-                <div className="progress-content-outter">
-                  <div className="progress-content" />
-                </div>
-              </div>
-              <div className="skill-bar">
-                <p className="progress-title-holder">
-                  <span className="progress-title">Marketing</span>
-                  <span className="progress-number-wrapper">
-                    <span className="progress-number-mark">
-                      <span className="percent" />
-                      <span className="down-arrow" />
-                    </span>
-                  </span>
-                </p>
-                <div className="progress-content-outter">
-                  <div className="progress-content" />
-                </div>
-              </div>
-              <div className="skill-bar">
-                <p className="progress-title-holder">
-                  <span className="progress-title">Support</span>
-                  <span className="progress-number-wrapper">
-                    <span className="progress-number-mark">
-                      <span className="percent" />
-                      <span className="down-arrow" />
-                    </span>
-                  </span>
-                </p>
-                <div className="progress-content-outter">
-                  <div className="progress-content" />
-                </div>
-              </div>
-              <div className="skill-bar">
-                <p className="progress-title-holder">
-                  <span className="progress-title">Review</span>
-                  <span className="progress-number-wrapper">
-                    <span className="progress-number-mark">
-                      <span className="percent" />
-                      <span className="down-arrow" />
-                    </span>
-                  </span>
-                </p>
-                <div className="progress-content-outter">
-                  <div className="progress-content" />
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-6">
-              <div className="creative-image">
-                <img src="assets/img/about/about.jpg" alt="image" />
-              </div>
-              <div className="creative-video">
-                <a
-                  href="https://youtu.be/8zHWKaiLo8U"
-                  className="video-btn popup-youtube"
-                >
-                  <i className="bx bx-play" />
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/*  */}
       {/* End Creative Area */}
 
       {/* IT-Agency Section */}
@@ -383,7 +283,7 @@ export default function Home() {
       {/* End Development Area */}
 
       {/* Start Video Section */}
-      {/* <div className="video-section">
+      <div className="video-section">
         <div className="container">
           <div className="video-content">
             <a
@@ -395,11 +295,11 @@ export default function Home() {
             </a>
           </div>
         </div>
-      </div> */}
+      </div>
       {/* End Video Section */}
 
       {/* Start Choose Area */}
-      <section className="choose-section p-0 ptb-100">
+      <section className="choose-section ptb-100">
         <div className="container">
           <div className="section-title">
             <h2>Why Choose Us</h2>
@@ -437,15 +337,6 @@ export default function Home() {
                 We take a rigorous approach to risk management, conducting  all potential investments our portfolio to mitigate risk.
                 </p>
               </div>
-              {/* <div className="choose-content">
-                <div className="icon">
-                  <i className="flaticon-target" />
-                </div>
-                <h3>Access</h3>
-                <p>
-                We provide access to investment opportunities that would otherwise be difficult or impossible for individual investors to access.
-                </p>
-              </div> */}
             </div>
             <div className="col-lg-6">
               <div className="choose-image">
@@ -590,9 +481,7 @@ export default function Home() {
               Our <span>Latest</span> Companies
             </h2>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incidiunt labore et dolore magna aliqua. Quis ipsum
-              suspendisse ultrices gravida.
+              Latest new Startup companies...
             </p>
             <div className="bar" />
           </div>

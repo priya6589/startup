@@ -13,7 +13,7 @@ export default function ProjectOne() {
                   <li>
                     <a href="/">Home</a>
                   </li>
-                  <li>Projects One</li>
+                  <li>Projects</li>
                 </ul>
               </div>
             </div>
