@@ -10,7 +10,7 @@ export default function Blog() {
                             <div className="page-title-content">
                                 <h2>Blog</h2>
                                 <ul>
-                                    <li><a href="index.html">Home</a></li>
+                                    <li><a href="/">Home</a></li>
                                     <li>Blogs</li>
                                 </ul>
                             </div>
