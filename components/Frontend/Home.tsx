@@ -71,7 +71,7 @@ export default function Home() {
                         <a href="startup" className="default-btn">
                           Join to raise funds
                         </a>
-                        <a href="/join-to-invest" className="default-btn">
+                        <a href="/join/join-to-invest" className="default-btn">
                           Join to Invest
                         </a>
                       </div>

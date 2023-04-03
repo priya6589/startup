@@ -22,6 +22,7 @@
     "nprogress": "^0.2.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-nextjs-toast": "^1.2.5",
     "react-slick": "^0.29.0",
     "react-toastify": "^9.1.2",
     "slick-carousel": "^1.8.1"

@@ -10,6 +10,9 @@ body {
   font-family: "Open Sans", sans-serif;
   font-size: 16px;
 }
+#toast-comp-3{
+      z-index:99999 !important;
+}
 
 a {
   text-decoration: none;

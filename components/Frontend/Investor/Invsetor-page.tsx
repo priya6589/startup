@@ -1,18 +1,40 @@
 import React, { useState } from "react";
 import { Formik, Form, Field } from 'formik';
 import axios from "axios";
+import { useRouter } from 'next/navigation';
+import { toast } from 'react-toastify';
 
 const Invsetor = () => {
   const [email, setemail] = useState("");
+  const router = useRouter();
   const HandleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post('http://127.0.0.1:8000/api/join_to_invest', { email: email });
+      const res = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/join_to_invest`, { email: email });
       const data = res.data;
       if(data.status === true){
-          alert('success');
+        toast.success('Thank you! Please wait while we redirect you.', {
+          position: "top-left",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+          });
+        router.push('/join/join-investor');
       }else{
-        alert('invalid email');
+        toast.error(data.message, {
+          position: "top-left",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+          });
       }
       return false;
     } catch (err) {

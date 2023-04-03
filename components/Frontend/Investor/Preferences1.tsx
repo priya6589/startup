@@ -1,9 +1,12 @@
 import React from 'react'
 import { useState ,useEffect } from 'react';
 import axios from "axios";
+import { toast, ToastContainer } from 'react-toastify';
+import OtpPopup from '../OtpPopup';
 
 export default function Preferences1() {
     const [countries, setcountries] = useState([]);
+    const [showPopup, setShowPopup] = useState(false);
     const [investor, setinvestor] = useState({
         firstname:"",
         lastname:"",
@@ -12,7 +15,11 @@ export default function Preferences1() {
         country:"",
         linkedinurl:"",
         city:"",
-        phoneno:""
+        phone:"",
+        profile:"",
+        residence_worth:"",
+        experience:"",
+        kyc_purposes:""
     });
     const handleChange = (event)=>{
         const { name, value } = event.target;
@@ -29,7 +36,7 @@ export default function Preferences1() {
 
     const getConuntries = async ()=>{
         try{
-            const res = await axios.get('http://127.0.0.1:8000/api/countries');
+            const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/countries`);
             const data = res.data;
             setcountries(data.data);
         }catch(err){
@@ -41,8 +48,32 @@ export default function Preferences1() {
         e.preventDefault();
         try{
             console.log(investor);
-            const res = await axios.post('http://127.0.0.1:8000/api/investor-register',investor);
-            console.log(res);
+            const res = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/investor-register`,investor);
+            const data = res.data;
+            if(data.status === true){
+                toast.success(data.message, {
+                    position: "top-left",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "colored",
+                    });
+                  setShowPopup(true);
+            }else{
+                toast.error(data.message, {
+                    position: "top-left",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "colored",
+                    });
+            }
             return false;
         }catch(err){
             console.log(err);
@@ -71,6 +102,7 @@ export default function Preferences1() {
                     </div>
                 </div>
                 {/* End Page Title Area */}
+                { showPopup === true ? <OtpPopup/> : ""} 
                 {/* Start Contact Area */}
                 <section className="contact-section pb-100">
                     <div className="container">
@@ -174,8 +206,8 @@ export default function Preferences1() {
                                                 <label>Phone number<span style={{ 'color': 'red' }}>*</span></label>
                                                 <input
                                                     type="text"
-                                                    name="phoneno"
-                                                    id="phoneno"
+                                                    name="phone"
+                                                    id="phone"
                                                     className="form-control"
                                                     required
                                                     onChange={handleChange}
@@ -187,25 +219,25 @@ export default function Preferences1() {
 
                                             <div className="form-group col-md-6">
                                                 <label>Which of these best describes you?<span style={{ 'color': 'red' }}>*</span></label>
-                                                <select className="form-control" aria-label="Default select example">
+                                                <select className="form-control" name='profile' onChange={handleChange} aria-label="Default select example">
                                                     <option selected disabled>Select Your Profile</option>
-                                                    <option value="1">One</option>
-                                                    <option value="2">Two</option>
-                                                    <option value="3">Three</option>
+                                                    <option value="Business Owner">Business Owner</option>
+                                                    <option value="Professional">Professional</option>
+                                                    <option value="VC & PE Professional">VC & PE Professional</option>
+                                                    <option value="Startup Founder">Startup Founder</option>
+                                                    <option value="Corporate Institution">Corporate Institution</option>
+                                                    <option value="Startup Founder">Startup Founder</option>
+                                                
                                                 </select>
                                                 <div className="help-block with-errors" />
                                             </div>
                                             <div className="form-group col-md-6">
                                                 <label>Do you have assets worth over INR 2 cr apart from your primary residence?<span style={{ 'color': 'red' }}>*</span></label>
-                                                <input
-                                                    type="text"
-                                                    name="name"
-                                                    id="name"
-                                                    className="form-control"
-                                                    required
-                                                    data-error="Please enter your name"
-                                                    placeholder="Name"
-                                                />
+                                                
+                                                <div className="d-flex justify-content-between">
+                                                    <input className="form-check-input" onChange={handleChange} type="radio" name="residence_worth" value="yes" />Yes
+                                                    <input className="form-check-input" onChange={handleChange} type="radio" name="residence_worth" value="no" />No
+                                                </div>
                                                 <div className="help-block with-errors" />
                                             </div>
 
@@ -213,28 +245,28 @@ export default function Preferences1() {
                                                 <label>Help us understand your experience better (multiple options can be selected)<span style={{ 'color': 'red' }}>*</span></label><br />
 
                                                 <div className="form-check">
-                                                    <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                                                    <input className="form-check-input" onChange={handleChange} type="checkbox" value="You have invested in startups before" name="experience" id="flexCheckDefault" />
                                                     <label className="form-check-label" for="flexCheckDefault">
                                                         You have invested in startups before
                                                     </label>
                                                 </div>
 
                                                 <div className="form-check">
-                                                    <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                                                    <input className="form-check-input" onChange={handleChange} type="checkbox"  value="You come from an entrepreneurial family or have been a founder/co-founder of a business venture family" name="experience" id="flexCheckDefault" />
                                                     <label className="form-check-label" for="flexCheckDefault">
                                                         You come from an entrepreneurial family or have been a founder/co-founder of a business venture family
                                                     </label>
                                                 </div>
 
                                                 <div className="form-check">
-                                                    <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                                                    <input className="form-check-input" onChange={handleChange} type="checkbox" value="You have at least 10 years of work experience" name="experience" id="flexCheckDefault" />
                                                     <label className="form-check-label" for="flexCheckDefault">
                                                         You have at least 10 years of work experience
                                                     </label>
                                                 </div>
 
                                                 <div className="form-check">
-                                                    <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                                                    <input className="form-check-input" onChange={handleChange} type="checkbox" value="" name="experience" id="flexCheckDefault" />
                                                     <label className="form-check-label" for="flexCheckDefault">
                                                         None of the above
                                                     </label>
@@ -245,7 +277,7 @@ export default function Preferences1() {
 
                                             <div className="form-group col-md-12 mt-3">
                                                 <div className="form-check">
-                                                    <input className="form-check-input" type="checkbox" id="flexCheckDefault" />
+                                                    <input className="form-check-input" type="checkbox" onChange={handleChange} id="flexCheckDefault" name="kyc_purposes" required />
                                                     <label className="form-check-label" for="flexCheckDefault">
                                                         I certify that all the information provided by me is accurate and I am willing to provide evidence for the same for KYC purposes when requested.
                                                     </label>
@@ -270,6 +302,7 @@ export default function Preferences1() {
                         </div>
                     </div>
                 </section>
+                 
                 {/* End Contact Area */}
             </div>
         </>
