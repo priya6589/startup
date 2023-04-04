@@ -261,10 +261,10 @@ export default function Preferences1() {
                                             </div>
                                             <div className="form-group col-md-6">
                                                 <label>Gender<span style={{ 'color': 'red' }}>*</span></label><br />
-                                                <div className="d-flex justify-content-between">
-                                                    <input className="form-check-input" onChange={handleChange} type="radio" name="gender" value="male" />Male
-                                                    <input className="form-check-input" onChange={handleChange} type="radio" name="gender" value="female" />Female
-                                                    <input className="form-check-input" onChange={handleChange} type="radio" name="gender" value="other" />Others
+                                                <div className="d-flex justify-content-start">
+                                                    <input className="form-check-input gender-radio" onChange={handleChange} type="radio" name="gender" value="male" />Male
+                                                    <input className="form-check-input gender-radio" onChange={handleChange} type="radio" name="gender" value="female" />Female
+                                                    <input className="form-check-input gender-radio" onChange={handleChange} type="radio" name="gender" value="other" />Others
                                                 </div>
                                                 <div className="help-block with-errors" />
                                             </div>
@@ -365,9 +365,9 @@ export default function Preferences1() {
                                             <div className="form-group col-md-6">
                                                 <label>Do you have assets worth over INR 2 cr apart from your primary residence?<span style={{ 'color': 'red' }}>*</span></label>
 
-                                                <div className="d-flex justify-content-between">
-                                                    <input className="form-check-input" onChange={handleChange} type="radio" name="residence_worth" value="yes" />Yes
-                                                    <input className="form-check-input" onChange={handleChange} type="radio" name="residence_worth" value="no" />No
+                                                <div className="d-flex justify-content-start">
+                                                    <input className="form-check-input gender-radio" onChange={handleChange} type="radio" name="residence_worth" value="yes" />Yes
+                                                    <input className="form-check-input gender-radio" onChange={handleChange} type="radio" name="residence_worth" value="no" />No
                                                 </div>
                                                 <div className="help-block with-errors" />
                                             </div>
