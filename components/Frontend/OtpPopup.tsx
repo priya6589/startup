@@ -15,7 +15,7 @@ export default function OtpPopup() {
       const data = res.data;
       if(data.status === true){
         toast.success(data.message, {
-          position: "top-left",
+          position: "top-right",
           autoClose: 5000,
           hideProgressBar: false,
           closeOnClick: true,
@@ -27,7 +27,7 @@ export default function OtpPopup() {
           router.push('/join/investor/thank-you');
       }else{
         toast.error(data.message, {
-          position: "top-left",
+          position: "top-right",
           autoClose: 5000,
           hideProgressBar: false,
           closeOnClick: true,
@@ -50,7 +50,7 @@ const sendOtp =async (e)=>{
     const data = res.data;
     if(data.status === true){
       toast.success(data.message, {
-        position: "top-left",
+        position: "top-right",
         autoClose: 5000,
         hideProgressBar: false,
         closeOnClick: true,
@@ -62,7 +62,7 @@ const sendOtp =async (e)=>{
       console.log(data);
     }else{
       toast.error('Otp not send', {
-        position: "top-left",
+        position: "top-right",
         autoClose: 5000,
         hideProgressBar: false,
         closeOnClick: true,

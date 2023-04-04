@@ -1,5 +1,5 @@
 import React from 'react'
-import { useState ,useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import axios from "axios";
 import { toast, ToastContainer } from 'react-toastify';
 import OtpPopup from '../OtpPopup';
@@ -7,79 +7,184 @@ import OtpPopup from '../OtpPopup';
 export default function Preferences1() {
     const [countries, setcountries] = useState([]);
     const [showPopup, setShowPopup] = useState(false);
+    const [errors, setErrors] = useState({});
     const [investor, setinvestor] = useState({
-        firstname:"",
-        lastname:"",
-        email:"",
-        gender:"",
-        country:"",
-        linkedinurl:"",
-        city:"",
-        phone:"",
-        profile:"",
-        residence_worth:"",
-        experience:"",
-        kyc_purposes:""
+        firstname: "",
+        lastname: "",
+        email: "",
+        gender: "",
+        country: "",
+        linkedinurl: "",
+        city: "",
+        phone: "",
+        profile: "",
+        residence_worth: "",
+        experience: "",
+        kyc_purposes: "",
+        password: "",
+        confirmPassword: ""
     });
-    const handleChange = (event)=>{
+
+    const validateInvestor = () => {
+        const errors = {};
+
+        // Check if firstname is not empty
+        if (!investor.firstname) {
+            errors.firstname = "First name is required";
+        }
+
+        // Check if lastname is not empty
+        if (!investor.lastname) {
+            errors.lastname = "Last name is required";
+        }
+
+        // Check if email is valid
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!investor.email) {
+            errors.email = "Email is required";
+        } else if (!emailRegex.test(investor.email)) {
+            errors.email = "Invalid email format";
+        }
+
+        // Check if gender is selected
+        if (!investor.gender) {
+            errors.gender = "Gender is required";
+        }
+
+        // Check if country is selected
+        if (!investor.country) {
+            errors.country = "Country is required";
+        }
+
+        // Check if linkedinurl is valid
+        // const linkedinRegex = /^(https?:\/\/)?([\w\.]+)\.([a-z]{2,6}\.?)(\/[\w\.]*)*\/?$/;
+        // if (investor.linkedinurl && !linkedinRegex.test(investor.linkedinurl)) {
+        //     errors.linkedinurl = "Invalid LinkedIn URL format";
+        // }
+
+        // Check if city is not empty
+        if (!investor.city) {
+            errors.city = "City is required";
+        }
+
+        // Check if phone is valid
+        const phoneRegex = /^\d{10}$/;
+        if (investor.phone && !phoneRegex.test(investor.phone)) {
+            errors.phone = "Invalid phone number format";
+        }
+
+        // Check if profile is selected
+        if (!investor.profile) {
+            errors.profile = "Profile is required";
+        }
+
+        // Check if residence_worth is selected
+        if (!investor.residence_worth) {
+            errors.residence_worth = "Residence worth is required";
+        }
+
+        // Check if experience is selected
+        if (!investor.experience) {
+            errors.experience = "Experience is required";
+        }
+
+        // Check if kyc_purposes is selected
+        if (!investor.kyc_purposes) {
+            errors.kyc_purposes = "KYC purposes is required";
+        }
+
+        if (!investor.password.trim()) {
+            errors.password = "Password is required";
+          } else if (investor.password.trim().length < 8) {
+            errors.password = "Password must be at least 8 characters long";
+          }
+        
+          if (!investor.confirmPassword.trim()) {
+            errors.confirmPassword = "Confirm Password is required";
+          } else if (investor.confirmPassword.trim() !== investor.password.trim()) {
+            errors.confirmPassword = "Confirm Password does not match Password";
+          }
+
+        return errors;
+    };
+
+    const handleChange = (event) => {
         const { name, value } = event.target;
         setinvestor((prevState) => {
-        return {
-            ...prevState,
-            [name]: value,
-        };
+            return {
+                ...prevState,
+                [name]: value,
+            };
         });
     }
     useEffect(() => {
         getConuntries();
     }, []);
 
-    const getConuntries = async ()=>{
-        try{
+    const getConuntries = async () => {
+        try {
             const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/countries`);
             const data = res.data;
             setcountries(data.data);
-        }catch(err){
+        } catch (err) {
             console.log(err);
         }
     }
 
-    const handleSubmit = async(e)=>{
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        try{
-            console.log(investor);
-            const res = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/investor-register`,investor);
-            const data = res.data;
-            if(data.status === true){
-                toast.success(data.message, {
-                    position: "top-left",
-                    autoClose: 5000,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined,
-                    theme: "colored",
+        try {
+            const errors = validateInvestor();
+            if (Object.keys(errors).length === 0) {
+                console.log(investor);
+                const res = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/investor-register`, investor);
+                const data = res.data;
+                if (data.status === true) {
+                    console.log(data.otp);
+                    toast.success(data.message, {
+                        position: "top-right",
+                        autoClose: 5000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                        theme: "colored",
                     });
-                  setShowPopup(true);
-            }else{
-                toast.error(data.message, {
-                    position: "top-left",
-                    autoClose: 5000,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined,
-                    theme: "colored",
+                    setShowPopup(true);
+                }else{
+                    toast.error(`Registration failed!`, {
+                        position: "top-right",
+                        autoClose: 5000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                        theme: "colored",
                     });
+                }
+            } else {
+                setErrors(errors);
+                Object.values(errors).forEach((error) => {
+                    toast.error(`${error}`, {
+                        position: "top-right",
+                        autoClose: 5000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                        theme: "colored",
+                    });
+                  });
             }
             return false;
-        }catch(err){
+        } catch (err) {
             console.log(err);
         }
     }
-    
+
     return (
         <>
             <div>
@@ -102,7 +207,7 @@ export default function Preferences1() {
                     </div>
                 </div>
                 {/* End Page Title Area */}
-                { showPopup === true ? <OtpPopup/> : ""} 
+                {showPopup === true ? <OtpPopup /> : ""}
                 {/* Start Contact Area */}
                 <section className="contact-section pb-100">
                     <div className="container">
@@ -121,7 +226,7 @@ export default function Preferences1() {
                                                     name="firstname"
                                                     id="firstname"
                                                     className="form-control"
-                                                    required
+                                                    
                                                     onChange={handleChange}
                                                     data-error="Please enter your first name"
                                                 />
@@ -134,7 +239,7 @@ export default function Preferences1() {
                                                     name="lastname"
                                                     id="lastname"
                                                     className="form-control"
-                                                    required
+                                                    
                                                     onChange={handleChange}
                                                     data-error="Please enter your last name"
                                                 />
@@ -148,7 +253,7 @@ export default function Preferences1() {
                                                     name="email"
                                                     id="email"
                                                     className="form-control"
-                                                    required
+                                                    
                                                     onChange={handleChange}
                                                     data-error="Please enter your email"
                                                 />
@@ -169,8 +274,8 @@ export default function Preferences1() {
                                                 <select className="form-control" name="country" onChange={handleChange} aria-label="Default select example">
                                                     <option selected disabled>Enter the Country Name</option>
                                                     {
-                                                        countries.map((country,index)=>(
-                                                            <option value={country.id}>{country.name}</option>
+                                                        countries.map((country, index) => (
+                                                            <option value={country.name}>{country.name}</option>
                                                         ))
                                                     }
                                                 </select>
@@ -179,11 +284,11 @@ export default function Preferences1() {
                                             <div className="form-group col-md-6">
                                                 <label>Linkedin URL<span style={{ 'color': 'red' }}>*</span></label>
                                                 <input
-                                                    type="text"
+                                                    type="url"
                                                     name="linkedinurl"
                                                     id="linkedin"
                                                     className="form-control"
-                                                    required
+                                                    
                                                     onChange={handleChange}
                                                     data-error="Please enter your name"
                                                 />
@@ -197,7 +302,7 @@ export default function Preferences1() {
                                                     name="city"
                                                     id="city"
                                                     className="form-control"
-                                                    required
+                                                    
                                                     onChange={handleChange}
                                                 />
                                                 <div className="help-block with-errors" />
@@ -209,10 +314,36 @@ export default function Preferences1() {
                                                     name="phone"
                                                     id="phone"
                                                     className="form-control"
-                                                    required
+                                                    
                                                     onChange={handleChange}
                                                     data-error="Please enter your name"
                                                     placeholder="Enter Phone Number"
+                                                />
+                                                <div className="help-block with-errors" />
+                                            </div>
+
+
+                                            <div className="form-group col-md-6">
+                                                <label>Password<span style={{ 'color': 'red' }}>*</span></label>
+                                                <input
+                                                    type="password"
+                                                    name="password"
+                                                    id="password"
+                                                    className="form-control"
+                                                    
+                                                    onChange={handleChange}
+                                                />
+                                                <div className="help-block with-errors" />
+                                            </div>
+                                            <div className="form-group col-md-6">
+                                                <label>Confirm Password<span style={{ 'color': 'red' }}>*</span></label>
+                                                <input
+                                                    type="password"
+                                                    name="confirmPassword"
+                                                    id="confirmPassword"
+                                                    className="form-control"
+                                                    
+                                                    onChange={handleChange}
                                                 />
                                                 <div className="help-block with-errors" />
                                             </div>
@@ -227,13 +358,13 @@ export default function Preferences1() {
                                                     <option value="Startup Founder">Startup Founder</option>
                                                     <option value="Corporate Institution">Corporate Institution</option>
                                                     <option value="Startup Founder">Startup Founder</option>
-                                                
+
                                                 </select>
                                                 <div className="help-block with-errors" />
                                             </div>
                                             <div className="form-group col-md-6">
                                                 <label>Do you have assets worth over INR 2 cr apart from your primary residence?<span style={{ 'color': 'red' }}>*</span></label>
-                                                
+
                                                 <div className="d-flex justify-content-between">
                                                     <input className="form-check-input" onChange={handleChange} type="radio" name="residence_worth" value="yes" />Yes
                                                     <input className="form-check-input" onChange={handleChange} type="radio" name="residence_worth" value="no" />No
@@ -246,13 +377,13 @@ export default function Preferences1() {
 
                                                 <div className="form-check">
                                                     <input className="form-check-input" onChange={handleChange} type="checkbox" value="You have invested in startups before" name="experience" id="flexCheckDefault" />
-                                                    <label className="form-check-label" for="flexCheckDefault">
+                                                    <label className="form-check-label" >
                                                         You have invested in startups before
                                                     </label>
                                                 </div>
 
                                                 <div className="form-check">
-                                                    <input className="form-check-input" onChange={handleChange} type="checkbox"  value="You come from an entrepreneurial family or have been a founder/co-founder of a business venture family" name="experience" id="flexCheckDefault" />
+                                                    <input className="form-check-input" onChange={handleChange} type="checkbox" value="You come from an entrepreneurial family or have been a founder/co-founder of a business venture family" name="experience" id="flexCheckDefault" />
                                                     <label className="form-check-label" for="flexCheckDefault">
                                                         You come from an entrepreneurial family or have been a founder/co-founder of a business venture family
                                                     </label>
@@ -302,7 +433,7 @@ export default function Preferences1() {
                         </div>
                     </div>
                 </section>
-                 
+
                 {/* End Contact Area */}
             </div>
         </>
