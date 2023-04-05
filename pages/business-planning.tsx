@@ -1,10 +1,10 @@
-import ServiceTwo from '@/components/Frontend/Services/ServiceTwo';
+import ServicesTwo from '@/components/Frontend/Services/ServicesTwo';
 import React from 'react';
 
 export default function serviceTwo() {
   return (
     <div>
-        <ServiceTwo/>
+        <ServicesTwo />
     </div>
   )
 }

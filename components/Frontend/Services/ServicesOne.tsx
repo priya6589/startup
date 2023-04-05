@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function ServiceDetail() {
+export default function serviceOne() {
     return (
         <>
             <div className="page-title-area item-bg-4">
@@ -8,10 +8,10 @@ export default function ServiceDetail() {
                     <div className="d-table-cell">
                         <div className="container">
                             <div className="page-title-content">
-                                <h2>Services</h2>
+                                <h2>Company Incorporation</h2>
                                 <ul>
-                                    <li><a href="index.html">Home</a></li>
-                                    <li>Services Detail</li>
+                                    <li><a href="/">Home</a></li>
+                                    <li>Company Incorporation</li>
                                 </ul>
                             </div>
                         </div>
@@ -22,37 +22,35 @@ export default function ServiceDetail() {
                 <div className="container">
                     <div className="services-details-video">
                         <div className="details-image">
-                            <img src="assets/img/services-details/bg.jpg" alt="image" />
+                            <img src="assets/img/services-details/Company-Incorporation.jpg" alt="image" />
                         </div>
-                        <div className="details-video">
+                        {/* <div className="details-video">
                             <a href="https://www.youtube.com/watch?v=gFQNPmLKj1k" className="video-btn popup-youtube">
                                 <i className="bx bx-play" />
                             </a>
-                        </div>
+                        </div> */}
                         <div className="text">
-                            <h3>How investment and startup services are beneficial?</h3>
-                            <p>Our services are designed to help people achieve their entrepreneurial goals and financial objectives. These services provide guidance, support, and resources to help individuals and businesses start, grow, and succeed. By leveraging the expertise and experience of investment and startup professionals, people can gain access to a wealth of knowledge and tools to help them make informed decisions, navigate challenges, and seize opportunities. Whether you're looking to launch a new business venture or grow an existing one, investment and startup services can help you achieve your goals and reach new heights of success.</p>
+                            <h3>Our Company Incorporation Services</h3>
+                            <p>When starting a new investment project, it's crucial to establish a legal entity to protect your personal assets and limit your liabilities. That's where Company Incorporation services come in. These services provide assistance with registering and setting up a new legal entity, including selecting the appropriate business structure, registering with the relevant authorities, and drafting the necessary legal documents.</p>
                         </div>
                     </div>
                     <div className="services-details-overview">
                         <div className="row align-items-center">
                             <div className="col-lg-6 col-md-12">
                                 <div className="services-details-desc">
-                                    <h3>Invest Together. Grow Together.</h3>
-                                    <p>At our startup firm, we believe that investing together is the key to success. By pooling our resources and expertise, we can support promising startups and help them achieve their full potential. </p>
-                                    <div className="features-text">
-                                        <h4>Reasons to go with investment</h4>
-                                        <p>One of the main reasons to go with investment is access to capital. Investors provide the funds startups need to launch, grow, and scale their businesses.</p>
-                                    </div>
-                                    <div className="features-text">
-                                        <h4>Reasons to go with fundraising</h4>
-                                        <p>Fundraising allows startups to tap into the power of community support. By engaging with their customers and fans, startups can raise awareness, build loyalty, and rally support for their mission and vision.</p>
-                                    </div>
+                                    <h3>Why Incorporate?</h3>
+                                    <p>Incorporating a company offers several benefits to investment projects, including:</p>
+                                    <ul>
+                                        <li><p>Limited liability protection for shareholders</p></li>
+                                        <li><p>Ability to raise capital through issuing shares</p></li>
+                                        <li><p>Perpetual existence, separate from the individuals involved</p></li>
+                                        <li><p>Professional image, which can attract investors and clients</p></li>
+                                    </ul>
                                 </div>
                             </div>
                             <div className="col-lg-6 col-md-12">
                                 <div className="services-details-image">
-                                    <img src="assets/img/services-details/1.jpg" alt="image" />
+                                    <img src="assets/img/services-details/company-single.jpg" alt="image" />
                                 </div>
                             </div>
                         </div>
@@ -67,33 +65,38 @@ export default function ServiceDetail() {
                             <div className="col-lg-6 col-md-12">
                                 <div className="services-details-desc">
                                     <h3>FAQ's</h3>
-                                    <p>Have questions about starting a business or making investments? We've got you covered. Check out our frequently asked questions below for answers to some of the most common questions we receive. </p>
+                                    <p>Have questions about Company Incorporation services in investment projects? We've got you covered. Check out our frequently asked questions below for answers to some of the most common questions we receive. </p>
                                     <div className="services-details-accordion">
                                         <ul className="accordion">
                                             <li className="accordion-item">
                                                 <a className="accordion-title active" href="javascript:void(0)">
                                                     <i className="bx bx-plus" />
-                                                    Are there any risks associated with starting a business or making investments?
+                                                    What is Company Incorporation?
                                                 </a>
-                                                <p className="accordion-content show">Yes, there are always risks involved with any business venture or investment. However, by doing your research, seeking advice, and making informed decisions, you can help mitigate those risks and increase your chances of success.</p>
+                                                <p className="accordion-content show">Company incorporation is the process of legally establishing a new business entity by registering it with the government.</p>
                                             </li>
                                             <li className="accordion-item">
                                                 <a className="accordion-title" href="javascript:void(0)">
                                                     <i className="bx bx-plus" />
-                                                    What should I look for when choosing a service?
+                                                    Why is it important to incorporate a company?
                                                 </a>
-                                                <p className="accordion-content">It's important to look for a service that has a strong track record of success, offers personalized guidance and support, and aligns with your values and goals.</p>
+                                                <p className="accordion-content">Incorporating a company gives it a separate legal existence from its owners and limits their personal liability for business debts and obligations. It also enhances the credibility of the business and makes it easier to raise funds from investors.</p>
                                             </li>
                                             <li className="accordion-item">
                                                 <a className="accordion-title" href="javascript:void(0)">
                                                     <i className="bx bx-plus" />
-                                                    How do I get started with a startup or investment service?
+                                                    What are the benefits of incorporating a company for an investment project?
                                                 </a>
-                                                <p className="accordion-content">You can typically get started by scheduling a consultation with a service provider, or by exploring their website and resources to learn more about their offerings and approach.</p>
+                                                <p className="accordion-content">Incorporating a company for an investment project provides various benefits such as limited liability protection, ease of raising capital, enhanced credibility, tax benefits, and perpetual existence.</p>
                                             </li>
                                         </ul>
                                     </div>
                                 </div>
+                            </div>
+                            <div className="col-lg-12 col-md-12">
+                            <div className="send-btn text-center mt-5">
+                            <a href="/contact"><button className="default-btn">Contact-us</button></a>
+                            </div>
                             </div>
                         </div>
                     </div>
