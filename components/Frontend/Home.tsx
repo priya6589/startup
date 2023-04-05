@@ -2,8 +2,8 @@ import React from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import Agency from "../Frontend/It-Agency";
-import ClientSection from "../Frontend/Common/client-section";
+import Agency from "../Frontend/ItAgency";
+import ClientSection from "../Frontend/Common/ClientSection";
 import NextNProgress from "nextjs-progressbar";
 
 const settings = {
@@ -71,7 +71,7 @@ export default function Home() {
                         <a href="startup" className="default-btn">
                           Join to raise funds
                         </a>
-                        <a href="/join/join-to-invest" className="default-btn">
+                        <a href="/join-to-invest" className="default-btn">
                           Join to Invest
                         </a>
                       </div>

@@ -1,6 +1,6 @@
 import React from "react";
 
-const copyright = () => {
+const Copyright = () => {
   return (
     <div>
       {/* <!-- Start Copy Right Area --> */}
@@ -33,4 +33,4 @@ const copyright = () => {
   );
 };
 
-export default copyright;
+export default Copyright;

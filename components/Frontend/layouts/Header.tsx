@@ -1,7 +1,35 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react';
+import { removeToken, removeStorageData, getCurrentUserData } from "../../../lib/session";
 
-export default function Header()
-{
+interface UserData {
+  username: string;
+  role: string;
+  id: number;
+}
+export default function Header(){
+  const [current_user_id, setCurrentUserId] = useState(false);
+  const [current_user_name, setCurrentUserName] = useState('');
+  const [current_user_role, setCurrentUserRole] = useState('');
+  const [dropdownVisible, setDropdownVisible] = useState(false);
+  function myFunction(){
+    setDropdownVisible(!dropdownVisible);
+  }
+  function redirectToLogin() {
+    window.location.href = '/login';
+    //router.push("/auth/login");
+  }
+  function handleLogout(e:any) {
+    e.preventDefault();
+    removeToken();
+    removeStorageData();
+    redirectToLogin();
+  }
+  useEffect(() => {
+    const current_user_data: UserData = getCurrentUserData();
+    current_user_data.username ? setCurrentUserName(current_user_data.username) : setCurrentUserName('');
+    current_user_data.role ? setCurrentUserRole(current_user_data.role) : setCurrentUserRole('');
+    current_user_data.id ? setCurrentUserId(true) : setCurrentUserId(false);
+  }, []);
   return(
     <>
        <div className="navbar-area">
@@ -45,10 +73,10 @@ export default function Header()
                 id="navbarSupportedContent"
               >
                   <ul className="navbar-nav">
-                  <li className="nav-item">
-                    <a href="/" className="nav-link active">
-                      Home
-                    </a>
+                    <li className="nav-item">
+                      <a href="/" className="nav-link active">
+                        Home
+                      </a>
                     </li>
                     <li className="nav-item">
                       <a href="/about" className="nav-link">
@@ -64,19 +92,25 @@ export default function Header()
                       <a href="/projects" className="nav-link">
                         Projects 
                       </a>
-                     
                     </li>
-
                     <li className="nav-item">
                       <a href="/blogs" className="nav-link">
                         Blog 
                       </a>
                     </li>
-                   
                     <li className="nav-item">
                       <a href="/contact" className="nav-link">
                         Contact
                       </a>
+                    </li>
+                    <li className="nav-item">
+                      <div className="dropdown">
+                        <a onClick={myFunction} className="dropbtn nav-link">{current_user_name}</a>
+                        <div id="myDropdown" className={`${dropdownVisible ? 'dropdown-content show' : 'dropdown-content'}`}>
+                          <a href="/user-profile" className="colortwo">Profile</a>
+                          <a href="#" onClick={handleLogout} className="colortwo">Logout</a>
+                        </div>
+                      </div>
                     </li>
                   </ul>
                   <div className="others-options">
