@@ -1,4 +1,4 @@
-import Header from "./Header";
+import Header from "./HeaderFrontend";
 import Footer from "./Footer";
 import CopyRight from "./Copyright";
 const Layout = ({ children }:any) => {
