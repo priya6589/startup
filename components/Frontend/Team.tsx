@@ -8,7 +8,7 @@ export default function Team() {
                     <div className="d-table-cell">
                         <div className="container">
                             <div className="page-title-content">
-                                <h2>Teams</h2>
+                                <h2>Team</h2>
                                 <ul>
                                     <li><a href="index.html">Home</a></li>
                                     <li>Team</li>
