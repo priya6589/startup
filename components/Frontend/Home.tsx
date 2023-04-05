@@ -68,11 +68,11 @@ export default function Home() {
                         goals.
                       </p>
                       <div className="banner-btn">
-                        <a href="startup" className="default-btn">
-                          Join to raise funds
+                        <a href="/signup" className="default-btn">
+                          Register
                         </a>
-                        <a href="/join-to-invest" className="default-btn">
-                          Join to Invest
+                        <a href="/login" className="default-btn">
+                         Log in
                         </a>
                       </div>
                     </div>
@@ -97,11 +97,11 @@ export default function Home() {
                         and seize the chance to achieve your financial goals.
                       </p>
                       <div className="banner-btn">
-                        <a href="startup" className="default-btn">
-                          Join to raise funds
+                      <a href="/signup" className="default-btn">
+                          Register
                         </a>
-                        <a href="/join-to-invest" className="default-btn">
-                          Join to Invest
+                        <a href="/login" className="default-btn">
+                         Log in
                         </a>
                       </div>
                     </div>
@@ -129,11 +129,11 @@ export default function Home() {
                         you grow your wealth and achieve your financial goals.
                       </p>
                       <div className="banner-btn">
-                        <a href="/startup" className="default-btn">
-                          Join to raise funds
+                      <a href="/signup" className="default-btn">
+                          Register
                         </a>
-                        <a href="/join-to-invest" className="default-btn">
-                          Join to Invest
+                        <a href="/login" className="default-btn">
+                         Log in
                         </a>
                       </div>
                     </div>

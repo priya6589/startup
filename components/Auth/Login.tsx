@@ -68,7 +68,7 @@ export default function Login() {
                             <div className="page-title-content">
                                 <h2>Log In</h2>
                                 <ul>
-                                    <li><a href="index.html">Home</a></li>
+                                    <li><a href="/">Home</a></li>
                                     <li>Log In</li>
                                 </ul>
                             </div>

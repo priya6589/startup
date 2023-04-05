@@ -1,6 +1,51 @@
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { saveContact } from '../../lib/frontendapi';
+import { useForm } from 'react-hook-form';
+
 
 const Contact = () => {
+
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [subject, setSubject] = useState("");
+  const [message, setMessage] = useState("");
+  const { register, handleSubmit, formState: { errors } } = useForm();
+  const SubmitForm = () => {
+
+    //e.preventDefault();
+    const logindata = {
+      name: name,
+      email: email,
+      subject: subject,
+      message: message,
+    }
+    saveContact(logindata)
+      .then(res => {
+        if (res.status == true) {
+          toast.success("Contact has been submitted succesfully", {
+            position: toast.POSITION.TOP_RIGHT,
+            toastId: 'success'
+          });
+          setTimeout(() => {
+            window.location.reload();
+          }, 2000);
+
+        } else {
+          toast.error("Contact has been not submitted succesfully", {
+            position: toast.POSITION.TOP_RIGHT,
+            toastId: 'error'
+          });
+        }
+      })
+      .catch(err => {
+        toast.error("Contact has been not submitted succesfully", {
+          position: toast.POSITION.TOP_RIGHT,
+          toastId: 'error'
+        });
+      });
+  }
   return (
     <div>
       <div>
@@ -13,7 +58,7 @@ const Contact = () => {
                   <h2>Contact</h2>
                   <ul>
                     <li>
-                      <a href="index.html">Home</a>
+                      <a href="/">Home</a>
                     </li>
                     <li>Contact</li>
                   </ul>
@@ -41,7 +86,7 @@ const Contact = () => {
                   <i className="flaticon-envelope" />
                   <div className="content-title">
                     <h3>Email</h3>
-                     <span><a href="mailto:example@gmail.com"><span>example@gmail.com</span></a></span>
+                    <span><a href="mailto:example@gmail.com"><span>example@gmail.com</span></a></span>
                   </div>
                 </div>
               </div>
@@ -66,67 +111,58 @@ const Contact = () => {
                 <div className="contact-text">
                   <h3>Have Any Questions About Us?</h3>
                   <p>
-                  If you have any questions or concerns about our company or services, please don't hesitate to contact us. Our team is dedicated to providing the best support and assistance possible to ensure your satisfaction.
+                    If you have any questions or concerns about our company or services, please don't hesitate to contact us. Our team is dedicated to providing the best support and assistance possible to ensure your satisfaction.
                   </p>
                 </div>
                 <div className="contact-form">
-                  <form id="contactForm">
+                  <form id="contactForm" onSubmit={handleSubmit(SubmitForm)}>
                     <div className="form-group">
                       <label>Name</label>
                       <input
                         type="text"
-                        name="name"
                         id="name"
                         className="form-control"
-                        required
-                        data-error="Please enter your name"
                         placeholder="Name"
+                        {...register('name', { onChange: (e) => setName(e.target.value), required: true })}
                       />
-                      <div className="help-block with-errors" />
+                      {errors.name && errors.name.type === 'required' && <p className="text-danger" style={{ "textAlign": "left" }}>please enter your name.</p>}
                     </div>
                     <div className="form-group">
                       <label>Email</label>
                       <input
                         type="email"
-                        name="email"
                         id="email"
                         className="form-control"
-                        required
-                        data-error="Please enter your email"
                         placeholder="Your Email"
+                        {...register('email', { onChange: (e) => setEmail(e.target.value), required: true })}
                       />
-                      <div className="help-block with-errors" />
+                      {errors.email && errors.email.type === 'required' && <p className="text-danger" style={{ "textAlign": "left" }}>please enter your email.</p>}
                     </div>
                     <div className="form-group">
                       <label>Subject</label>
                       <input
                         type="text"
-                        name="msg_subject"
-                        id="msg_subject"
+                        id="subject"
                         className="form-control"
-                        required
-                        data-error="Please enter your subject"
                         placeholder="Your Subject"
+                        {...register('subject', { onChange: (e) => setSubject(e.target.value), required: true })}
                       />
-                      <div className="help-block with-errors" />
+                      {errors.subject && errors.subject.type === 'required' && <p className="text-danger" style={{ "textAlign": "left" }}>please enter your subject.</p>}
                     </div>
                     <div className="form-group">
                       <label>Message</label>
                       <textarea
-                        name="message"
                         className="form-control"
                         id="message"
                         cols={30}
                         rows={6}
-                        required
-                        data-error="Write your message"
                         placeholder="Your Message"
-                        defaultValue={""}
+                        {...register('message', { onChange: (e) => setMessage(e.target.value), required: true })}
                       />
-                      <div className="help-block with-errors" />
+                      {errors.message && errors.message.type === 'required' && <p className="text-danger" style={{ "textAlign": "left" }}>please enter your message.</p>}
                     </div>
                     <div className="send-btn">
-                      <button type="submit" className="default-btn">
+                      <button className="default-btn">
                         Send Message
                       </button>
                       <div id="msgSubmit" className="h3 text-center hidden" />
@@ -145,6 +181,7 @@ const Contact = () => {
         </section>
         {/* End Contact Area */}
       </div>
+      <ToastContainer />
     </div>
   );
 };
