@@ -5427,10 +5427,6 @@ Contact Area CSS
   font-weight: 400;
 }
 
-.contact-form form .form-control:focus {
-  /* border-color: #086AD8; */
-}
-
 .contact-form form .form-control::-webkit-input-placeholder {
   color: #999999;
 }
@@ -8057,3 +8053,114 @@ section#service-title {
 ul.footer-quick-links li a {
     color: #212121;
 }
+
+/*********my steps******/
+/**step-one**/
+
+.step-wrapper {
+  padding: 20px 0;
+  display: none;
+}
+
+.step-wrapper.active {
+  display: block;
+}
+
+.step-indicator {
+  border-collapse: separate;
+  display: table;
+  margin-left: 0px;
+  position: relative;
+  table-layout: fixed;
+  text-align: center;
+  vertical-align: middle;
+  padding-left: 0;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  /*border-top: 1px solid #ced4da;*/
+/*    border-bottom: 1px solid #ced4da;
+*/}
+
+.step-indicator li {
+  display: table-cell;
+  position: relative;
+  float: none;
+  padding: 0;
+  width: 1%;
+}
+
+.step-indicator li:after {
+  background-color: #ccc;
+  content: "";
+  display: block;
+  height: 1px;
+  position: absolute;
+  width: 100%;
+  top: 54px;
+}
+
+.step-indicator li:after {
+  left: 50%;
+}
+
+.step-indicator li:last-child:after {
+  display: none;
+}
+
+.step-indicator li.active .step {
+  /*border-color: #4183D7;*/
+  color: #4183D7;
+}
+
+.step-indicator li.active .caption {
+  color: #4183D7;
+}
+
+.step-indicator li.complete:after {
+  background-color: #87D37C;
+}
+
+.step-indicator li.complete .step {
+  border-color: #87D37C;
+  color: #87D37C;
+}
+
+.step-indicator li.complete .caption {
+  color: #87D37C;
+}
+
+.step-indicator .step {
+  background-color: #f1f1f5;
+  border-radius: 50%;
+  border: 1px solid #ccc;
+  color: #ccc;
+  font-size: 14px;
+  height: 64px;
+  line-height: 64px;
+  margin: 0 auto;
+  position: relative;
+  width: 64px;
+  z-index: 1;
+}
+
+.step-indicator .step:hover {
+  cursor: pointer;
+}
+
+.step-indicator .caption {
+  color: #ccc;
+  padding: 11px 16px;
+  font-size: 12px;
+  color: #000000;
+  font-weight: 700;
+}
+
+.step_name {
+  font-size: 12px;
+  color: #2f3246;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+
+/**responsive-steps**/

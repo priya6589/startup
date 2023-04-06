@@ -1,5 +1,5 @@
 import React from 'react'
-import StepOne from '@/components/steps/FirstStep'
+import StepOne from '@/components/Steps/FirstStep'
 export default function FirstStep() {
     return (
         <>

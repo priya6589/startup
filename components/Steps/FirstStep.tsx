@@ -1,6 +1,6 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import Progress from '../../components/steps/Progress';
+import Progress from '../../components/Steps/Progress';
 import { useRouter } from "next/router";
 export default function FirstStep (props:any) {
     const router = useRouter();
