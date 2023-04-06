@@ -54,7 +54,7 @@ return (
             <div className="d-table-cell">
                 <div className="container">
                     <div className="page-title-content">
-                        <h2>Complete Account Sign Up</h2>
+                        <h2>Complete Account Details</h2>
                         <ul>
                             <li><a href="/">Home</a></li>
                         </ul>
@@ -96,91 +96,142 @@ return (
                     <div className="caption hidden-xs hidden-sm"><span>BILLING TO STRIPE</span></div>
                 </li>
               </ol>
-
-                    <div className="row step_two">
-                      <div className="col-md-12">
-                        <form className="needs-validation mb-4" >
-                            <h1 className="black_bk_col fontweight500 font_20 mb-4 text-center"> Complete your business information below  </h1>
-                          <div className="row">
-                            <div className="col-md-12">
-                              <div className="form-group">
-                            <input type="text" className="form-control input_custom_style" id="business_name" name="business_name" placeholder="Business name" value={business_name} onChange={(e) => setBusinessName(e.target.value)} />
-                            <span style={alertStyle}>{business_name}</span>
-                              </div>
+              <div className="container">
+                <div className="register-form">
+                  {/*<h4 className="text-center mt-5">Find your business</h4>*/}
+                  <div className="row step_one">
+                    <div className="col-md-12">
+                      <form className="needs-validation mb-4" >
+                        <h4 className="black_bk_col fontweight500 font_20 mb-4 text-center"> Business Information <i style={{"cursor":'pointer'}} className="fa fa-info-circle" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Please type in your full business name into the field below. This would be your registered company name."></i></h4>
+                        <div className="row justify-content-center">
+                          <div className="col-md-8" id="register">
+                            <div className="row">
+                                <div className="col-md-6 mt-3">
+                                    <label htmlFor="exampleFormControlInput1" className="form-label">First Name <span className="text-mandatory">*</span></label>
+                                    <input type="text" className="form-control same-input" name="" id=""/>
+                                </div>
+                                <div className="col-md-6 mt-3">
+                                    <label htmlFor="exampleFormControlInput1" className="form-label">Last Name <span className="text-mandatory">*</span></label>
+                                    <input type="text" className="form-control same-input" name="" id=""/>
+                                </div>
+                                <div className="col-md-6 mt-3">
+                                    <label htmlFor="exampleFormControlInput1" className="form-label">Email ID <span className="text-mandatory">*</span></label>
+                                    <input type="text" className="form-control same-input" name="" id=""/>
+                                </div>
+                                <div className="col-md-6 mt-3">
+                                    <label htmlFor="exampleFormControlInput1" className="form-label">Password <span className="text-mandatory">*</span></label>
+                                    <input type="text" className="form-control same-input" name="" id=""/>
+                                </div>
+                                <div className="col-md-6 mt-3">
+                                    <label htmlFor="" className="d-block mb-4">Gender <span className="text-mandatory">*</span></label>
+                                    <div className="form-check form-check-inline">
+                                        <input className="form-check-input" type="radio" name="inlineRadioOptions"
+                                            id="inlineRadio1" value="option1"/>
+                                        <label className="form-check-label" htmlFor="inlineRadio1">Male</label>
+                                    </div>
+                                    <div className="form-check form-check-inline">
+                                        <input className="form-check-input" type="radio" name="inlineRadioOptions"
+                                            id="inlineRadio2" value="option2"/>
+                                        <label className="form-check-label" htmlFor="inlineRadio2">Female</label>
+                                    </div>
+                                    <div className="form-check form-check-inline">
+                                        <input className="form-check-input" type="radio" name="inlineRadioOptions"
+                                            id="inlineRadio3" value="option3"/>
+                                        <label className="form-check-label" htmlFor="inlineRadio3">Others</label>
+                                    </div>
+                                </div>
+                                <div className="col-md-6 mt-3">
+                                    <label htmlFor="exampleFormControlInput1" className="form-label">Linkedin URL <span className="text-mandatory">*</span></label>
+                                    <input type="text" className="form-control same-input" name="linkedin_url" id=""/>
+                                </div>
+                                <div className="col-md-6 mt-3">
+                                    <label htmlFor="exampleFormControlInput1" className="form-label">Phone number <span className="text-mandatory">*</span></label>
+                                    <input type="text" className="form-control same-input" name="" id=""/>
+                                    <p>Please enter the number with respective country code.</p>
+                                </div>
+                                <div className="col-sm-6 mt-4">
+                                    <label htmlFor="exampleFormControlInput1" className="form-label mb-4">Country of Citizenship <span className="text-mandatory">*</span></label>
+                                    <select className="form-select form-select-lg mb-3 css-1492t68 " aria-label=".form-select-lg example">
+                                      <option selected>Open this select menu</option>
+                                      <option value="1">One</option>
+                                      <option value="2">Two</option>
+                                      <option value="3">Three</option>
+                                    </select>
+                                </div>
+                                <div className="col-sm-6 mt-4">
+                                    <label htmlFor="exampleFormControlInput1" className="form-label mb-4">Which city do you live in? <span className="text-mandatory">*</span></label>
+                                    <select className="form-select form-select-lg css-1492t68" aria-label=".form-select-lg example">
+                                        <option selected>Open this select menu</option>
+                                        <option value="1">One</option>
+                                        <option value="2">Two</option>
+                                        <option value="3">Three</option>
+                                    </select>
+                                </div>
+                                <div className="col-md-6">
+                                    <label htmlFor="" className="d-block mb-4">Do you have assets worth over INR 2 cr apart from your
+                                        primary residence? <span className="text-mandatory">*</span></label>
+                                    <div className="form-check form-check-inline">
+                                        <input className="form-check-input" type="radio" name="inlineRadioOptions"
+                                            id="inlineRadio1" value="option1"/>
+                                        <label className="form-check-label" htmlFor="inlineRadio1">YES</label>
+                                    </div>
+                                    <div className="form-check form-check-inline">
+                                        <input className="form-check-input" type="radio" name="inlineRadioOptions"
+                                            id="inlineRadio2" value="option2"/>
+                                        <label className="form-check-label" htmlFor="inlineRadio2">NO</label>
+                                    </div>
+                                    <p>This information is required as per SEBI guidelines</p>
+                                </div>
+                                <div className="col-sm-6">
+                                    <label htmlFor="exampleFormControlInput1" className="form-label mb-4">Which of these best describes
+                                        you? <span className="text-mandatory">*</span></label>
+                                    <select className="form-select form-select-lg css-1492t68" aria-label=".form-select-lg example">
+                                        <option selected>Open this select menu</option>
+                                        <option value="1">One</option>
+                                        <option value="2">Two</option>
+                                        <option value="3">Three</option>
+                                    </select>
+                                </div>
+                                <label htmlFor="" className="mt-5">Help us understand your experience better (multiple options can be
+                                    selected)<span className="text-mandatory">*</span></label>
+                                <div className=" mt-3 d-flex align-content-center">
+                                    <input className="form-check-input" type="checkbox" id="checkboxNoLabel" value=""
+                                        aria-label=""/>
+                                    <p className="">You have invested in startups before</p>
+                                </div>
+                                <div className=" mt-3 d-flex align-content-center">
+                                    <input className="form-check-input" type="checkbox" id="checkboxNoLabel" value=""
+                                        aria-label=""/>
+                                    <p className="">You come from an entrepreneurial family or have been a founder/co-founder of a business venture family</p>
+                                </div>
+                                <div className=" mt-3 d-flex align-content-center">
+                                    <input className="form-check-input" type="checkbox" id="checkboxNoLabel" value=""
+                                        aria-label=""/>
+                                    <p className="">You have at least 10 years of work experience</p>
+                                </div>
+                                <div className=" mt-3 d-flex align-content-center">
+                                    <input className="form-check-input" type="checkbox" id="checkboxNoLabel" value=""
+                                        aria-label=""/>
+                                    <p className="">None of the above</p>
+                                </div>
+                                <div className=" mt-3 d-flex align-items-center">
+                                    <input className="form-check-input" type="checkbox" id="checkboxNoLabel" value=""
+                                        aria-label=""/>
+                                    <p className="">I certify that all the information provided by me is accurate and I am willing to provide evidence for the same for KYC purposes when requested.</p>
+                                </div>
+                            </div>
+                            <div className="banner-btn justify-content-between d-md-flex mt-5 mb-5">
+                              <a href={`/steps/findbusiness`} className="default-btn">Go back</a>
+                              <a href="#" className="default-btn" onClick={handleSubmit}>Sign Up
+                              </a>
                             </div>
                           </div>
-                          <div className="row">
-                            <div className="col-md-12">
-                              <div className="form-group">
-
-                              <input disabled={!disableBaddr} type="text" className="form-control input_custom_style" id="business_address" name="business_address" placeholder="Business address" value={business_address} onChange={(e) => setBusinessAddress(e.target.value)} />
-                              <span style={alertStyle}>{business_address}</span>
-
-                              </div>
-                            </div>
-                          </div>
-                          <div className="row">
-                            <div className="col-sm-6">
-                              <div className="form-group">
-
-                              <input type="text" className="form-control input_custom_style" id="firstname" name="firstname" placeholder="First name" value={firstname} onChange={(e) => setFirstname(e.target.value)} />
-                              <span style={alertStyle}>{firstname}</span>
-
-                              </div>
-                            </div>
-                            <div className="col-sm-6">
-                              <div className="form-group">
-
-                              <input type="text" className="form-control input_custom_style" id="lastname" name="lastname" placeholder="Last name" value={lastname} onChange={(e) => setLastname(e.target.value)} />
-                              <span style={alertStyle}>{lastname}</span>
-
-                              </div>
-                            </div>
-                          </div>
-                          <div className="row">
-                            <div className="col-sm-6">
-                              <div className="form-group">
-
-                              <input disabled={!disableBemail} type="text" className="form-control input_custom_style" id="email" name="email" placeholder="Business email" value={email} onChange={(e) => setEmail(e.target.value)} />
-                              <span style={alertStyle}>{email}</span>
-
-                              </div>
-                            </div>
-                          </div>
-                          <div className="row">
-                            <div className="col-sm-6">
-                              <p className="font_14 text-black fontweight500">How many locations does your business have?</p>
-                            </div>
-                            <div className="col-sm-6">
-                              <div className="form-group">
-
-                            <select className="fontweight400 font_14 black_bk_col white_bk_col box_select_dgin width_100" id="number_of_locations" name="number_of_locations" value={numberOfLocations} onChange={(e) => setNumberOfLocations(e.target.value)}> 
-                              <option value="">Select location</option>
-                              <option value="1">1 Location</option>
-                              <option value="2">2 Locations</option>
-                              <option value="3">3 Locations</option>
-                              <option value="4">4 Locations</option>
-                              <option value="5">5 Locations</option>
-                              {/*<option value="6">6 Locations</option>
-                              <option value="7">7 Locations</option>
-                              <option value="8">8 Locations</option>
-                              <option value="9">9 Locations</option>
-                              <option value="10">10 Locations</option>*/}
-                            </select>
-
-                            <span style={alertStyle}>{numberOfLocations}</span>
-
-                              </div>
-                            </div>
-                          </div>
-                          <div className="text-center mt-4">
-                            <button type="button" className="blue_btn_box" onClick={handleSubmit}>Next</button>
-                            <p className="m-0"><a href={`/steps/findbusiness`}>Back</a></p>
-                          </div>
-                        </form>
-                      </div>
+                        </div>
+                      </form>
                     </div>
-
+                  </div>
+                </div>
+              </div>
             </div>
         </div>
         <ToastContainer autoClose={5000} />

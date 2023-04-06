@@ -51,165 +51,194 @@ export default function customizereview(){
   if (signup_success) return router.push('/steps/billing');
 
 return (
-    <div className="left-bar">
-      <div className="col-sm-12">
-        <h1 className="black_bk_col fontweight500 font_16 mb-4 pb-1">Complete Account Sign Up</h1>
+    <>  
+      <div className="page-title-area item-bg-5">
+        <div className="d-table">
+            <div className="d-table-cell">
+                <div className="container">
+                    <div className="page-title-content">
+                        <h2>Complete Account Details</h2>
+                        <ul>
+                            <li><a href="/">Home</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
       </div>
-      <div className="container">
-          <div id="app">     
-            <ol className="step-indicator">
-               <li className="">
-                  <div className="step_name">Step <span>1</span></div>
-                  <div className="step_border">
-                     <div className="step_complete"><i className="fa fa-check-circle" aria-hidden="true"></i></div>
-                  </div>
-                  <div className="caption hidden-xs hidden-sm"><span>FIND YOUR BUSINESS</span></div>
-               </li>
-               <li className="">
-                  <div className="step_name">Step <span>2</span></div>
-                  <div className="step_border">
-                     <div className="step_complete"><i className="fa fa-check-circle" aria-hidden="true"></i></div>
-                  </div>
-                  <div className="caption hidden-xs hidden-sm"><span>BUSINESS INFORMATION</span></div>
-               </li>
-               <li className="active">
-                  <div className="step_name">Step <span>3</span></div>
-                  <div className="step_border">
-                     <div className="step"><i className="fa fa-circle"></i></div>
-                  </div>
-                  <div className="caption hidden-xs hidden-sm"><span>CUSTOMIZE REVIEW SYSTEM</span></div>
-               </li>
-               <li className="">
-                  <div className="step_name">Step <span>4</span></div>
-                  <div className="step_border">
-                     <div className="step"><i className="fa fa-circle"></i></div>
-                  </div>
-                  <div className="caption hidden-xs hidden-sm"><span>BILLING TO STRIPE</span></div>
-               </li>
-            </ol>
-
-                  <div className="row step_two">
+      <div className="left-bar">
+        <div className="container">
+            <div id="app">     
+              <ol className="step-indicator">
+                <li className="">
+                    <div className="step_name">Step <span>1</span></div>
+                    <div className="step_border">
+                      <div className="step_complete"><i className="fa fa-check-circle" aria-hidden="true"></i></div>
+                    </div>
+                    <div className="caption hidden-xs hidden-sm"><span>FIND YOUR BUSINESS</span></div>
+                </li>
+                <li className="">
+                    <div className="step_name">Step <span>2</span></div>
+                    <div className="step_border">
+                      <div className="step_complete"><i className="fa fa-check-circle" aria-hidden="true"></i></div>
+                    </div>
+                    <div className="caption hidden-xs hidden-sm"><span>BUSINESS INFORMATION</span></div>
+                </li>
+                <li className="active">
+                    <div className="step_name">Step <span>3</span></div>
+                    <div className="step_border">
+                      <div className="step"><i className="fa fa-circle"></i></div>
+                    </div>
+                    <div className="caption hidden-xs hidden-sm"><span>CUSTOMIZE REVIEW SYSTEM</span></div>
+                </li>
+                <li className="">
+                    <div className="step_name">Step <span>4</span></div>
+                    <div className="step_border">
+                      <div className="step"><i className="fa fa-circle"></i></div>
+                    </div>
+                    <div className="caption hidden-xs hidden-sm"><span>BILLING TO STRIPE</span></div>
+                </li>
+              </ol>
+              <div className="container">
+                <div className="register-form">
+                  {/*<h4 className="text-center mt-5">Find your business</h4>*/}
+                  <div className="row step_one">
                     <div className="col-md-12">
                       <form className="needs-validation mb-4" >
-                          <h1 className="black_bk_col fontweight500 font_20 mb-4 text-center"> Choose your main location's Business Review Link  <i style={{cursor:'pointer'}} className="fa fa-info-circle" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="This is a specific URL hosted on the 5 Star Reviews website that would host your reviews. It is recommended to use your business name for this URL."></i> </h1>
-                        <div className="row">
-                          <div className="col-md-6">
-                            <div className="form-group">
-                              <input disabled={!disablePurl} type="text" className="form-control input_custom_style" id="purl" name="purl" value={PROFILE_URL} />
+                        <h4 className="black_bk_col fontweight500 font_20 mb-4 text-center"> Customize Review <i style={{"cursor":'pointer'}} className="fa fa-info-circle" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Please type in your full business name into the field below. This would be your registered company name."></i></h4>
+                        <div className="row justify-content-center">
+                          <div className="col-md-8" id="register">
+                            <div className="row">
+                                <div className="col-md-6 mt-3">
+                                    <label htmlFor="exampleFormControlInput1" className="form-label">First Name <span className="text-mandatory">*</span></label>
+                                    <input type="text" className="form-control same-input" name="" id=""/>
+                                </div>
+                                <div className="col-md-6 mt-3">
+                                    <label htmlFor="exampleFormControlInput1" className="form-label">Last Name <span className="text-mandatory">*</span></label>
+                                    <input type="text" className="form-control same-input" name="" id=""/>
+                                </div>
+                                <div className="col-md-6 mt-3">
+                                    <label htmlFor="exampleFormControlInput1" className="form-label">Email ID <span className="text-mandatory">*</span></label>
+                                    <input type="text" className="form-control same-input" name="" id=""/>
+                                </div>
+                                <div className="col-md-6 mt-3">
+                                    <label htmlFor="exampleFormControlInput1" className="form-label">Password <span className="text-mandatory">*</span></label>
+                                    <input type="text" className="form-control same-input" name="" id=""/>
+                                </div>
+                                <div className="col-md-6 mt-3">
+                                    <label htmlFor="" className="d-block mb-4">Gender <span className="text-mandatory">*</span></label>
+                                    <div className="form-check form-check-inline">
+                                        <input className="form-check-input" type="radio" name="inlineRadioOptions"
+                                            id="inlineRadio1" value="option1"/>
+                                        <label className="form-check-label" htmlFor="inlineRadio1">Male</label>
+                                    </div>
+                                    <div className="form-check form-check-inline">
+                                        <input className="form-check-input" type="radio" name="inlineRadioOptions"
+                                            id="inlineRadio2" value="option2"/>
+                                        <label className="form-check-label" htmlFor="inlineRadio2">Female</label>
+                                    </div>
+                                    <div className="form-check form-check-inline">
+                                        <input className="form-check-input" type="radio" name="inlineRadioOptions"
+                                            id="inlineRadio3" value="option3"/>
+                                        <label className="form-check-label" htmlFor="inlineRadio3">Others</label>
+                                    </div>
+                                </div>
+                                <div className="col-md-6 mt-3">
+                                    <label htmlFor="exampleFormControlInput1" className="form-label">Linkedin URL <span className="text-mandatory">*</span></label>
+                                    <input type="text" className="form-control same-input" name="linkedin_url" id=""/>
+                                </div>
+                                <div className="col-md-6 mt-3">
+                                    <label htmlFor="exampleFormControlInput1" className="form-label">Phone number <span className="text-mandatory">*</span></label>
+                                    <input type="text" className="form-control same-input" name="" id=""/>
+                                    <p>Please enter the number with respective country code.</p>
+                                </div>
+                                <div className="col-sm-6 mt-4">
+                                    <label htmlFor="exampleFormControlInput1" className="form-label mb-4">Country of Citizenship <span className="text-mandatory">*</span></label>
+                                    <select className="form-select form-select-lg mb-3 css-1492t68 " aria-label=".form-select-lg example">
+                                      <option selected>Open this select menu</option>
+                                      <option value="1">One</option>
+                                      <option value="2">Two</option>
+                                      <option value="3">Three</option>
+                                    </select>
+                                </div>
+                                <div className="col-sm-6 mt-4">
+                                    <label htmlFor="exampleFormControlInput1" className="form-label mb-4">Which city do you live in? <span className="text-mandatory">*</span></label>
+                                    <select className="form-select form-select-lg css-1492t68" aria-label=".form-select-lg example">
+                                        <option selected>Open this select menu</option>
+                                        <option value="1">One</option>
+                                        <option value="2">Two</option>
+                                        <option value="3">Three</option>
+                                    </select>
+                                </div>
+                                <div className="col-md-6">
+                                    <label htmlFor="" className="d-block mb-4">Do you have assets worth over INR 2 cr apart from your
+                                        primary residence? <span className="text-mandatory">*</span></label>
+                                    <div className="form-check form-check-inline">
+                                        <input className="form-check-input" type="radio" name="inlineRadioOptions"
+                                            id="inlineRadio1" value="option1"/>
+                                        <label className="form-check-label" htmlFor="inlineRadio1">YES</label>
+                                    </div>
+                                    <div className="form-check form-check-inline">
+                                        <input className="form-check-input" type="radio" name="inlineRadioOptions"
+                                            id="inlineRadio2" value="option2"/>
+                                        <label className="form-check-label" htmlFor="inlineRadio2">NO</label>
+                                    </div>
+                                    <p>This information is required as per SEBI guidelines</p>
+                                </div>
+                                <div className="col-sm-6">
+                                    <label htmlFor="exampleFormControlInput1" className="form-label mb-4">Which of these best describes
+                                        you? <span className="text-mandatory">*</span></label>
+                                    <select className="form-select form-select-lg css-1492t68" aria-label=".form-select-lg example">
+                                        <option selected>Open this select menu</option>
+                                        <option value="1">One</option>
+                                        <option value="2">Two</option>
+                                        <option value="3">Three</option>
+                                    </select>
+                                </div>
+                                <label htmlFor="" className="mt-5">Help us understand your experience better (multiple options can be
+                                    selected)<span className="text-mandatory">*</span></label>
+                                <div className=" mt-3 d-flex align-content-center">
+                                    <input className="form-check-input" type="checkbox" id="checkboxNoLabel" value=""
+                                        aria-label=""/>
+                                    <p className="">You have invested in startups before</p>
+                                </div>
+                                <div className=" mt-3 d-flex align-content-center">
+                                    <input className="form-check-input" type="checkbox" id="checkboxNoLabel" value=""
+                                        aria-label=""/>
+                                    <p className="">You come from an entrepreneurial family or have been a founder/co-founder of a business venture family</p>
+                                </div>
+                                <div className=" mt-3 d-flex align-content-center">
+                                    <input className="form-check-input" type="checkbox" id="checkboxNoLabel" value=""
+                                        aria-label=""/>
+                                    <p className="">You have at least 10 years of work experience</p>
+                                </div>
+                                <div className=" mt-3 d-flex align-content-center">
+                                    <input className="form-check-input" type="checkbox" id="checkboxNoLabel" value=""
+                                        aria-label=""/>
+                                    <p className="">None of the above</p>
+                                </div>
+                                <div className=" mt-3 d-flex align-items-center">
+                                    <input className="form-check-input" type="checkbox" id="checkboxNoLabel" value=""
+                                        aria-label=""/>
+                                    <p className="">I certify that all the information provided by me is accurate and I am willing to provide evidence for the same for KYC purposes when requested.</p>
+                                </div>
+                            </div>
+                            <div className="banner-btn justify-content-between d-md-flex mt-5 mb-5">
+                              <a href={`/steps/businessinfo`} className="default-btn">Go back</a>
+                              <a href="#" className="default-btn" onClick={handleSubmit}>Sign Up
+                              </a>
                             </div>
                           </div>
-                          
-                          <div className="col-md-4">
-                            <div className="form-group">
-                          <input type="text" className="form-control input_custom_style" id="business_review_link" name="business_review_link" placeholder="business-name" onFocus={(e) => e.target.placeholder = ""} onBlur={(e) => e.target.placeholder = "business-name"} value={business_review_link} onChange={(e) => setBusinessReviewLink(e.target.value)} />
-                          <span style={alertStyle}>{business_review_link}</span>
-                            </div>
-                          </div>
-                        </div>
-                        
-                        <h1 className="black_bk_col fontweight500 font_20 mb-4 mt-3 text-center"> Choose your review requirements for satisfied customers  <i style={{cursor:'pointer'}} className="fa fa-info-circle" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="All your requested reviews will provide a star rating between 1 and 5. Please select whether you would like to include 4 & 5-star reviews or just 5-star reviews requesting a public review. Example: If you select “4 & 5-star reviews only”, all reviews with a 4 and 5-star review will be sent to Facebook & Google to leave a public review. However, if you choose “5 star reviews only”, the customers who provided a 4-star review will not be requested to leave a public review."></i> </h1>
-                        <ul className="step_review">
-
-                          <li className="step_review_li">
-                            <div className="custom-control custom-radio text-right">
-
-                              {client_satisfaction == '1'
-                                ? <input type="radio" className="custom-control-input" id="customRadio2" name="client_satisfaction" value="1" checked onChange={(e) => setClientSatisfaction(e.target.value)} />
-                              : <input type="radio" className="custom-control-input" id="customRadio2" name="client_satisfaction" value="1" checked={client_satisfaction === '1'} onChange={(e) => setClientSatisfaction(e.target.value)} />
-                              }  
-
-                            <label className="custom-control-label" htmlFor="customRadio2"></label>
-                            </div>
-                            <ul className="ratting_starr m-0">
-                              <li><i className="fa fa-star" aria-hidden="true"></i></li>
-                              <li><i className="fa fa-star" aria-hidden="true"></i></li>
-                              <li><i className="fa fa-star" aria-hidden="true"></i></li>
-                              <li><i className="fa fa-star" aria-hidden="true"></i></li>
-                              <li><i className="fa fa-star-o" aria-hidden="true"></i></li>
-                            </ul>
-                            <p className="review_txt">4 & 5 star reviews only</p>
-                          </li>
-
-                          <li className="step_review_li">
-                            <div className="custom-control custom-radio text-right">
-                            
-                            {client_satisfaction == '0'
-                             ? <input type="radio" className="custom-control-input" id="customRadio" name="client_satisfaction" value="0" checked onChange={(e) => setClientSatisfaction(e.target.value)} />
-                            : <input type="radio" className="custom-control-input" id="customRadio" name="client_satisfaction" value="0" checked={client_satisfaction === '0'} onChange={(e) => setClientSatisfaction(e.target.value)} />
-                            }  
-
-                           <label className="custom-control-label" htmlFor="customRadio"></label>
-                            </div>
-                            <ul className="ratting_starr m-0">
-                              <li><i className="fa fa-star" aria-hidden="true"></i></li>
-                              <li><i className="fa fa-star" aria-hidden="true"></i></li>
-                              <li><i className="fa fa-star" aria-hidden="true"></i></li>
-                              <li><i className="fa fa-star" aria-hidden="true"></i></li>
-                              <li><i className="fa fa-star" aria-hidden="true"></i></li>
-                            </ul>
-                            <p className="review_txt">5 star reviews only</p>
-                          </li>
-
-                      <span style={alertStyle}>{client_satisfaction}</span>    
-                        </ul>
-                        <h1 className="black_bk_col fontweight500 font_20 mb-4 mt-3 text-center"> Enter your social media accounts  <i style={{cursor:'pointer'}} className="fa fa-info-circle" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Please enter the full URL of your social media pages."></i> </h1>
-                        
-                        <div className="row">
-                          <div className="col-sm-12">
-                            <div className="input-group mb-3">
-                              <div className="input-group-prepend">
-                                <span className="input-group-text"><i className="fa fa-facebook" aria-hidden="true"></i></span>
-                              </div>
-
-                            <input type="text" className="form-control" id="facebook_link" name="facebook_link" placeholder="Facebook Url" value={facebook_link} onChange={(e) => setFacebookLink(e.target.value)} />
-                            <span style={alertStyle}>{facebook_link}</span>
-
-                            </div>
-                          </div>
-                          <div className="col-sm-12">
-                            <div className="input-group mb-3">
-                              <div className="input-group-prepend">
-                                <span className="input-group-text"><i className="fa fa-twitter" aria-hidden="true"></i></span>
-                              </div>
-
-                            <input type="text" className="form-control" id="twitter_link" name="twitter_link" placeholder="Twitter Url" value={twitter_link} onChange={(e) => setTwitterLink(e.target.value)} />
-                            <span style={alertStyle}>{twitter_link}</span>
-
-                            </div>
-                          </div>
-                          <div className="col-sm-12">
-                            <div className="input-group mb-3">
-                              <div className="input-group-prepend">
-                                <span className="input-group-text"><i className="fa fa-instagram" aria-hidden="true"></i></span>
-                              </div>
-
-                            <input type="text" className="form-control" id="instagram_link" name="instagram_link" placeholder="Instagram Url" value={instagram_link} onChange={(e) => setInstagramLink(e.target.value)} />
-                            <span style={alertStyle}>{instagram_link}</span> 
-                            </div>
-                          </div>
-                          <div className="col-sm-12">
-                            <div className="input-group mb-3">
-                              <div className="input-group-prepend">
-                                <span className="input-group-text"><i className="fa fa-linkedin" aria-hidden="true"></i></span>
-                              </div>
-
-                          <input type="text" className="form-control" id="linkedin_link" name="linkedin_link" placeholder="Linkedin Url" value={linkedin_link} onChange={(e) => setLinkedinLink(e.target.value)} />
-                          <span style={alertStyle}>{linkedin_link}</span>
-
-                            </div>
-                          </div>
-                        </div>
-                        <div className="text-center mt-4">
-                        <button type="button" className="blue_btn_box" onClick={handleSubmit}>Next</button>
-                          <p className="m-0"><a href={`/steps/businessinfo`}>Back</a></p>
                         </div>
                       </form>
                     </div>
                   </div>
-
-          </div>
+                </div>
+              </div>
+            </div>
+        </div>
+        <ToastContainer autoClose={5000} />
       </div>
-      <ToastContainer autoClose={5000} />
-    </div>
+    </>
   );
 }

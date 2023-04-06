@@ -1,9 +1,9 @@
 import React from 'react'
-import BusinessInfo from '@/components/Steps/businessinfo'
-export default function businessinfo() {
+import BusinessInformation from '@/components/Steps/businessinfo'
+export default function BusinessInfo() {
     return (
         <>
-            <BusinessInfo />
+            <BusinessInformation />
         </>
     )
 }
