@@ -21,27 +21,27 @@ export default function Login() {
     	login(logindata)
 	    .then(res => {
 	    	if(res.status==true){
-	    		//if(res.authorisation.token){
-		    		window.localStorage.setItem("id", res.data.id);
-		    		window.localStorage.setItem("email", res.data.email);
-			        window.localStorage.setItem("username", res.data.name);
-			        window.localStorage.setItem("user_role", res.data.role);
-			        /*if (rememberMe) {
+	    		if(res.authorisation.token){
+		    		window.localStorage.setItem("id", res.user.id);
+		    		window.localStorage.setItem("email", res.user.email);
+			        window.localStorage.setItem("username", res.user.name);
+			        window.localStorage.setItem("user_role", res.user.role);
+			        if (rememberMe) {
 			          window.localStorage.setItem("token", res.authorisation.token);
 			        } else {
 			          window.sessionStorage.setItem("token", res.authorisation.token);
-			        }*/
+			        }
 			        if(window.localStorage.getItem("user_role") == 'admin'){
 		        		window.location.href = '/services';
 		        	} else {
 		        		window.location.href = '/';
 		        	}
-		      	/*} else {
+		      	} else {
 		      		toast.success(res.message, {
                     	position: toast.POSITION.TOP_RIGHT,
                     	toastId: 'success',
                 	});
-		      	}*/
+		      	}
                 toast.success(res.message, {
                     position: toast.POSITION.TOP_RIGHT,
                     toastId: 'success',
