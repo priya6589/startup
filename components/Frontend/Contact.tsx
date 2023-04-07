@@ -12,6 +12,7 @@ const Contact = () => {
   const [subject, setSubject] = useState("");
   const [message, setMessage] = useState("");
   const { register, handleSubmit, formState: { errors } } = useForm();
+  
   const SubmitForm = () => {
 
     //e.preventDefault();

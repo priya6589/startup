@@ -4,6 +4,8 @@ import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { saveContact } from '../../../lib/frontendapi';
 import { useForm } from 'react-hook-form';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 interface UserData {
   username: string;
@@ -11,6 +13,7 @@ interface UserData {
   id: number;
 }
 export default function HeaderFrontend() {
+  const router = useRouter();
   const [current_user_id, setCurrentUserId] = useState(false);
   const [current_user_name, setCurrentUserName] = useState("");
   const [current_user_role, setCurrentUserRole] = useState("");
@@ -125,32 +128,32 @@ export default function HeaderFrontend() {
                 id="navbarSupportedContent"
               >
                 <ul className="navbar-nav">
-                  <li className="nav-item">
-                    <a href="/" className="nav-link active">
+                  <li className={`nav-item ${router.pathname === '/' ? 'active' : ''}`}>
+                    <a href="/" className="nav-link">
                       Home
                     </a>
                   </li>
-                  <li className="nav-item">
+                  <li className={`nav-item ${router.pathname === '/about' ? 'active' : ''}`}>
                     <a href="/about" className="nav-link">
                       About
                     </a>
                   </li>
-                  <li className="nav-item">
+                  <li className={`nav-item ${router.pathname === '/services' ? 'active' : ''}`}>
                     <a href="/services" className="nav-link">
                       Services
                     </a>
                   </li>
-                  <li className="nav-item">
+                  {/* <li className="nav-item">
                     <a href="/projects" className="nav-link">
                       Projects
                     </a>
-                  </li>
-                  <li className="nav-item">
+                  </li> */}
+                 <li className={`nav-item ${router.pathname === '/blogs' ? 'active' : ''}`}>
                     <a href="/blogs" className="nav-link">
                       Blog
                     </a>
                   </li>
-                  <li className="nav-item">
+                  <li className={`nav-item ${router.pathname === '/contact' ? 'active' : ''}`}>
                     <a href="/contact" className="nav-link">
                       Contact
                     </a>
