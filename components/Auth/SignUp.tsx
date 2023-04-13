@@ -35,7 +35,7 @@ const Signup = () => {
             toastId: "success",
           });
           setTimeout(() => {
-            router.push("/login"); // Redirect to login page
+            router.push("/"); // Redirect to login page
           }, 2000);
         } else {
           toast.error("User has been not registered succesfully", {
@@ -74,6 +74,7 @@ const Signup = () => {
           </div>
         </div>
         {/* End Page Title Area */}
+
         {/* Start Contact Area */}
         <section className="contact-section pb-100">
           <div className="container">
@@ -189,29 +190,41 @@ const Signup = () => {
                         </label>
 
                         <div className="d-flex justify-content-start">
-                          <input
-                            className="form-check-input gender-radio"
-                            {...register("role", {
-                              onChange: (e) => setRole(e.target.value),
-                              required: true,
-                            })}
-                            type="radio"
-                            name="role"
-                            value="investor"
-                          />
-                          Investor &nbsp;
-                          <input
-                            className="form-check-input gender-radio"
-                            {...register("role", {
-                              onChange: (e) => setRole(e.target.value),
-                              required: true,
-                            })}
-                            type="radio"
-                            name="role"
-                            value="startup"
-                          />
-                          Startup
+                          <label htmlFor="investor-radio">
+                            <input
+                              className="form-check-input gender-radio"
+                              {...register("role", {
+                                onChange: (e) => setRole(e.target.value),
+                                required: true,
+                              })}
+                              type="radio"
+                              name="role"
+                              id="investor-radio"
+                              value="investor"
+                            />
+                            {/* <label>Investor</label> */}
+                            <span className="image-label investor-label"></span>
+                            &nbsp;Investor&nbsp;
+                          </label>
+                          &nbsp;
+                          <label htmlFor="startup-radio">
+                            <input
+                              className="form-check-input gender-radio"
+                              {...register("role", {
+                                onChange: (e) => setRole(e.target.value),
+                                required: true,
+                              })}
+                              type="radio"
+                              name="role"
+                              id="startup-radio"
+                              value="startup"
+                            />
+                           
+                            <span className="image-label startup-label"></span>
+                             &nbsp;Startup&nbsp;
+                          </label>
                         </div>
+
                         {errors.role && errors.role.type === "required" && (
                           <p
                             className="text-danger"

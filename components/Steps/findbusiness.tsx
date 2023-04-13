@@ -3,9 +3,12 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import router from "next/router";
 import { useForm } from "react-hook-form";
-import { getCountries,personalInformationSave } from "../../lib/frontendapi";
-import {removeToken,removeStorageData,getCurrentUserData,} from "../../lib/session";
-
+import { getCountries, personalInformationSave } from "../../lib/frontendapi";
+import {
+  removeToken,
+  removeStorageData,
+  getCurrentUserData,
+} from "../../lib/session";
 
 const alertStyle = {
   color: "red",
@@ -24,21 +27,23 @@ export default function findbusiness() {
   const [lat, setLat] = useState("");
   const [lng, setLng] = useState("");
   const [signup_success, setSignupSuccess] = useState(false);
-  const [user,setUser]=useState({});
 
   const [current_user_id, setCurrentUserId] = useState(false);
-  const [email, setEmail] = useState("");
-  const [linkedin_url, setLinkedin_url] = useState("");
-  const [gender, setGender] = useState("");
-  const [city, setCity] = useState("");
   const [countries, setcountries] = useState([]);
-  const [selectedCountry, setSelectedCountry] = useState("");
-  const [phone, setPhone] = useState([]);
+  const [user, setUser] = useState({
+    id:current_user_id,
+    email: "",
+    linkedin_url: "",
+    gender: "",
+    country: "",
+    city: "",
+    phone: "",
+  });
   const {
     register,
+    handleSubmit,
     formState: { errors },
   } = useForm();
-
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -46,22 +51,33 @@ export default function findbusiness() {
       return {
         ...prevState,
         [name]: value,
+        id: current_user_id
       };
     });
-  }
-  const handleSubmit = async (event: any) => {
-    event.preventDefault();
+  };
+  useEffect(() => {
+    const current_user_data = getCurrentUserData();
+    if (current_user_data.id != null) {
+      current_user_data.id
+        ? setCurrentUserId(current_user_data.id)
+        : setCurrentUserId("");
+    } else {
+      window.location.href = "/login";
+    }
 
-    const user = {
-      email: email,
-      gender: gender,
-      linkedin_url: linkedin_url,
-      city: city,
-      phone: phone,
-      countries: selectedCountry,
-      id : current_user_id
+    const fetchData = async () => {
+      const data = await getCountries({});
+      if (data) {
+        setcountries(data.data);
+      }
     };
 
+    fetchData();
+  }, []);
+
+  
+  const SubmitForm  = async (event: any) => {
+    // event.preventDefault();
 
     try {
       const res = await personalInformationSave(user);
@@ -86,31 +102,7 @@ export default function findbusiness() {
       });
     }
   };
-  useEffect(() => {
 
-    const current_user_data = getCurrentUserData();
-    if(current_user_data.id != null){
-      current_user_data.email ? setEmail(current_user_data.email ) : setCurrentUserId('');
-      current_user_data.id ? setCurrentUserId(current_user_data.id ) : setCurrentUserId('');
-    }else {
-
-      window.location.href = '/login';
-    }
-   
-    const fetchData = async () => {
-      const data = await getCountries({});
-      if (data) {
-        setcountries(data.data);
-      }
-    };
-
-    fetchData();
-}, []);
-
-
-  const handleCountryChange = async (event) => {
-    setSelectedCountry(event.target.value);
-  };
 
   const handleAdrChange = (find_business_location: any) => {
     setFindBusinessLocation(find_business_location);
@@ -119,8 +111,6 @@ export default function findbusiness() {
   const handleSelect = (find_business_location: any) => {
     setFindBusinessLocation(find_business_location);
   };
-  
-  
 
   if (signup_success) return router.push("/steps/businessinfo");
 
@@ -182,7 +172,7 @@ export default function findbusiness() {
                   </div>
                 </div>
                 <div className="caption hidden-xs hidden-sm">
-                  <span>CONTACT INFORMATION</span>
+                  <span>BASIC INFORMATION</span>
                 </div>
               </li>
               <li className="">
@@ -195,7 +185,7 @@ export default function findbusiness() {
                   </div>
                 </div>
                 <div className="caption hidden-xs hidden-sm">
-                  <span>KYC INFORMATION</span>
+                  <span>BANK INFORMATION</span>
                 </div>
               </li>
             </ol>
@@ -204,7 +194,10 @@ export default function findbusiness() {
                 {/*<h4 className="text-center mt-5">Find your business</h4>*/}
                 <div className="row step_one">
                   <div className="col-md-12">
-                    <form className="needs-validation mb-4" onSubmit={handleSubmit}>
+                    <form
+                      className="needs-validation mb-4"
+                      onSubmit={handleSubmit(SubmitForm)}
+                    >
                       <h4 className="black_bk_col fontweight500 font_20 mb-4 text-center">
                         Let's Get Started
                         <i
@@ -229,13 +222,19 @@ export default function findbusiness() {
                               </label>
                               <input
                                 type="text"
-                                className="form-control same-input" value=""
-                                id="email"
-                                {...register("email", {
-                                  onChange: (e) => setEmail(e.target.value),
-                                  required: true,
-                                })}
+                                className="form-control same-input"  {...register("email", {
+                                  required: true,})} id="email" name="email"  onChange={handleChange}
                               />
+                              <div className="help-block with-errors" />
+                              {errors.email &&
+                                errors.email.type === "required" && (
+                                  <p
+                                    className="text-danger"
+                                    style={{ textAlign: "left" }}
+                                  >
+                                    *Please Enter Your Valid Email.
+                                  </p>
+                                )}
                             </div>
                             <div className="col-md-6 mt-3">
                               <label
@@ -247,14 +246,19 @@ export default function findbusiness() {
                               </label>
                               <input
                                 type="text"
-                                className="form-control same-input"
-                                id="linkedin_url"
-                                {...register("linkedin_url", {
-                                  onChange: (e) =>
-                                    setLinkedin_url(e.target.value),
-                                  required: true,
-                                })}
+                                className="form-control same-input" {...register("linkedin_url", {
+                                  required: true,})} id="linkedin_url" name="linkedin_url" onChange={handleChange}
                               />
+                               <div className="help-block with-errors" />
+                              {errors.linkedin_url &&
+                                errors.linkedin_url.type === "required" && (
+                                  <p
+                                    className="text-danger"
+                                    style={{ textAlign: "left" }}
+                                  >
+                                    *Please Enter Your Valid Linkedin Url.
+                                  </p>
+                                )}
                             </div>
                             <div className="col-md-6 mt-3">
                               <label htmlFor="" className="d-block mb-4">
@@ -264,8 +268,8 @@ export default function findbusiness() {
                                 <input
                                   className="form-check-input"
                                   type="radio"
-                                  id="inlineRadio1"
-                                  value="male" {...register('gender', { onChange: (e) => setGender(e.target.value), required: true })}
+                                  id="inlineRadio1" {...register("gender", {required: true,})}
+                                  value="male" name="gender" onChange={handleChange}
                                 />
                                 <label
                                   className="form-check-label"
@@ -278,8 +282,9 @@ export default function findbusiness() {
                                 <input
                                   className="form-check-input"
                                   type="radio"
-                                  id="inlineRadio2"
-                                  value="female" {...register('gender', { onChange: (e) => setGender(e.target.value), required: true })}
+                                  id="inlineRadio2"{...register("gender", {required: true,})}
+                                  value="female"
+                                  name="gender" onChange={handleChange}
                                 />
                                 <label
                                   className="form-check-label"
@@ -292,8 +297,8 @@ export default function findbusiness() {
                                 <input
                                   className="form-check-input"
                                   type="radio"
-                                  id="inlineRadio3"
-                                  value="other"  {...register('gender', { onChange: (e) => setGender(e.target.value), required: true })}
+                                  id="inlineRadio3" {...register("gender", {required: true,})}
+                                  value="other" name="gender" onChange={handleChange}
                                 />
                                 <label
                                   className="form-check-label"
@@ -302,6 +307,16 @@ export default function findbusiness() {
                                   Others
                                 </label>
                               </div>
+                              <div className="help-block with-errors" />
+                              {errors.gender &&
+                                errors.gender.type === "required" && (
+                                  <p
+                                    className="text-danger"
+                                    style={{ textAlign: "left" }}
+                                  >
+                                    *Please Select Your Gender.
+                                  </p>
+                                )}
                             </div>
 
                             <div className="col-md-6 mt-3">
@@ -314,13 +329,23 @@ export default function findbusiness() {
                               </label>
                               <input
                                 type="text"
-                                className="form-control same-input" id="phone"
-                                {...register('phone', { onChange: (e) => setPhone(e.target.value), required: true })}
+                                className="form-control same-input" {...register("phone", {required: true,})}
+                                id="phone" name="phone" onChange={handleChange} maxLength={13}
                               />
                               <p>
                                 Please enter the number with respective country
                                 code.
                               </p>
+                              <div className="help-block with-errors" />
+                              {errors.gender &&
+                                errors.gender.type === "required" && (
+                                  <p
+                                    className="text-danger"
+                                    style={{ textAlign: "left" }}
+                                  >
+                                    *Please Select Your Gender.
+                                  </p>
+                                )}
                             </div>
                             <div className="col-sm-6 mt-4">
                               <label
@@ -331,18 +356,26 @@ export default function findbusiness() {
                                 <span className="text-mandatory">*</span>
                               </label>
                               <select
-                                className="form-select form-select-lg mb-3 css-1492t68"
-                                value={selectedCountry}
-                                onChange={handleCountryChange}
+                                className="form-select form-select-lg mb-3 css-1492t68" {...register("country", {required: true,})} name="country" onChange={handleChange} 
                                 aria-label="Default select example"
                               >
-                                <option selected>Please select</option>
-                                {countries.map((country) => (
-                                  <option key={country.id} value={country.id}>
-                                    {country.name}
-                                  </option>
-                                ))}
+                               <option selected disabled>--SELECT COUNTRY--</option>
+                                                    {
+                                                        countries.map((country, index) => (
+                                                            <option value={country.name}>{country.name}</option>
+                                                        ))
+                                                    }
                               </select>
+                              <div className="help-block with-errors" />
+                              {errors.country&&
+                                errors.country.type === "required" && (
+                                  <p
+                                    className="text-danger"
+                                    style={{ textAlign: "left" }}
+                                  >
+                                    *Please Select Country.
+                                  </p>
+                                )}
                             </div>
                             <div className="col-sm-6 mt-4">
                               <label
@@ -354,26 +387,30 @@ export default function findbusiness() {
                               </label>
                               <input
                                 type="text"
-                                className="form-control same-input"
-                                id="city"
-                                {...register("city", {
-                                  onChange: (e) => setCity(e.target.value),
-                                  required: true,
-                                })}
+                                className="form-control same-input" {...register("city", {required: true,})}
+                                id="city" name="city" onChange={handleChange}
                               />
+                               <div className="help-block with-errors" />
+                              {errors.city&&
+                                errors.city.type === "required" && (
+                                  <p
+                                    className="text-danger"
+                                    style={{ textAlign: "left" }}
+                                  >
+                                    *Please Enter Your City.
+                                  </p>
+                                )}
                             </div>
                           </div>
                           <div
                             className="banner-btn justify-content-between mt-5 mb-5"
                             style={{ textAlign: "right" }}
                           >
-                            <a
-                              href="#"
+                            <button type="submit"
                               className="default-btn"
-                              onClick={handleSubmit}
                             >
-                             NEXT
-                            </a>
+                              NEXT
+                            </button>
                           </div>
                         </div>
                       </div>

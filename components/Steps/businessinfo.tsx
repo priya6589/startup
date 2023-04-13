@@ -531,13 +531,12 @@ export default function businessinfo(props: any) {
                             >
                               Go back
                             </a>
-                            <a
-                              href="#"
+                            <button type="submit"
                               className="default-btn"
                               onClick={handleSubmit}
                             >
-                              Sign Up
-                            </a>
+                             NEXT
+                            </button>
                           </div>
                         </div>
                       </div>

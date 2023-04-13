@@ -16,7 +16,8 @@ export default function Login() {
     	e.preventDefault();
     	const logindata = {
     		email: email,
-    		password: password
+    		password: password,
+            rememberMe:rememberMe
     	}
     	login(logindata)
 	    .then(res => {
@@ -34,7 +35,7 @@ export default function Login() {
 			        if(window.localStorage.getItem("user_role") == 'admin'){
 		        		window.location.href = '/services';
 		        	} else {
-		        		window.location.href = '/';
+		        		window.location.href = '/steps/findbusiness';
 		        	}
 		      	} else {
 		      		toast.success(res.message, {
@@ -111,7 +112,7 @@ export default function Login() {
                                         </button>
                                     </div>
                                     <br />
-                                    <span>Don't have account? <a href="sign-up.html">Signup!</a></span>
+                                    <span>Don't have account? <a href="/signup">Signup!</a></span>
                                 </div>
                             </div>
                         </form>
