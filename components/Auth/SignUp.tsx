@@ -63,7 +63,7 @@ register('email', {
           });
           setTimeout(() => {
             router.push("/"); // Redirect to login page
-          }, 1000);
+          }, 5000);
         } else {
           toast.error(res.message, {
             position: toast.POSITION.TOP_RIGHT,

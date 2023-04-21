@@ -87,9 +87,7 @@ export default function customereview() {
 
   
   const SubmitForm = async () => {
-    // event.preventDefault();
-
-    try {
+     try {
       const res = await bankInformationSave(bankDetails);
       if (res.status == true) {
         toast.success("Profile has been Updated Successfully.", {
