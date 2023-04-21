@@ -42,7 +42,20 @@ export default function customereview() {
   } = useForm();
 
   const handleChange = (event) => {
-    const { name, value } = event.target;
+    let { name, value } = event.target;
+    if (name === 'pan_number') {
+      // Remove all non-digit characters from value
+      value = value.replace(/\D/g, '');
+      // Limit the length of value to 12 characters
+      value = value.substring(0, 12);
+    }
+    if (name === 'uid') {
+      // Remove all non-digit characters from value
+      value = value.replace(/\D/g, '');
+      // Limit the length of value to 12 characters
+      value = value.substring(0, 12);
+    }
+    
     setBasicDetails((prevState) => {
       return {
         ...prevState,
@@ -52,16 +65,6 @@ export default function customereview() {
       };
     });
   };
-  // useEffect(() => {
-  //   const current_user_data = getCurrentUserData();
-  //   if (current_user_data.id != null) {
-  //     current_user_data.id
-  //       ? setCurrentUserId(current_user_data.id)
-  //       : setCurrentUserId("");
-  //   } else {
-  //     window.location.href = "/login";
-  //   }
-  // }, []);
   useEffect(() => {
     const current_user_data = getCurrentUserData();
     if (current_user_data.id != null) {
@@ -73,7 +76,7 @@ export default function customereview() {
         .then((res) => {
           if (res.status == true) {
             setBasicDetails( res.data);
-            console.log(res.data);
+            // console.log(res.data);
           } else {
             toast.error(res.message, {
               position: toast.POSITION.TOP_RIGHT,
@@ -94,13 +97,13 @@ export default function customereview() {
     try {
       const res = await basicInformationSave(basicDetails);
       if (res.status == true) {
-        toast.success(res.message, {
-          position: toast.POSITION.TOP_RIGHT,
-          toastId: "success",
-        });
+        // toast.success(res.message, {
+        //   position: toast.POSITION.TOP_RIGHT,
+        //   toastId: "success",
+        // });
         setTimeout(() => {
           router.push("/steps/adharinformation");
-        }, 2000);
+        }, 1000);
       } else {
         toast.error(res.message, {
           position: toast.POSITION.TOP_RIGHT,
@@ -225,14 +228,14 @@ export default function customereview() {
                                 className="form-label"
                               >
                                 Pan Card Number{" "}
-                                <span className="text-mandatory">*</span>
+                                <span style={{ color: "red" }}>*</span>
                               </label>
                               <input
                                 type="text"
                                 className="form-control same-input"
                                 id="pan_number"
                                 {...register("pan_number", {
-                                  required: ! basicDetails
+                                   value:true,required: true,
                                 })}
                                 value={basicDetails.pan_number}
                                 name="pan_number"
@@ -246,7 +249,7 @@ export default function customereview() {
                                     className="text-danger"
                                      style={{ textAlign: "left", fontSize: "12px" }}
                                   >
-                                    *Please Enter Your Valid Pan Card Number.
+                                    *Please Enter Pan Card Number.
                                   </p>
                                 )}
                             </div>
@@ -257,14 +260,14 @@ export default function customereview() {
                                 className="form-label"
                               >
                                 Adhaar Card Number{" "}
-                                <span className="text-mandatory">*</span>
+                                <span style={{ color: "red" }}>*</span>
                               </label>
                               <input
                                 type="text"
                                 className="form-control same-input"
                                 id="uid"
                                 {...register("uid", {
-                                 required: ! basicDetails
+                                  value:true,required: true,
                                 })}
                                 value={basicDetails.uid}
                                 name="uid"
@@ -277,7 +280,7 @@ export default function customereview() {
                                   className="text-danger"
                                    style={{ textAlign: "left", fontSize: "12px" }}
                                 >
-                                  *Please Enter Your Valid Adhaar Card Number.
+                                  *Please Enter Adhaar Card Number.
                                 </p>
                               )}
                             </div>
@@ -286,14 +289,14 @@ export default function customereview() {
                                 htmlFor="exampleFormControlInput1"
                                 className="form-label"
                               >
-                                DOB <span className="text-mandatory">*</span>
+                                DOB  <span style={{ color: "red" }}>*</span>
                               </label>
                               <input
                                 type="date"
                                 className="form-control same-input"
                                 id="dob"
                                 {...register("dob", {
-                                 required: ! basicDetails
+                                  value:true,required: true,
                                 })}
                                 value={basicDetails.dob}
                                 name="dob"
@@ -306,7 +309,7 @@ export default function customereview() {
                                   className="text-danger"
                                    style={{ textAlign: "left", fontSize: "12px" }}
                                 >
-                                  *Please Enter Your Valid Date Of Birth.
+                                  *Please Enter Your Date Of Birth.
                                 </p>
                               )}
                             </div>
@@ -320,7 +323,7 @@ export default function customereview() {
                                   id="proof_img"
                                   type="file"
                                   {...register("proof_img", {
-                                   required: ! basicDetails
+                                    value:true,required: true,
                                   })}
                                   name="proof_img"
                                   onChange={handleChange}
@@ -336,7 +339,7 @@ export default function customereview() {
                                   <a href="#">Upload</a> <br />
                                   <p>
                                     You can upload any identity card's image
-                                    jpg,png,jpeg file only (max size 20 MB)
+                                    jpg,png,jpeg file only (max size 20 MB) <span style={{ color: "red" }}>*</span>
                                   </p>
                                 </label>
                                 <div className="help-block with-errors" />
@@ -346,7 +349,7 @@ export default function customereview() {
                                       className="text-danger"
                                        style={{ textAlign: "left", fontSize: "12px" }}
                                     >
-                                      *Please Enter Your Valid Date Of Birth.
+                                      *Please upload Your Proof.
                                     </p>
                                   )}
                               </div>

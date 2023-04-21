@@ -3,8 +3,8 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import router from "next/router";
 import { useForm } from "react-hook-form";
-import {getSingleUserData,getCountries,personalInformationSave} from "../../lib/frontendapi";
-import { removeToken,removeStorageData,getCurrentUserData} from "../../lib/session";
+import { getSingleUserData, getCountries, personalInformationSave } from "../../lib/frontendapi";
+import { removeToken, removeStorageData, getCurrentUserData } from "../../lib/session";
 import { log } from "console";
 
 const alertStyle = {
@@ -43,7 +43,13 @@ export default function findbusiness() {
   } = useForm();
 
   const handleChange = (event) => {
-    const { name, value } = event.target;
+    let { name, value } = event.target;
+    if (name === 'phone') {
+      // Remove all non-digit characters from value
+      value = value.replace(/\D/g, '');
+      // Limit the length of value to 12 characters
+      value = value.substring(0, 12);
+    }
     setUser((prevState) => {
       return {
         ...prevState,
@@ -52,6 +58,7 @@ export default function findbusiness() {
       };
     });
   };
+
   useEffect(() => {
     const current_user_data = getCurrentUserData();
     if (current_user_data.id != null) {
@@ -63,7 +70,7 @@ export default function findbusiness() {
         .then((res) => {
           if (res.status == true) {
             setUser(res.data);
-            console.log(setUser);
+            // console.log(setUser);
           } else {
             toast.error(res.message, {
               position: toast.POSITION.TOP_RIGHT,
@@ -95,10 +102,6 @@ export default function findbusiness() {
     try {
       const res = await personalInformationSave(user);
       if (res.status == true) {
-        // toast.success(res.message, {
-        //   position: toast.POSITION.TOP_RIGHT,
-        //   toastId: "success",
-        // });
         setTimeout(() => {
           router.push("/steps/businessinfo");
         }, 1000);
@@ -242,13 +245,14 @@ export default function findbusiness() {
                                 className="form-label"
                               >
                                 Email ID{" "}
-                            <span style={{ color: "red" }}>*</span>
+                                <span style={{ color: "red" }}>*</span>
                               </label>
                               <input
-                                type="text"
+                                type="email"
                                 className="form-control same-input"
                                 {...register("email", {
-                                  required: !user,
+                                  value: true,
+                                  required: true,
                                 })}
                                 id="email"
                                 name="email"
@@ -256,16 +260,6 @@ export default function findbusiness() {
                                 value={user.email ? user.email : ""}
                                 readOnly
                               />
-                              <div className="help-block with-errors" />
-                              {/* {errors.email &&
-                                errors.email.type === "required" && (
-                                  <p
-                                    className="text-danger"
-                                    style={{ textAlign: "left", fontSize: "12px" }}
-                                  >
-                                    *Please Enter Your Valid Email.
-                                  </p>
-                                )} */}
                             </div>
                             <div className="col-md-6 mt-3">
                               <label
@@ -273,13 +267,18 @@ export default function findbusiness() {
                                 className="form-label"
                               >
                                 Linkedin URL{" "}
-                            <span style={{ color: "red" }}>*</span>
+                                <span style={{ color: "red" }}>*</span>
                               </label>
                               <input
                                 type="text"
                                 className="form-control same-input"
                                 {...register("linkedin_url", {
-                                  required: !user,
+                                  value: true,
+                                  required: true,
+                                  // pattern: {
+                                  //   value: /^((http|https):\/\/)?(www\.)?linkedin\.com\/?$/,
+                                  //   message: "Please Enter a Valid LinkedIn url",
+                                  // },
                                 })}
                                 id="linkedin_url"
                                 name="linkedin_url"
@@ -293,9 +292,14 @@ export default function findbusiness() {
                                     className="text-danger"
                                     style={{ textAlign: "left", fontSize: "12px" }}
                                   >
-                                    *Please Enter Your Valid Linkedin Url.
+                                    *Please Enter Your Linkedin url.
                                   </p>
                                 )}
+                              {/* {errors.linkedin_url && errors.linkedin_url.type === "pattern" && (
+                                <p className="text-danger" style={{ textAlign: "left", fontSize: "12px" }}>
+                                  *{errors.linkedin_url.message}
+                                </p>
+                              )} */}
                             </div>
 
                             <div className="col-md-6 mt-3">
@@ -304,28 +308,45 @@ export default function findbusiness() {
                                 className="form-label"
                               >
                                 Phone number{" "}
-                            <span style={{ color: "red" }}>*</span>
+                                <span style={{ color: "red" }}>*</span>
                               </label>
                               <input
                                 type="text"
                                 className="form-control same-input"
-                                {...register("phone", { required: !user })}
+                                {...register("phone", {
+                                  value: true,
+                                  required: true,
+                                  minLength: {
+                                    value: 12,
+                                    message: 'Please Enter a Valid Phone Number',
+                                  },
+                                  pattern: {
+                                    value: /^[0-9]*$/,
+                                    message: "Please Enter a Valid Phone Number",
+                                  },
+                                })}
                                 id="phone"
                                 name="phone"
                                 onChange={handleChange}
-                                maxLength={13}
+                                maxLength={12}
                                 value={user.phone}
                               />
                               <div className="help-block with-errors" />
-                              {errors.phone &&
-                                errors.phone.type === "required" && (
-                                  <p
-                                    className="text-danger"
-                                    style={{ textAlign: "left", fontSize: "12px" }}
-                                  >
-                                    *Please Your Phone Number.
-                                  </p>
-                                )}
+                              {errors.phone && errors.phone.type === "required" && (
+                                <p
+                                  className="text-danger"
+                                  style={{ textAlign: "left", fontSize: "12px" }}
+                                >
+                                  *Please Enter Your Phone Number.
+                                </p>
+                              )}
+                              {errors.phone && errors.phone.type === "minLength" && (
+                                <p className="text-danger" style={{ textAlign: "left", fontSize: "12px" }}>
+                                  *{errors.phone.message}
+                                </p>
+                              )}
+
+
                             </div>
 
                             <div className="col-sm-6 mt-3">
@@ -334,16 +355,19 @@ export default function findbusiness() {
                                 className="form-label mb-4"
                               >
                                 Country of Citizenship{" "}
-                            <span style={{ color: "red" }}>*</span>
+                                <span style={{ color: "red" }}>*</span>
                               </label>
                               <select
                                 className="form-select form-select-lg mb-3 css-1492t68"
-                                {...register("country", { required: !user })}
+                                {...register("country", {
+                                  validate: (value) => value != "",
+                                  required: true,
+                                })}
                                 name="country"
                                 onChange={handleChange}
                                 aria-label="Default select example"
                               >
-                                <option selected disabled>
+                                <option value="">
                                   --SELECT COUNTRY--
                                 </option>
                                 {countries.map((country, index) => (
@@ -363,14 +387,13 @@ export default function findbusiness() {
                               </select>
                               <div className="help-block with-errors" />
                               {errors.country &&
-                                errors.country.type === "required" && (
-                                  <p
-                                    className="text-danger"
-                                    style={{ textAlign: "left", fontSize: "12px" }}
-                                  >
+                                errors.country.type === "required" &&
+                                !user.country && (
+                                  <p className="text-danger" style={{ textAlign: "left", fontSize: "12px" }}>
                                     *Please Select Country.
                                   </p>
                                 )}
+
                             </div>
 
                             <div className="col-md-6 mt-3">
@@ -379,12 +402,15 @@ export default function findbusiness() {
                                 className="form-label"
                               >
                                 Which city do you live in?{" "}
-                            <span style={{ color: "red" }}>*</span>
+                                <span style={{ color: "red" }}>*</span>
                               </label>
                               <input
                                 type="text"
                                 className="form-control same-input"
-                                {...register("city", { required: !user })}
+                                {...register("city", {
+                                  value: true,
+                                  required: true,
+                                })}
                                 id="city"
                                 name="city"
                                 onChange={handleChange}
@@ -395,7 +421,7 @@ export default function findbusiness() {
                                 errors.city.type === "required" && (
                                   <p
                                     className="text-danger"
-                                     style={{ textAlign: "left", fontSize: "12px" }}
+                                    style={{ textAlign: "left", fontSize: "12px" }}
                                   >
                                     *Please Enter Your City.
                                   </p>
@@ -411,23 +437,26 @@ export default function findbusiness() {
 
                               <select
                                 className="form-select form-select-lg mb-3 css-1492t68"
-                                {...register("gender", { required: !user })}
+                                {...register("gender", {
+                                  validate: (value) => value != "",
+                                  required: true,
+                                })}
                                 name="gender"
                                 onChange={handleChange}
                                 aria-label="Default select example"
                                 value={user ? user.gender : ""}
                               >
-                                <option>--SELECT GENDER--</option>
+                                <option value="">--SELECT GENDER--</option>
                                 <option value="male">Male</option>
                                 <option value="female">Female</option>
                                 <option value="other">Other</option>
                               </select>
                               <div className="help-block with-errors" />
-                              {errors.gender &&
-                                errors.gender.type === "required" && (
+                              {errors.gender && errors.gender.type === "required" &&
+                                !user.gender && (
                                   <p
                                     className="text-danger"
-                                     style={{ textAlign: "left", fontSize: "12px" }}
+                                    style={{ textAlign: "left", fontSize: "12px" }}
                                   >
                                     *Please Select Gender.
                                   </p>
@@ -463,7 +492,7 @@ export default function findbusiness() {
             </div>
           </div>
         </div>
-        <ToastContainer autoClose={1000} />
+        <ToastContainer autoClose={5000} />
       </div>
     </>
   );

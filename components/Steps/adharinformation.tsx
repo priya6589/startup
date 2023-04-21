@@ -42,7 +42,11 @@ export default function customereview() {
   } = useForm();
   
   const handleChange = (event) => {
-    const { name, value } = event.target;
+    let { name, value } = event.target;
+    if (name === ' account_no') {
+      value = value.replace(/\D/g, '');
+      value = value.substring(0, 12);
+    }
     setBankDetails((prevState) => {
       return {
         ...prevState,
@@ -88,10 +92,10 @@ export default function customereview() {
     try {
       const res = await bankInformationSave(bankDetails);
       if (res.status == true) {
-        // toast.success("Profile has been Updated Successfully.", {
-        //   position: toast.POSITION.TOP_RIGHT,
-        //   toastId: "success",
-        // });
+        toast.success("Profile has been Updated Successfully.", {
+          position: toast.POSITION.TOP_RIGHT,
+          toastId: "success",
+        });
         setTimeout(() => {
           router.push("/");
         }, 1000);
@@ -224,7 +228,7 @@ export default function customereview() {
                                 type="text"
                                 className="form-control same-input" 
                                 id="bank_name" {...register("bank_name", {
-                                  required: ! bankDetails
+                                 value:true, required: true,
                                 })} name="bank_name"  onChange={handleChange}  value={bankDetails.bank_name}
                               />
                               {errors.bank_name &&
@@ -249,7 +253,7 @@ export default function customereview() {
                                 type="text"
                                 className="form-control same-input"
                                 id="account_holder" {...register("account_holder", {
-                                  required: ! bankDetails
+                                 value:true, required: true,
                                 })}   value={bankDetails.account_holder}  name="account_holder" onChange={handleChange}  
                               />
                               {errors.account_holder &&
@@ -272,9 +276,9 @@ export default function customereview() {
                               </label>
                               <input
                                 type="text"
-                                className="form-control same-input"
+                                className="form-control same-input" maxLength={17}
                                 id="account_no" {...register("account_no", {
-                                  required: ! bankDetails
+                                 value:true, required: true,
                                 })}   value={bankDetails.account_no}  name="account_no" onChange={handleChange}  
                               />
                                {errors.account_no &&
@@ -299,7 +303,7 @@ export default function customereview() {
                                 type="text"
                                 className="form-control same-input"
                                 id="ifsc_code" {...register("ifsc_code", {
-                                  required: ! bankDetails
+                                 value:true, required: true,
                                 })}   value={bankDetails.ifsc_code}  name="ifsc_code" onChange={handleChange}
                               />
                                {errors.ifsc_code &&

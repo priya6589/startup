@@ -31,6 +31,14 @@ register('password', {
       message: 'Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character',
     },
 });
+register('email', {
+  required: 'Email is required',
+    pattern: {
+      value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+      message: 'Enter a valid email',
+    },
+});
+
   const SubmitForm = () => {
     const user = {
       firstname: firstname,
@@ -39,7 +47,12 @@ register('password', {
       password: password,
       role: role,
     };
-
+      // Validate email format
+      // const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      // if (emailRegex.test(user.email)) {
+      //   // Email is not valid, set the value to empty string
+      //   alert("error");
+      // }
     userRegister(user)
       .then((res) => {
         //   console.log(res);
@@ -50,7 +63,7 @@ register('password', {
           });
           setTimeout(() => {
             router.push("/"); // Redirect to login page
-          }, 2000);
+          }, 1000);
         } else {
           toast.error(res.message, {
             position: toast.POSITION.TOP_RIGHT,
@@ -159,18 +172,17 @@ register('password', {
                           className="form-control"
                           {...register("email", {
                             onChange: (e) => setEmail(e.target.value),
-                            required: true,
                           })}
                         />
                         <div className="help-block with-errors" />
-                        {errors.email && errors.email.type === "required" && (
-                          <p
-                            className="text-danger"
-                            style={{ textAlign: "left", fontSize: "12px" }}
-                          >
-                            *Please Enter Your Email.
-                          </p>
-                        )}
+                        {errors.email && (
+                            <p
+                              className="text-danger"
+                              style={{ textAlign: "left", fontSize: "12px" }}
+                            >
+                            *{errors.email.message}
+                            </p>
+                          )}
                       </div>
 
                       <div className="form-group col-md-6">

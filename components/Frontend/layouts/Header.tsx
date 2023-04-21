@@ -234,27 +234,27 @@ export default function HeaderFrontend() {
                       <div className="form-group">
                         <input type="text" id="name" className="form-control" required data-error="Please enter your name" placeholder="Your Name"  value={name} {...register('name', { onChange: (e) => setName(e.target.value), required: true })} />
 
-                        <div className="help-block with-errors" />
+                        <div className="help-block with-errors" style={{fontSize:"12px"}} />
                       </div>
                     </div>
                     <div className="col-lg-12 col-md-12">
                       <div className="form-group">
                         <input type="email" id="email" className="form-control" required data-error="Please enter your email" placeholder="Your Email" value={email}  {...register('email', { onChange: (e) => setEmail(e.target.value), required: true })}/>
-                        <div className="help-block with-errors" />
+                        <div className="help-block with-errors" style={{fontSize:"12px"}} />
                       </div>
                     </div>
                    
                     <div className="col-lg-12 col-md-12">
                       <div className="form-group">
                         <input type="text" id="subject" className="form-control" required data-error="Please enter your subject" placeholder="Your Subject" value={subject} {...register('subject', { onChange: (e) => setSubject(e.target.value), required: true })}/>
-                        <div className="help-block with-errors" />
+                        <div className="help-block with-errors" style={{fontSize:"12px"}}  />
                       </div>
                     </div>
 
                     <div className="col-lg-12 col-md-12">
                       <div className="form-group">
                         <textarea  className="form-control" id="message" cols={30} rows={6} required data-error="Write your message" placeholder="Your Message" defaultValue={""}  value={message} {...register('message', { onChange: (e) => setMessage(e.target.value), required: true })} />
-                        <div className="help-block with-errors" />
+                        <div className="help-block with-errors" style={{fontSize:"12px"}} />
                       </div>
                     </div>
                     <div className="col-lg-12 col-md-12">
