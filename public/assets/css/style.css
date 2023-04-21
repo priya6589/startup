@@ -125,7 +125,7 @@ h6:last-child {
 .default-btn {
     display: inline-block;
     padding: 14px 35px;
-    background-color: #086AD8;
+    background-color: #10dce8;
     color: #ffffff;
     font-size: 16px;
     font-weight: 500;
@@ -1563,7 +1563,7 @@ Services Area CSS
 }
 
 .single-services {
-    text-align: center;
+    text-align: left;
     height: 100%;
     margin-bottom: 30px;
     background-color: #ffffff;
@@ -1661,6 +1661,7 @@ Services Area CSS
     margin-bottom: 0;
     -webkit-transition: 0.5s;
     transition: 0.5s;
+    padding-bottom: 30px;
 }
 
 .single-services .read-btn {
@@ -2462,7 +2463,7 @@ Projects Area CSS
 
 .single-projects {
     position: relative;
-    margin-bottom: 30px;
+    margin-bottom: 22px;
     text-align: center;
 }
 
@@ -5555,7 +5556,7 @@ Contact Area CSS
 }
 
 .contact-form form .form-control {
-    height: 55px;
+    height: 35px;
     padding: 0 15px;
     line-height: initial;
     color: #212121;
@@ -5892,26 +5893,28 @@ Page Title Area CSS
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
-    height: 400px;
+    height: 100px;
     background-attachment: fixed;
 }
 
 .page-title-area.item-bg-1 {
-    background-image: url(../../assets/img/page-title/bg.jpg);
+    background-image: url(https://static.vecteezy.com/system/resources/thumbnails/001/630/661/small/abstract-blue-geometric-background-free-vector.jpg);
 }
 
 .page-title-area.item-bg-2 {
-    background-image: url(../../assets/img/page-title/bg-2.jpg);
+    background-image: url(https://cdn1.vectorstock.com/i/1000x1000/32/90/blue-green-geometric-background-vector-21563290.jpg);
 }
 
 .page-title-area.item-bg-4 {
-    background-image: url(../../assets/img/page-title/bg-4.jpg);
+    background-image: url(../../assets/img/page-title/bg-4.https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAnYHNcusbD77QugMxYenh3s0gzQV8I5OBYw&usqp=CAU);
 }
 
 .page-title-area.item-bg-5 {
-    background-image: url(../../assets/img/page-title/bg-5.jpg);
+    background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQv17qno_XcpDxXdTm98GL1boKbX2rj2LBu0w&usqp=CAU);
 }
 
+
+/* 
 .page-title-area::before {
     content: '';
     position: absolute;
@@ -5922,7 +5925,7 @@ Page Title Area CSS
     height: 100%;
     background: #000000;
     opacity: .77;
-}
+} */
 
 .page-title-content {
     text-align: center;
@@ -5933,7 +5936,7 @@ Page Title Area CSS
     margin-bottom: 0;
     color: #ffffff;
     font-family: "Open Sans", sans-serif;
-    font-size: 50px;
+    font-size: 27px;
 }
 
 .page-title-content ul {
@@ -6031,6 +6034,7 @@ Login In CSS
     border-radius: 5px;
     max-width: 600px;
     margin: auto;
+    margin-top: -58px;
 }
 
 .login-form .login-title {
@@ -6128,7 +6132,7 @@ Login In CSS
 }
 
 .login-form form span a {
-    color: #086AD8;
+    color: #23cdff;
 }
 
 .login-form .forgot-password {
@@ -6262,13 +6266,14 @@ Sign Up CSS
 =================================================*/
 
 .error-area {
-    height: 100vh;
+    height: unset;
+    padding-bottom: 40px;
 }
 
 .error-content {
     text-align: center;
     margin: 0 auto;
-    max-width: 700px;
+    max-width: 500px;
 }
 
 .error-content h3 {
@@ -8145,8 +8150,33 @@ Buy Now Btn
     transform: translateY(-50%);
 }
 
+.flaticon-checked {
+    font-size: 48px;
+    color: #82b440;
+    margin-left: -37px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    border: 2px #82b440;
+    font-size: 50px;
+    height: 64px;
+    line-height: 64px;
+    position: relative;
+    width: 64px;
+    z-index: 1;
+}
+
+#back {
+    padding: 10px 50px;
+    display: inline-block;
+    background: #23cdff;
+    color: #fff;
+    border: none;
+    font-weight: 800;
+    font-size: 18px;
+}
+
 .buy-now-btn:hover {
-    background-color: #086AD8;
+    background-color: #23cdff;
     color: #ffffff !important;
 }
 
@@ -8382,9 +8412,9 @@ ul.footer-quick-links li a {
 }
 
 .step-indicator .step {
-    background-color: #f1f1f5;
+    background-color: #ffffff;
     border-radius: 50%;
-    border: 1px solid #ccc;
+    border: 2px solid black;
     color: #ccc;
     font-size: 14px;
     height: 64px;
@@ -8393,6 +8423,11 @@ ul.footer-quick-links li a {
     position: relative;
     width: 64px;
     z-index: 1;
+}
+
+img .sidebar-img {
+    max-width: 50%;
+    height: auto;
 }
 
 .step-indicator .step:hover {

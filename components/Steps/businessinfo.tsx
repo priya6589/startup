@@ -3,8 +3,12 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useRouter } from "next/router";
 import { useForm } from "react-hook-form";
-import { businessInfoSave } from "../../lib/frontendapi";
-import {removeToken,removeStorageData,getCurrentUserData,} from "../../lib/session";
+import { businessInfoSave, getBusinessInformation } from "../../lib/frontendapi";
+import {
+  removeToken,
+  removeStorageData,
+  getCurrentUserData,
+} from "../../lib/session";
 
 const alertStyle = {
   color: "red",
@@ -26,73 +30,89 @@ export default function businessinfo(props: any) {
 
   const [current_user_id, setCurrentUserId] = useState(false);
   const [business_name, setBusinessName] = useState("");
-  const [reg_businessname,setReg_businessname]=useState("");
-  const [website_url,setWebsite_url] =useState("");
-  const [sector,setSector]=useState("");
-  const [stage,setStage]=useState("");
-  const [department,setDepartment]=useState("");
-  const [startup_date,setStartup_date] =useState("");
-  const [tagline,setTagline]=useState("");
-  const [logo,setLogo]=useState("");
-  const [description,setDescription]=useState("");
-  const [primary_residence,setPrimary_residence]=useState("");
-  const [prev_experience,setPrev_experience]=useState("0");
-  const [experience,setExperience]=useState("0");
-  const [cofounder,setCofounder]=useState("0");
-  const [none_select,setNoneSelect]=useState("0");
-  const [kyc_purposes,setKyc_purposes]=useState("0");
 
   const [business_address, setBusinessAddress] = useState("");
   const [numberOfLocations, setNumberOfLocations] = useState("");
   const [signup_success, setSignupSuccess] = useState(false);
   const [disableBaddr, setDisableBaddr] = useState(false);
   const [disableBemail, setDisableBemail] = useState(false);
-  const {register,formState: { errors },} = useForm();
-  const handleSubmit = async(event: any) => {
-    event.preventDefault();
-    savedata();
 
-    const businessData={
-        business_name:business_name,
-        reg_businessname:reg_businessname,
-        website_url:website_url,
-        sector:sector,
-        stage:stage,
-        department:department,
-        startup_date:startup_date,
-        logo:logo,
-        description:description,
-        primary_residence:primary_residence,
-        prev_experience:prev_experience,
-        experience:experience,
-        cofounder:cofounder,
-        none_select:none_select,
-        kyc_purposes:kyc_purposes,
-        id : current_user_id
-    }
+  const {register,handleSubmit,formState: { errors },} = useForm();
+  const [businessDetails, setBusinessDetails] = useState({
+      user_id: current_user_id,
+      //  id:"",
+      business_name: "",
+      reg_businessname: "",
+      website_url: "",
+      sector: "",
+      stage: "",
+      startup_date: "",
+      tagline: "",
+      logo: "",
+      description: "",
+      cofounder: "0",
+      kyc_purposes: "0",
+  });
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setBusinessDetails((prevState) => {
+      return {
+        ...prevState,
+        [name]: value,
+        user_id: current_user_id,
+      };
+    });
+  };
+ useEffect(() => {
+  const current_user_data = getCurrentUserData();
+  if (current_user_data.id) {
+    setCurrentUserId(current_user_data.id);
 
-    try {
-        const res = await businessInfoSave(businessData);
-        if (res.status == true) {
-          toast.success("Business Details saved successfully", {
-            position: toast.POSITION.TOP_RIGHT,
-            toastId: "success",
-          });
-          setTimeout(() => {
-            router.push("/steps/businessinfo");
-          }, 2000);
+    getBusinessInformation(current_user_data.id)
+      .then((res) => {
+        if (res.status === true) {
+          setBusinessDetails(res.data);
         } else {
-          toast.error("Business Details has not been saved successfully", {
+          toast.error(res.message, {
             position: toast.POSITION.TOP_RIGHT,
-            toastId: "error",
           });
         }
-      } catch (err) {
+      })
+      .catch((err) => {
+        toast.error(err.message, {
+          position: toast.POSITION.BOTTOM_RIGHT,
+        });
+      });
+  } else {
+    window.location.href = "/login";
+  }
+}, []);
+
+  const SubmitForm = async () => {
+    // event.preventDefault();
+    savedata();
+    try {
+      const res = await businessInfoSave(businessDetails);
+      if (res.status == true) {
+        // toast.success("Business Details saved successfully", {
+        //   position: toast.POSITION.TOP_RIGHT,
+        //   toastId: "success",
+        // });
+        setTimeout(() => {
+          router.push("/steps/customizereview");
+        }, 1000);
+      } else {
         toast.error("Business Details has not been saved successfully", {
           position: toast.POSITION.TOP_RIGHT,
           toastId: "error",
         });
       }
+    } catch (err) {
+      toast.error("Business Details has not been saved successfully", {
+        position: toast.POSITION.TOP_RIGHT,
+        toastId: "error",
+      });
+    }
   };
 
   const savedata = () => {
@@ -110,17 +130,6 @@ export default function businessinfo(props: any) {
     };
     setSignupSuccess(true);
   };
-
-  useEffect(() => {
-
-    const current_user_data = getCurrentUserData();
-    if(current_user_data.id != null){
-      current_user_data.id ? setCurrentUserId(current_user_data.id ) : setCurrentUserId('');
-    }else {
-
-      window.location.href = '/login';
-    }
-}, []);
   if (signup_success) return router.push("/steps/customizereview");
   return (
     <>
@@ -130,11 +139,6 @@ export default function businessinfo(props: any) {
             <div className="container">
               <div className="page-title-content">
                 <h2>Complete Account Details</h2>
-                <ul>
-                  <li>
-                    <a href="/">Home</a>
-                  </li>
-                </ul>
               </div>
             </div>
           </div>
@@ -150,10 +154,13 @@ export default function businessinfo(props: any) {
                 </div>
                 <div className="step_border">
                   <div className="step_complete">
-                    <i className="fa fa-check-circle" aria-hidden="true"></i>
+                    <i className="flaticon-checked" aria-hidden="true"></i>
                   </div>
                 </div>
-                <div className="caption hidden-xs hidden-sm">
+                <div
+                  className="caption hidden-xs hidden-sm"
+                  style={{ color: "#82b440" }}
+                >
                   <span>PERSONAL INFORMATION</span>
                 </div>
               </li>
@@ -163,7 +170,10 @@ export default function businessinfo(props: any) {
                 </div>
                 <div className="step_border">
                   <div className="step">
-                    <i className="fa fa-circle"></i>
+                    <img
+                      className="sidebar-img w-75"
+                      src="/assets/img/sidebar/business.png"
+                    />
                   </div>
                 </div>
                 <div className="caption hidden-xs hidden-sm">
@@ -176,11 +186,14 @@ export default function businessinfo(props: any) {
                 </div>
                 <div className="step_border">
                   <div className="step">
-                    <i className="fa fa-circle"></i>
+                    <img
+                      className="sidebar-img w-75"
+                      src="/assets/img/sidebar/docs.png"
+                    />
                   </div>
                 </div>
                 <div className="caption hidden-xs hidden-sm">
-                  <span>CONTACT INFORMATION</span>
+                  <span>BASIC INFORMATION</span>
                 </div>
               </li>
               <li className="">
@@ -189,11 +202,14 @@ export default function businessinfo(props: any) {
                 </div>
                 <div className="step_border">
                   <div className="step">
-                    <i className="fa fa-circle"></i>
+                    <img
+                      className="sidebar-img w-75"
+                      src="/assets/img/sidebar/bank.png"
+                    />
                   </div>
                 </div>
                 <div className="caption hidden-xs hidden-sm">
-                  <span>KYC INFORMATION</span>
+                  <span>BANK INFORMATION</span>
                 </div>
               </li>
             </ol>
@@ -202,7 +218,7 @@ export default function businessinfo(props: any) {
                 {/*<h4 className="text-center mt-5">Find your business</h4>*/}
                 <div className="row step_one">
                   <div className="col-md-12">
-                    <form className="needs-validation mb-4">
+                    <form className="needs-validation mb-4"  onSubmit={handleSubmit(SubmitForm)}>
                       <h4 className="black_bk_col fontweight500 font_20 mb-4 text-center">
                         {" "}
                         Business Information{" "}
@@ -224,15 +240,15 @@ export default function businessinfo(props: any) {
                                 className="form-label"
                               >
                                 Name of Startup{" "}
-                                <span className="text-mandatory">*</span>
+                                <span style={{ color: "red" }}>*</span>
                               </label>
                               <input
                                 type="text"
-                                className="form-control same-input" id="business_name"
+                                className="form-control same-input"
+                                id="business_name"
                                 {...register("business_name", {
-                                    onChange: (e) => setBusinessName(e.target.value),
-                                    required: true,
-                                  })}
+                                  required: ! businessDetails,
+                                })}  name="business_name"  onChange={handleChange} value={businessDetails.business_name}
                               />
                             </div>
                             <div className="col-md-6 mt-3">
@@ -241,15 +257,14 @@ export default function businessinfo(props: any) {
                                 className="form-label"
                               >
                                 Registered name of Startup
-                                <span className="text-mandatory">*</span>
+                                <span style={{ color: "red" }}>*</span>
                               </label>
                               <input
                                 type="text"
-                                className="form-control same-input" id="reg_businessname"
-                                {...register("reg_businessname", {
-                                    onChange: (e) => setReg_businessname(e.target.value),
-                                    required: true,
-                                  })}
+                                className="form-control same-input"
+                                id="reg_businessname"
+                                {...register("reg_businessname", {required: ! businessDetails,})} 
+                                name="reg_businessname"  onChange={handleChange} value={businessDetails.reg_businessname}
                               />
                             </div>
                             <div className="col-md-6 mt-3">
@@ -258,15 +273,14 @@ export default function businessinfo(props: any) {
                                 className="form-label"
                               >
                                 Website URL
-                                <span className="text-mandatory">*</span>
+                                <span style={{ color: "red" }}>*</span>
                               </label>
                               <input
                                 type="text"
-                                className="form-control same-input" id="website_url"
-                                {...register("website_url", {
-                                    onChange: (e) => setWebsite_url(e.target.value),
-                                    required: true,
-                                  })}
+                                className="form-control same-input"
+                                id="website_url"
+                                {...register("website_url", {required: ! businessDetails,})}   
+                                name="website_url"  onChange={handleChange} value={businessDetails.website_url}
                               />
                             </div>
                             <div className="col-md-6 mt-3">
@@ -275,20 +289,20 @@ export default function businessinfo(props: any) {
                                 className="form-label mb-4"
                               >
                                 Sector of Startup
-                                <span className="text-mandatory">*</span>
+                                <span style={{ color: "red" }}>*</span>
                               </label>
                               <select
                                 className="form-select form-select-lg mb-3 css-1492t68"
                                 aria-label="Default select example"
-                                {...register("sector", {
-                                    onChange: (e) => setSector(e.target.value),
-                                    required: true,
-                                  })}
+                                {...register("sector", {required: ! businessDetails,})} 
+                                name="sector"  onChange={handleChange}   value={businessDetails ? businessDetails.sector : ""}
                               >
                                 <option selected>--SELECT SECTOR--</option>
-                                <option value="One Sector">One Sector</option>
-                                <option value="Two Sector">Two Sector</option>
-                                <option value="Three Sector">Three Sector</option>
+                                <option value="App Development">App Development</option>
+                                <option value="IT/Technologies">IT/Technologies</option>
+                                <option value="AI">AI</option>
+                                <option value="Web Development">Web Development</option>
+                                <option value="Agriculture">Agriculture</option>
                               </select>
                             </div>
                             <div className="col-md-6 mt-3">
@@ -297,15 +311,13 @@ export default function businessinfo(props: any) {
                                 className="form-label mb-4"
                               >
                                 Stage of Startup
-                                <span className="text-mandatory">*</span>
+                                <span style={{ color: "red" }}>*</span>
                               </label>
                               <select
                                 className="form-select form-select-lg mb-3 css-1492t68"
                                 aria-label="Default select example"
-                                {...register("stage", {
-                                    onChange: (e) => setStage(e.target.value),
-                                    required: true,
-                                  })}
+                                {...register("stage", {required: ! businessDetails,})}
+                                name="stage"  onChange={handleChange}  value={businessDetails ? businessDetails.stage : ""}
                               >
                                 <option selected>--SELECT STAGE--</option>
                                 <option value="Idea Stage">Idea Stage</option>
@@ -313,97 +325,81 @@ export default function businessinfo(props: any) {
                                 <option value="Final Stage">Final Stage</option>
                               </select>
                             </div>
-                            <div className="col-sm-6 mt-3">
+                            {/* <div className="col-sm-6 mt-3">
                               <label
                                 htmlFor="exampleFormControlInput1"
                                 className="form-label mb-4"
                               >
                                 Which of these best describes you?{" "}
-                                <span className="text-mandatory">*</span>
+                                <span style={{ color: "red" }}>*</span>
                               </label>
                               <select
                                 className="form-select form-select-lg css-1492t68"
                                 aria-label=".form-select-lg example"
-                                {...register("department", {
-                                    onChange: (e) => setDepartment(e.target.value),
-                                    required: true,
-                                  })}
+                                {...register("department", {required: ! businessDetails,})}
+                                name="stage"  onChange={handleChange}
                               >
                                 <option selected>--SELECT DEPARTMENT--</option>
-                                <option value="App Development">App Development</option>
-                                <option value="IT/Technologies">IT/Technologies</option>
+                                <option value="App Development">
+                                  App Development
+                                </option>
+                                <option value="IT/Technologies">
+                                  IT/Technologies
+                                </option>
                                 <option value="AI">AI</option>
-                                <option value="Web Development">Web Development</option>
+                                <option value="Web Development">
+                                  Web Development
+                                </option>
                               </select>
-                            </div>
+                            </div> */}
                             <div className="col-md-6 mt-3">
                               <label
                                 htmlFor="startup_date"
                                 className="form-label"
                               >
                                 Month & year of inception
-                                <span className="text-mandatory">*</span>
+                                <span style={{ color: "red" }}>*</span>
                               </label>
                               <input
-                                type="text"
-                                className="form-control same-input" id="startup_date"
-                                {...register("startup_date", {
-                                    onChange: (e) => setStartup_date(e.target.value),
-                                    required: true,
-                                  })}
+                                type="date"
+                                className="form-control same-input"
+                                id="startup_date"
+                                {...register("startup_date", {required: ! businessDetails,})}
+                                name="startup_date"  onChange={handleChange} value={businessDetails.startup_date}
                               />
                             </div>
                             <div className="col-md-6 mt-3">
-                              <label
-                                htmlFor="tagline"
-                                className="form-label"
-                              >
-                               Tagline
-                                <span className="text-mandatory">*</span>
+                              <label htmlFor="tagline" className="form-label">
+                                Tagline
+                                <span style={{ color: "red" }}>*</span>
                               </label>
                               <input
                                 type="text"
-                                className="form-control same-input" id="tagline"
-                                {...register("tagline", {
-                                    onChange: (e) => setTagline(e.target.value),
-                                    required: true,
-                                  })}
-                              />
-                            </div>
-                          
-                            <div className="col-sm-6 mt-4">
-                              <label
-                                htmlFor="description"
-                                className="form-label"
-                              >
-                                100 characters to tell us what you are building
-                                <span className="text-mandatory">*</span>
-                              </label>
-                              <textarea
-                                rows={4}
-                                maxLength={100}
-                                placeholder="Enter details here"
                                 className="form-control same-input"
-                                {...register("description", {
-                                    onChange: (e) => setDescription(e.target.value),
-                                    required: true,
-                                  })}
+                                id="tagline"
+                                {...register("tagline", {required: ! businessDetails,})}
+                                name="tagline"  onChange={handleChange} value={businessDetails.tagline}
                               />
                             </div>
 
-                            <div className="col-md-6 mt-5">
+                            <div className="col-md-6 mt-3">
                               <div
                                 id="divHabilitSelectors"
                                 className="input-file-container"
                               >
+                                <label
+                                  htmlFor="logo"
+                                  className="form-label"
+                                >
+                                  Startup Logo
+                                  <span style={{ color: "red" }}>*</span>
+                                </label>
                                 <input
                                   className="input-file"
                                   id="logo"
                                   type="file"
-                                  {...register("logo", {
-                                    onChange: (e) => setLogo(e.target.value),
-                                    required: true,
-                                  })}
+                                  {...register("logo", {required: ! businessDetails,})} 
+                                  name="logo"  onChange={handleChange} 
                                 />
                                 <label
                                   htmlFor="fileupload"
@@ -420,18 +416,37 @@ export default function businessinfo(props: any) {
                                 </label>
                               </div>
                             </div>
-                            <div className="mt-5">
+
+                            <div className="col-sm-6 ">
+                              <label
+                                htmlFor="description"
+                                className="form-label"
+                              >
+                                100 characters to tell us what you are building
+                                <span style={{ color: "red" }}>*</span>
+                              </label>
+                              <textarea
+                                rows={4}
+                                maxLength={100}
+                                placeholder="Enter details here"
+                                className="form-control text"
+                                {...register("description", {required: ! businessDetails,})}
+                                name="description"  onChange={handleChange} value={businessDetails.description}
+                              />
+                            </div>
+
+                            {/* <div className="mt-5">
                               <label htmlFor="" className="d-block mb-4">
                                 Do you have assets worth over INR 2 cr apart
                                 from your primary residence?{" "}
-                                <span className="text-mandatory">*</span>
+                                <span style={{ color: "red" }}>*</span>
                               </label>
                               <div className="form-check form-check-inline">
                                 <input
                                   className="form-check-input"
                                   type="radio"
                                   id="primary_residence"
-                                  value="1" {...register('primary_residence', { onChange: (e) => setPrimary_residence(e.target.value), required: true })}
+                                  value="1" {...register('primary_residence', { onChange: (e) => setPrimary_residence(e.target.value), required: ! businessDetails })}
                                 />
                                 <label
                                   className="form-check-label"
@@ -445,7 +460,7 @@ export default function businessinfo(props: any) {
                                   className="form-check-input"
                                   type="radio"
                                   id="primary_residence"
-                                  value="0" {...register('primary_residence', { onChange: (e) => setPrimary_residence(e.target.value), required: true })}
+                                  value="0" {...register('primary_residence', { onChange: (e) => setPrimary_residence(e.target.value), required: ! businessDetails })}
                                 />
                                 <label
                                   className="form-check-label"
@@ -463,38 +478,26 @@ export default function businessinfo(props: any) {
                             <label htmlFor="" className="mt-5">
                               Help us understand your experience better
                               (multiple options can be selected)
-                              <span className="text-mandatory">*</span>
+                              <span style={{ color: "red" }}>*</span>
                             </label>
                             <div className=" mt-3 d-flex align-content-center">
                               <input
                                 className="form-check-input"
                                 type="checkbox"
                                 id="checkboxNoLabel"
-                                value="1"{...register('prev_experience', { onChange: (e) => setPrev_experience(e.target.value), required: true })}
+                                value="1"{...register('prev_experience', { onChange: (e) => setPrev_experience(e.target.value), required: ! businessDetails })}
                               />
                               <p className="">
                                 You have invested in startups before
                               </p>
                             </div>
+                           
                             <div className=" mt-3 d-flex align-content-center">
                               <input
                                 className="form-check-input"
                                 type="checkbox"
                                 id="checkboxNoLabel"
-                                value="1"{...register('cofounder', { onChange: (e) => setCofounder(e.target.value), required: true })}
-                              />
-                              <p className="">
-                                You come from an entrepreneurial family or have
-                                been a founder/co-founder of a business venture
-                                family
-                              </p>
-                            </div>
-                            <div className=" mt-3 d-flex align-content-center">
-                              <input
-                                className="form-check-input"
-                                type="checkbox"
-                                id="checkboxNoLabel"
-                                value="1" {...register('experience', { onChange: (e) => setExperience(e.target.value), required: true })}
+                                value="1" {...register('experience', { onChange: (e) => setExperience(e.target.value), required: ! businessDetails })}
                               />
                               <p className="">
                                 You have at least 10 years of work experience
@@ -505,16 +508,33 @@ export default function businessinfo(props: any) {
                                 className="form-check-input"
                                 type="checkbox"
                                 id="checkboxNoLabel"
-                                value="1"{...register('none_select', { onChange: (e) => setNoneSelect(e.target.value), required: true })}
+                                value="1"{...register('none_select', { onChange: (e) => setNoneSelect(e.target.value), required: ! businessDetails })}
                               />
                               <p className="">None of the above</p>
-                            </div>
-                            <div className=" mt-3 d-flex align-items-center">
+                            </div> */}
+                            <div className=" mt-5 d-flex align-content-center">
                               <input
                                 className="form-check-input"
                                 type="checkbox"
                                 id="checkboxNoLabel"
-                                value="1"{...register('kyc_purposes', { onChange: (e) => setKyc_purposes(e.target.value), required: true })}
+                                value="1"
+                                {...register("cofounder", {required: ! businessDetails,})}
+                                name="cofounder"  onChange={handleChange}  checked={businessDetails.cofounder === '1'}
+                              />
+                              <p className="">
+                                You come from an entrepreneurial family or have
+                                been a founder/co-founder of a business venture
+                                family
+                              </p>
+                            </div>
+                            <div className=" mt-2 d-flex align-items-left">
+                              <input
+                                className="form-check-input"
+                                type="checkbox"
+                                id="checkboxNoLabel"
+                                value="1"
+                                {...register("kyc_purposes", {required: ! businessDetails,})}
+                                name="kyc_purposes"  onChange={handleChange}  checked={businessDetails.kyc_purposes === '1'}
                               />
                               <p className="">
                                 I certify that all the information provided by
@@ -524,19 +544,28 @@ export default function businessinfo(props: any) {
                               </p>
                             </div>
                           </div>
-                          <div className="banner-btn justify-content-between d-md-flex mt-5 mb-5">
-                            <a
-                              href={`/steps/findbusiness`}
-                              className="default-btn"
+                          <div className="row mt-3">
+                            <div
+                              className="col-md-6"
+                              style={{ textAlign: "left" }}
                             >
-                              Go back
-                            </a>
-                            <button type="submit"
-                              className="default-btn"
-                              onClick={handleSubmit}
+                              <a
+                                href={`/steps/findbusiness`}
+                                className="btn btn-primary"
+                                id="back"
+                              >
+                                Go back
+                              </a>
+                            </div>
+
+                            <div
+                              className="col-md-6"
+                              style={{ textAlign: "right" }}
                             >
-                             NEXT
-                            </button>
+                              <button type="submit" className="btn btn-primary">
+                                NEXT
+                              </button>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -547,7 +576,7 @@ export default function businessinfo(props: any) {
             </div>
           </div>
         </div>
-        <ToastContainer autoClose={5000} />
+        <ToastContainer autoClose={2000} />
       </div>
     </>
   );

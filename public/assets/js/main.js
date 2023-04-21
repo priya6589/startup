@@ -291,7 +291,7 @@ jQuery(function ($) {
     })
 
 	// Buy Now Btn
-    $('body').append("<a href='/pricing' class='buy-now-btn' target='_blank'>Join Us</a>");
+    // $('body').append("<a href='/pricing' class='buy-now-btn' target='_blank'>Join Us</a>");
 
 }(jQuery));
 

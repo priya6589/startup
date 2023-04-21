@@ -17,6 +17,20 @@ const Signup = () => {
     formState: { errors },
   } = useForm();
 
+  // const PASSWORD_REGEX = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+~\-=?]).{8,}$/;
+
+// Add a validation rule for the password field
+register('password', {
+  required: 'Password is required',
+    minLength: {
+      value: 8,
+      message: 'Password must be at least 8 characters long',
+    },
+    pattern: {
+      value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?])/,
+      message: 'Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character',
+    },
+});
   const SubmitForm = () => {
     const user = {
       firstname: firstname,
@@ -30,7 +44,7 @@ const Signup = () => {
       .then((res) => {
         //   console.log(res);
         if (res.status == true) {
-          toast.success("User Registered succesfully", {
+          toast.success(res.message, {
             position: toast.POSITION.TOP_RIGHT,
             toastId: "success",
           });
@@ -38,14 +52,14 @@ const Signup = () => {
             router.push("/"); // Redirect to login page
           }, 2000);
         } else {
-          toast.error("User has been not registered succesfully", {
+          toast.error(res.message, {
             position: toast.POSITION.TOP_RIGHT,
             toastId: "error",
           });
         }
       })
       .catch((err) => {
-        toast.error("User has been not registered succesfully", {
+        toast.error(err, {
           position: toast.POSITION.TOP_RIGHT,
           toastId: "error",
         });
@@ -80,7 +94,7 @@ const Signup = () => {
           <div className="container">
             <div className="row align-items-center">
               <div className="col-lg-12">
-                <div className="contact-text text-center pt-5 pb-5">
+                <div className="contact-text text-center pt-4">
                   <h3>Lets Get Started</h3>
                 </div>
                 <div className="contact-form">
@@ -104,9 +118,9 @@ const Signup = () => {
                           errors.firstname.type === "required" && (
                             <p
                               className="text-danger"
-                              style={{ textAlign: "left" }}
+                              style={{ textAlign: "left", fontSize: "12px" }}
                             >
-                              Please Enter Your First Name.
+                              *Please Enter Your First Name.
                             </p>
                           )}
                       </div>
@@ -128,9 +142,9 @@ const Signup = () => {
                           errors.lastname.type === "required" && (
                             <p
                               className="text-danger"
-                              style={{ textAlign: "left" }}
+                              style={{ textAlign: "left", fontSize: "12px" }}
                             >
-                              Please Enter Your Last Name.
+                              *Please Enter Your Last Name.
                             </p>
                           )}
                       </div>
@@ -152,9 +166,9 @@ const Signup = () => {
                         {errors.email && errors.email.type === "required" && (
                           <p
                             className="text-danger"
-                            style={{ textAlign: "left" }}
+                            style={{ textAlign: "left", fontSize: "12px" }}
                           >
-                            Please Enter Your Email.
+                            *Please Enter Your Email.
                           </p>
                         )}
                       </div>
@@ -169,79 +183,89 @@ const Signup = () => {
                           className="form-control"
                           {...register("password", {
                             onChange: (e) => setPassword(e.target.value),
-                            required: true,
                           })}
                         />
-                        {errors.password &&
-                          errors.password.type === "required" && (
+                          <div className="help-block with-errors" />
+                        {errors.password && (
                             <p
                               className="text-danger"
-                              style={{ textAlign: "left" }}
+                              style={{ textAlign: "left", fontSize: "12px" }}
                             >
-                              Please Enter Your Password.
+                            *{errors.password.message}
                             </p>
                           )}
                       </div>
 
-                      <div className="form-group col-md-6">
+                      <div className="form-group col-md-12">
                         <label>
-                          Register As:
+                          Registered As:
                           <span style={{ color: "red" }}>*</span>
                         </label>
 
-                        <div className="d-flex justify-content-start">
-                          <label htmlFor="investor-radio">
-                            <input
-                              className="form-check-input gender-radio"
-                              {...register("role", {
-                                onChange: (e) => setRole(e.target.value),
-                                required: true,
-                              })}
-                              type="radio"
-                              name="role"
-                              id="investor-radio"
-                              value="investor"
-                            />
-                            {/* <label>Investor</label> */}
-                            <span className="image-label investor-label"></span>
-                            &nbsp;Investor&nbsp;
-                          </label>
-                          &nbsp;
-                          <label htmlFor="startup-radio">
-                            <input
-                              className="form-check-input gender-radio"
-                              {...register("role", {
-                                onChange: (e) => setRole(e.target.value),
-                                required: true,
-                              })}
-                              type="radio"
-                              name="role"
-                              id="startup-radio"
-                              value="startup"
-                            />
-                           
-                            <span className="image-label startup-label"></span>
-                             &nbsp;Startup&nbsp;
-                          </label>
-                        </div>
-
-                        {errors.role && errors.role.type === "required" && (
+                        <div className="col-md-12 text-center twobox">
+                              <div className="images-investor text-center">
+                                <ul className="investor-classs">
+                                  <li>
+                                    {/* <h6>Investors</h6> */}
+                                    <input
+                                      className="form-check-input gender-radio" id="myCheckbox1" 
+                                      {...register("role", {
+                                        onChange: (e) =>
+                                          setRole(e.target.value),
+                                        required: true,
+                                      })}
+                                      type="radio"
+                                      name="role"
+                                      value="investor"
+                                    />
+                                    <label htmlFor="myCheckbox1">
+                                      <img src="assets/img/invest.png" />
+                                    </label>
+                                  </li>
+                                  <li>
+                                    {/* <h6>Startup</h6> */}
+                                    <input
+                                      className="form-check-input gender-radio" id="myCheckbox2"
+                                      {...register("role", {
+                                        onChange: (e) =>
+                                          setRole(e.target.value),
+                                        required: true,
+                                      })}
+                                      type="radio"
+                                      name="role"
+                                      value="startup"
+                                    />
+                                    <label htmlFor="myCheckbox2">
+                                    <img src="assets/img/startup.png" />
+                                    </label>
+                                  </li>
+                                </ul>
+                             
+                          </div>
+                          <div className="help-block with-errors" />
+                          <div className="error text-center">
+                          {errors.role && errors.role.type === "required" && (
                           <p
                             className="text-danger"
-                            style={{ textAlign: "left" }}
+                            style={{ textAlign: "center", fontSize: "12px" }}
                           >
-                            Please Select Your Role.
+                            *Please Select Your Role.
                           </p>
                         )}
+                        </div>
+                        </div>
+
+                        
                       </div>
 
                       <div className="form-group col-md-12 mt-3">
                         <div className="help-block with-errors" />
 
                         <div className="row mt-3">
-                          <div className="col-md-6 text-right">
+                          <div
+                            className="col-md-12 text-center" >
                             <button type="submit" className="btn btn-primary">
-                              Sign Up
+                              Register
                             </button>
                           </div>
                         </div>
@@ -253,7 +277,7 @@ const Signup = () => {
             </div>
           </div>
         </section>
-
+        <ToastContainer autoClose={5000} />
         {/* End Contact Area */}
       </div>
     </>

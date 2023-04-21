@@ -3,7 +3,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import router from "next/router";
 import { useForm } from "react-hook-form";
-import { basicInformationSave } from "../../lib/frontendapi";
+import { basicInformationSave,getBasicInformation } from "../../lib/frontendapi";
 import {
   removeToken,
   removeStorageData,
@@ -29,7 +29,7 @@ export default function customereview() {
   const [signup_success, setSignupSuccess] = useState(false);
   const [current_user_id, setCurrentUserId] = useState(false);
   const [basicDetails, setBasicDetails] = useState({
-    id: current_user_id,
+    user_id: current_user_id,
     pan_number: "",
     uid: "",
     proof_img: "",
@@ -47,29 +47,54 @@ export default function customereview() {
       return {
         ...prevState,
         [name]: value,
-        id: current_user_id,
+        user_id: current_user_id,
         // business_id :current_business_id
       };
     });
   };
+  // useEffect(() => {
+  //   const current_user_data = getCurrentUserData();
+  //   if (current_user_data.id != null) {
+  //     current_user_data.id
+  //       ? setCurrentUserId(current_user_data.id)
+  //       : setCurrentUserId("");
+  //   } else {
+  //     window.location.href = "/login";
+  //   }
+  // }, []);
   useEffect(() => {
     const current_user_data = getCurrentUserData();
     if (current_user_data.id != null) {
       current_user_data.id
         ? setCurrentUserId(current_user_data.id)
         : setCurrentUserId("");
+
+        getBasicInformation(current_user_data.id)
+        .then((res) => {
+          if (res.status == true) {
+            setBasicDetails( res.data);
+            console.log(res.data);
+          } else {
+            toast.error(res.message, {
+              position: toast.POSITION.TOP_RIGHT,
+            });
+          }
+        })
+        .catch((err) => {
+          toast.error(err.message, {
+            position: toast.POSITION.BOTTOM_RIGHT,
+          });
+        });
     } else {
       window.location.href = "/login";
     }
+
   }, []);
-
-  const SubmitForm = async (event: any) => {
-    // event.preventDefault();
-
+  const SubmitForm = async () => {
     try {
       const res = await basicInformationSave(basicDetails);
       if (res.status == true) {
-        toast.success("Basic Details saved successfully", {
+        toast.success(res.message, {
           position: toast.POSITION.TOP_RIGHT,
           toastId: "success",
         });
@@ -77,13 +102,13 @@ export default function customereview() {
           router.push("/steps/adharinformation");
         }, 2000);
       } else {
-        toast.error("Basic Details has not been saved successfully", {
+        toast.error(res.message, {
           position: toast.POSITION.TOP_RIGHT,
           toastId: "error",
         });
       }
     } catch (err) {
-      toast.error("Basic Details has not been saved successfully", {
+      toast.error("Basic Information has not been stored.", {
         position: toast.POSITION.TOP_RIGHT,
         toastId: "error",
       });
@@ -108,11 +133,6 @@ export default function customereview() {
             <div className="container">
               <div className="page-title-content">
                 <h2>Complete Account Details</h2>
-                <ul>
-                  <li>
-                    <a href="/">Home</a>
-                  </li>
-                </ul>
               </div>
             </div>
           </div>
@@ -127,11 +147,11 @@ export default function customereview() {
                   Step <span>1</span>
                 </div>
                 <div className="step_border">
-                  <div className="step">
-                    <i className="fa fa-circle"></i>
+                <div className="step_complete">
+                       <i className="flaticon-checked" style={{color:"#82b440"}}  aria-hidden="true"></i>
                   </div>
                 </div>
-                <div className="caption hidden-xs hidden-sm">
+                <div className="caption hidden-xs hidden-sm" style={{ color: "#82b440" }}>
                   <span>PERSONAL INFORMATION</span>
                 </div>
               </li>
@@ -140,11 +160,11 @@ export default function customereview() {
                   Step <span>2</span>
                 </div>
                 <div className="step_border">
-                  <div className="step">
-                    <i className="fa fa-circle"></i>
+                <div className="step_complete">
+                       <i className="flaticon-checked" style={{color:"#82b440"}} aria-hidden="true"></i>
                   </div>
                 </div>
-                <div className="caption hidden-xs hidden-sm">
+                <div className="caption hidden-xs hidden-sm" style={{ color: "#82b440" }}>
                   <span>BUSINESS INFORMATION</span>
                 </div>
               </li>
@@ -154,7 +174,7 @@ export default function customereview() {
                 </div>
                 <div className="step_border">
                   <div className="step">
-                    <i className="fa fa-circle"></i>
+                  <img className="sidebar-img w-75" src="/assets/img/sidebar/docs.png"/>
                   </div>
                 </div>
                 <div className="caption hidden-xs hidden-sm">
@@ -167,7 +187,7 @@ export default function customereview() {
                 </div>
                 <div className="step_border">
                   <div className="step">
-                    <i className="fa fa-circle"></i>
+                  <img className="sidebar-img w-75" src="/assets/img/sidebar/bank.png"/>
                   </div>
                 </div>
                 <div className="caption hidden-xs hidden-sm">
@@ -212,8 +232,9 @@ export default function customereview() {
                                 className="form-control same-input"
                                 id="pan_number"
                                 {...register("pan_number", {
-                                  required: true,
+                                  required: ! basicDetails
                                 })}
+                                value={basicDetails.pan_number}
                                 name="pan_number"
                                 onChange={handleChange}
                                 maxLength={10}
@@ -223,7 +244,7 @@ export default function customereview() {
                                 errors.pan_number.type === "required" && (
                                   <p
                                     className="text-danger"
-                                    style={{ textAlign: "left" }}
+                                     style={{ textAlign: "left", fontSize: "12px" }}
                                   >
                                     *Please Enter Your Valid Pan Card Number.
                                   </p>
@@ -243,8 +264,9 @@ export default function customereview() {
                                 className="form-control same-input"
                                 id="uid"
                                 {...register("uid", {
-                                  required: true,
+                                 required: ! basicDetails
                                 })}
+                                value={basicDetails.uid}
                                 name="uid"
                                 onChange={handleChange}
                                 maxLength={12}
@@ -253,7 +275,7 @@ export default function customereview() {
                               {errors.uid && errors.uid.type === "required" && (
                                 <p
                                   className="text-danger"
-                                  style={{ textAlign: "left" }}
+                                   style={{ textAlign: "left", fontSize: "12px" }}
                                 >
                                   *Please Enter Your Valid Adhaar Card Number.
                                 </p>
@@ -267,12 +289,13 @@ export default function customereview() {
                                 DOB <span className="text-mandatory">*</span>
                               </label>
                               <input
-                                type="text"
+                                type="date"
                                 className="form-control same-input"
                                 id="dob"
                                 {...register("dob", {
-                                  required: true,
+                                 required: ! basicDetails
                                 })}
+                                value={basicDetails.dob}
                                 name="dob"
                                 onChange={handleChange}
                                 placeholder="DD/MM/YY"
@@ -281,7 +304,7 @@ export default function customereview() {
                               {errors.dob && errors.dob.type === "required" && (
                                 <p
                                   className="text-danger"
-                                  style={{ textAlign: "left" }}
+                                   style={{ textAlign: "left", fontSize: "12px" }}
                                 >
                                   *Please Enter Your Valid Date Of Birth.
                                 </p>
@@ -297,7 +320,7 @@ export default function customereview() {
                                   id="proof_img"
                                   type="file"
                                   {...register("proof_img", {
-                                    required: true,
+                                   required: ! basicDetails
                                   })}
                                   name="proof_img"
                                   onChange={handleChange}
@@ -321,7 +344,7 @@ export default function customereview() {
                                   errors.proof_img.type === "required" && (
                                     <p
                                       className="text-danger"
-                                      style={{ textAlign: "left" }}
+                                       style={{ textAlign: "left", fontSize: "12px" }}
                                     >
                                       *Please Enter Your Valid Date Of Birth.
                                     </p>
@@ -329,16 +352,24 @@ export default function customereview() {
                               </div>
                             </div>
                           </div>
-                          <div className="banner-btn justify-content-between d-md-flex mt-5 mb-5">
+                          <div className="row mt-3">
+                            <div className="col-md-6"  style={{ textAlign: "left", fontSize: "12px" }}>
                             <a
                               href={`/steps/businessinfo`}
-                              className="default-btn"
+                              className="btn btn-primary" id="back"
                             >
                               Go back
                             </a>
-                            <button type="submit" className="default-btn">
+                            </div>
+
+                            <div
+                              className="col-md-6"
+                              style={{ textAlign: "right" }}
+                            >
+                              <button type="submit" className="btn btn-primary">
                               NEXT
-                            </button>
+                              </button>
+                            </div>
                           </div>
                         </div>
                       </div>

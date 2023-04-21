@@ -171,7 +171,7 @@ export default function HeaderFrontend() {
                             : "dropdown-content"
                         }`}
                       >
-                        <a href="/user-profile" className="colortwo">
+                        <a href="/steps/findbusiness" className="colortwo">
                           Profile
                         </a>
                         <a href="#" onClick={handleLogout} className="colortwo">

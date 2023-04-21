@@ -4,6 +4,7 @@
     font-weight: 700;
     border-radius: 10px;
 }
+
 #invest .send-btn .default-btn:hover {
     text-decoration: none;
     background-color: #0e4bae;
@@ -19,12 +20,13 @@
     max-width: 70%;
     margin: auto;
 }
+
 #fill-image.page-title-area.item-bg-5 {
     background-image: url(../../assets/img/page-title/bg-5.jpg);
     height: 88vh !important;
 }
 
-.form-control.same-input{
+.form-control.same-input {
     position: relative;
     height: 46px;
     border-radius: 8px;
@@ -32,96 +34,128 @@
     border: solid 1px #e5e7eb;
     margin: 10px 0px 0px;
 }
-.form-control.same-input:focus{
+
+.form-control.text {
+    position: relative;
+    height: auto;
+    border-radius: 8px;
+    padding: 8px;
+    border: solid 1px #e5e7eb;
+    margin: 10px 0px 0px;
+}
+
+.form-control.same-input:focus {
     box-shadow: none;
 }
-#register label{
+
+#register label {
     font-size: 14px;
     font-weight: 700;
     color: #6b7280;
 }
-#register p{
+
+#register p {
     max-width: 525px;
     font-size: 12px;
     line-height: 1.43;
     letter-spacing: 0.1px;
     color: #797979;
 }
+
 .form-select.form-select-lg.css-1492t68 {
     color: rgb(128, 128, 128);
     box-sizing: border-box;
     font-size: 14px;
     font-weight: 600;
-    height: 45px;
+    height: 35px;
+    margin-top: -14px;
 }
+
 #register input#checkboxNoLabel {
     margin-right: 15px;
     align-items: center;
 }
+
 #register .form-check-input[type=checkbox] {
     border-radius: 0em;
 }
+
 .text-mandatory {
     color: #086AD8;
 }
-.register-form .nav{
+
+.register-form .nav {
     display: flex;
     justify-content: space-around;
 }
+
 .register-form .nav-tabs {
     border-bottom: 1px solid #0d6efd;
 }
-.register-form .nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+
+.register-form .nav-pills .nav-link.active,
+.nav-pills .show>.nav-link {
     color: #000;
     background-color: #fff;
     border-bottom: 5px solid #0d6efd;
     border-radius: 0px;
 }
+
 .register-form .nav-pills .nav-link {
     padding: 20px 0px;
     font-size: 14px;
     font-weight: 600;
 }
 
+
 /* styles de base si JS est activé */
+
 .js .input-file-container {
     position: relative;
     text-align: center;
-  }
-  .js .input-file-trigger {
+}
+
+.js .input-file-trigger {
     display: block;
     padding: 14px 45px;
-    background:none;
+    background: none;
     color: white;
     font-size: 1em;
     transition: all .4s;
     cursor: pointer;
     border-radius: 10px;
     height: 130px;
-    border:1px dashed;
-  }
-  .js .input-file {
+    border: 1px dashed;
+}
+
+.js .input-file {
     position: absolute;
-    top: 0; left: 0;
+    top: 0;
+    left: 0;
     width: 225px;
     padding: 14px 0;
     opacity: 0;
     cursor: pointer;
-  }
-   
-  /* styles du retour visuel */
-  .file-return {
+}
+
+
+/* styles du retour visuel */
+
+.file-return {
     margin: 0;
-  }
-  .file-return:not(:empty) {
+}
+
+.file-return:not(:empty) {
     margin: 1em 0;
-  }
-  .js .file-return {
+}
+
+.js .file-return {
     font-style: italic;
     font-size: .9em;
     font-weight: bold;
-  }
-  span.circleimge {
+}
+
+span.circleimge {
     width: 0px;
     height: 0px;
     background: #0968d3;
@@ -129,17 +163,17 @@
     border-radius: 50%;
     color: #ffffff;
 }
+
 .register-form {
     box-shadow: 0 1.5px 4px rgb(0 0 0 / 24%), 0 1.5px 6px rgb(0 0 0 / 12%);
     padding: 40px;
     margin-bottom: 50px;
     margin-top: 20px;
 }
-  
 
-@media(max-width:991px){
+@media(max-width:991px) {
     .banner-btn a+a {
-        margin-left:0px;
+        margin-left: 0px;
         margin-top: 12px;
         text-align: center;
     }
@@ -149,7 +183,183 @@
         font-weight: 700;
     }
 }
+
 .icon img {
     width: 80px;
 }
 
+.form-control.same-input {
+    position: relative;
+    height: 35px;
+    border-radius: 8px;
+    padding: 8px;
+    border: solid 1px #e5e7eb;
+    margin: 0px 0px;
+}
+
+
+/*radio button / investor class / */
+
+input[type="radio"][id^="myCheckbox"] {
+    display: none;
+}
+
+.investor-classs label {
+    border: 1px solid #fff;
+    padding: 10px 0px;
+    display: block;
+    position: relative;
+    margin: 0px;
+    cursor: pointer;
+}
+
+.investor-classs label:before {
+    background-color: white;
+    color: white;
+    content: " ";
+    display: block;
+    border-radius: 50%;
+    border: 1px solid #82b440;
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    line-height: 28px;
+    transition-duration: 0.4s;
+    transform: scale(0);
+}
+
+.investor-classs label img {
+    width: 187px;
+    height: 56px;
+    border-radius: 10px;
+    object-fit: cover;
+    transition: all 0.9s;
+}
+
+.investor-classs :checked+label:before {
+    content: "✓";
+    background-color: #82b440;
+    transform: scale(1);
+    transition: all 0.9s;
+}
+
+.investor-classs :checked+label img {
+    transform: scale(0.9);
+    z-index: -1;
+}
+
+
+/* .invester {
+    background-size: cover;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100vh;
+    background-image: url('https://images.pexels.com/photos/7213363/pexels-photo-7213363.jpeg?auto=compress&cs=tinysrgb&w=600');
+} */
+
+button.btn.btn-info.samebuttoninvestor {
+    max-width: 250px;
+    width: 100%;
+    padding: 10px 10px;
+    border-radius: 30px;
+    font-weight: 700;
+    font-size: 16px;
+    color: #fff;
+}
+
+ul.investor-classs h6 {
+    font-size: 15px;
+    text-transform: uppercase;
+    font-weight: 800;
+}
+
+ul.investor-classs li {
+    display: inline-block;
+    padding: 0px 15px;
+    list-style: none;
+}
+
+.col-md-6.text-center.twobox {
+    width: 100%;
+}
+
+#insertorpage h6 {
+    font-size: 20px;
+    font-weight: 700;
+    padding: 20px 0px;
+}
+
+#insertorpage h3 {
+    font-size: 25px;
+    font-weight: 700;
+    text-transform: capitalize;
+    padding: 20px 0px;
+}
+
+#insertorpage .form-check-input[type=checkbox] {
+    padding: 6px;
+    border-radius: 0px;
+    outline: 0;
+    box-shadow: none;
+}
+
+div#insertorpage {
+    padding: 20px 20px;
+    max-width: 800px;
+    margin: 20px auto;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+}
+
+#insertorpage label.form-check-label {
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: capitalize;
+}
+
+div#insertorpage h1 {
+    font-size: 30px;
+    text-align: center;
+    font-weight: 800;
+    padding: 0px 0px;
+}
+
+
+/* / end point / */
+
+button.btn.btn-primary {
+    padding: 10px 50px;
+    display: inline-block;
+    background: #23cdff;
+    color: #fff;
+    border: none;
+    font-weight: 800;
+    font-size: 18px;
+}
+
+.error {
+    margin-top: -18px;
+}
+
+
+/* css file work today sunil */
+
+.btnread {
+    position: absolute;
+    bottom: 24px;
+}
+
+.page-title-content ul {
+    display: none;
+}
+
+@media(max-width:1100px) {
+    .error-area {
+        height: unset;
+        padding-bottom: 40px;
+    }
+}

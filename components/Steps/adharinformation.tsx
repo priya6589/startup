@@ -4,7 +4,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import router from "next/router";
 import { useForm } from "react-hook-form";
-import { bankInformationSave } from "../../lib/frontendapi";
+import { getBankInformation,bankInformationSave } from "../../lib/frontendapi";
 import {removeToken,removeStorageData,getCurrentUserData,} from "../../lib/session";
 
 
@@ -28,7 +28,7 @@ export default function customereview() {
   const [current_user_id, setCurrentUserId] = useState(false);
   // const [current_business_id , setCurrentBusinessId ] = useState(false);
   const [bankDetails, setBankDetails] = useState({
-    id:current_user_id,
+    user_id:current_user_id,
     // business_id :current_business_id ,
     bank_name: "",
     account_holder: "",
@@ -37,8 +37,10 @@ export default function customereview() {
   });
   const {
     register,
+    handleSubmit,
     formState: { errors },
   } = useForm();
+  
   const handleChange = (event) => {
     const { name, value } = event.target;
     setBankDetails((prevState) => {
@@ -56,6 +58,23 @@ export default function customereview() {
       current_user_data.id
         ? setCurrentUserId(current_user_data.id)
         : setCurrentUserId("");
+
+        getBankInformation(current_user_data.id)
+        .then((res) => {
+          if (res.status == true) {
+            setBankDetails( res.data);
+            console.log(res.data);
+          } else {
+            toast.error(res.message, {
+              position: toast.POSITION.TOP_RIGHT,
+            });
+          }
+        })
+        .catch((err) => {
+          toast.error(err.message, {
+            position: toast.POSITION.BOTTOM_RIGHT,
+          });
+        });
     } else {
       window.location.href = "/login";
     }
@@ -63,21 +82,21 @@ export default function customereview() {
   }, []);
 
   
-  const handleSubmit = async (event: any) => {
-    event.preventDefault();
+  const SubmitForm = async () => {
+    // event.preventDefault();
 
     try {
       const res = await bankInformationSave(bankDetails);
       if (res.status == true) {
-        toast.success("Bank Details saved successfully", {
-          position: toast.POSITION.TOP_RIGHT,
-          toastId: "success",
-        });
+        // toast.success("Profile has been Updated Successfully.", {
+        //   position: toast.POSITION.TOP_RIGHT,
+        //   toastId: "success",
+        // });
         setTimeout(() => {
           router.push("/");
-        }, 2000);
+        }, 1000);
       } else {
-        toast.error("Bank Details has not been saved successfully", {
+        toast.error(res.message, {
           position: toast.POSITION.TOP_RIGHT,
           toastId: "error",
         });
@@ -111,11 +130,6 @@ export default function customereview() {
             <div className="container">
               <div className="page-title-content">
                 <h2>Complete Account Details</h2>
-                <ul>
-                  <li>
-                    <a href="/">Home</a>
-                  </li>
-                </ul>
               </div>
             </div>
           </div>
@@ -130,11 +144,11 @@ export default function customereview() {
                   Step <span>1</span>
                 </div>
                 <div className="step_border">
-                  <div className="step">
-                    <i className="fa fa-circle"></i>
+                <div className="step_complete">
+                       <i className="flaticon-checked" style={{color:"#82b440"}} aria-hidden="true"></i>
                   </div>
                 </div>
-                <div className="caption hidden-xs hidden-sm">
+                <div className="caption hidden-xs hidden-sm" style={{ color: "#82b440" }}>
                   <span>PERSONAL INFORMATION</span>
                 </div>
               </li>
@@ -143,11 +157,11 @@ export default function customereview() {
                   Step <span>2</span>
                 </div>
                 <div className="step_border">
-                  <div className="step">
-                    <i className="fa fa-circle"></i>
+                <div className="step_complete">
+                       <i className="flaticon-checked" style={{color:"#82b440"}} aria-hidden="true"></i>
                   </div>
                 </div>
-                <div className="caption hidden-xs hidden-sm">
+                <div className="caption hidden-xs hidden-sm" style={{ color: "#82b440" }}>
                   <span>BUSINESS INFORMATION</span>
                 </div>
               </li>
@@ -156,12 +170,12 @@ export default function customereview() {
                   Step <span>3</span>
                 </div>
                 <div className="step_border">
-                  <div className="step">
-                    <i className="fa fa-circle"></i>
+                  <div className="step_complete">
+                       <i className="flaticon-checked"  aria-hidden="true"></i>
                   </div>
                 </div>
-                <div className="caption hidden-xs hidden-sm">
-                  <span>PAN CARD INFORMATION</span>
+                <div className="caption hidden-xs hidden-sm" style={{ color: "#82b440" }}>
+                  <span>BASIC INFORMATION</span>
                 </div>
               </li>
               <li className="active">
@@ -170,7 +184,7 @@ export default function customereview() {
                 </div>
                 <div className="step_border">
                   <div className="step">
-                    <i className="fa fa-circle"></i>
+                  <img className="sidebar-img w-75" src="/assets/img/sidebar/bank.png"/>
                   </div>
                 </div>
                 <div className="caption hidden-xs hidden-sm">
@@ -183,7 +197,7 @@ export default function customereview() {
                 {/*<h4 className="text-center mt-5">Find your business</h4>*/}
                 <div className="row step_one">
                   <div className="col-md-12">
-                    <form className="needs-validation mb-4" onSubmit={handleSubmit}>
+                    <form className="needs-validation mb-4" onSubmit={handleSubmit(SubmitForm)}>
                       <h4 className="black_bk_col fontweight500 font_20 mb-4 text-center">
                          Bank Details
                         <i
@@ -204,13 +218,24 @@ export default function customereview() {
                                 className="form-label"
                               >
                                 Bank Name{" "}
-                                <span className="text-mandatory">*</span>
+                                <span className="text-mandatory" style={{color:""}}>*</span>
                               </label>
                               <input
                                 type="text"
                                 className="form-control same-input" 
-                                id="bank_name" name="bank_name" onChange={handleChange}
+                                id="bank_name" {...register("bank_name", {
+                                  required: ! bankDetails
+                                })} name="bank_name"  onChange={handleChange}  value={bankDetails.bank_name}
                               />
+                              {errors.bank_name &&
+                                errors.bank_name.type === "required" && (
+                                  <p
+                                    className="text-danger"
+                                     style={{ textAlign: "left", fontSize: "12px" }}
+                                  >
+                                    *Please Enter Your Bank Name.
+                                  </p>
+                                )}
                             </div>
                             <div className="col-md-6 mt-3">
                               <label
@@ -223,8 +248,19 @@ export default function customereview() {
                               <input
                                 type="text"
                                 className="form-control same-input"
-                                id="account_holder" name="account_holder" onChange={handleChange}
+                                id="account_holder" {...register("account_holder", {
+                                  required: ! bankDetails
+                                })}   value={bankDetails.account_holder}  name="account_holder" onChange={handleChange}  
                               />
+                              {errors.account_holder &&
+                                errors.account_holder.type === "required" && (
+                                  <p
+                                    className="text-danger"
+                                     style={{ textAlign: "left", fontSize: "12px" }}
+                                  >
+                                    *Please Enter Your Account Holder Name.
+                                  </p>
+                                )}
                             </div>
                             <div className="col-md-6 mt-3">
                               <label
@@ -237,8 +273,19 @@ export default function customereview() {
                               <input
                                 type="text"
                                 className="form-control same-input"
-                                id="account_no" name="account_no" onChange={handleChange}
+                                id="account_no" {...register("account_no", {
+                                  required: ! bankDetails
+                                })}   value={bankDetails.account_no}  name="account_no" onChange={handleChange}  
                               />
+                               {errors.account_no &&
+                                errors.account_no.type === "required" && (
+                                  <p
+                                    className="text-danger"
+                                     style={{ textAlign: "left", fontSize: "12px" }}
+                                  >
+                                    *Please Enter Your Account Number.
+                                  </p>
+                                )}
                             </div>
                             <div className="col-md-6 mt-3">
                               <label
@@ -251,24 +298,39 @@ export default function customereview() {
                               <input
                                 type="text"
                                 className="form-control same-input"
-                                id="ifsc_code" name="ifsc_code" onChange={handleChange}
+                                id="ifsc_code" {...register("ifsc_code", {
+                                  required: ! bankDetails
+                                })}   value={bankDetails.ifsc_code}  name="ifsc_code" onChange={handleChange}
                               />
+                               {errors.ifsc_code &&
+                                errors.ifsc_code.type === "required" && (
+                                  <p
+                                    className="text-danger"
+                                     style={{ textAlign: "left", fontSize: "12px" }}
+                                  >
+                                    *Please Enter Your valid Ifsc Code.
+                                  </p>
+                                )}
                             </div>
                           </div>
-                          <div className="banner-btn justify-content-between d-md-flex mt-5 mb-5">
+                          <div className="row mt-3">
+                            <div className="col-md-6"  style={{ textAlign: "left", fontSize: "12px" }}>
                             <a
                               href={`/steps/customizereview`}
-                              className="default-btn"
+                              className="btn btn-primary" id="back"
                             >
                               Go back
                             </a>
-                            <a
-                              href="#"
-                              className="default-btn"
-                              onClick={handleSubmit}
+                            </div>
+
+                            <div
+                              className="col-md-6"
+                              style={{ textAlign: "right" }}
                             >
-                              Submit
-                            </a>
+                              <button type="submit" className="btn btn-primary">
+                                 Submit
+                              </button>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -279,7 +341,7 @@ export default function customereview() {
             </div>
           </div>
         </div>
-        <ToastContainer autoClose={5000} />
+        <ToastContainer autoClose={2000} />
       </div>
     </>
   );

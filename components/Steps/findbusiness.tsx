@@ -3,12 +3,9 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import router from "next/router";
 import { useForm } from "react-hook-form";
-import { getCountries, personalInformationSave } from "../../lib/frontendapi";
-import {
-  removeToken,
-  removeStorageData,
-  getCurrentUserData,
-} from "../../lib/session";
+import {getSingleUserData,getCountries,personalInformationSave} from "../../lib/frontendapi";
+import { removeToken,removeStorageData,getCurrentUserData} from "../../lib/session";
+import { log } from "console";
 
 const alertStyle = {
   color: "red",
@@ -31,7 +28,7 @@ export default function findbusiness() {
   const [current_user_id, setCurrentUserId] = useState(false);
   const [countries, setcountries] = useState([]);
   const [user, setUser] = useState({
-    id:current_user_id,
+    id: current_user_id,
     email: "",
     linkedin_url: "",
     gender: "",
@@ -51,7 +48,7 @@ export default function findbusiness() {
       return {
         ...prevState,
         [name]: value,
-        id: current_user_id
+        id: current_user_id,
       };
     });
   };
@@ -61,6 +58,23 @@ export default function findbusiness() {
       current_user_data.id
         ? setCurrentUserId(current_user_data.id)
         : setCurrentUserId("");
+
+      getSingleUserData(current_user_data.id)
+        .then((res) => {
+          if (res.status == true) {
+            setUser(res.data);
+            console.log(setUser);
+          } else {
+            toast.error(res.message, {
+              position: toast.POSITION.TOP_RIGHT,
+            });
+          }
+        })
+        .catch((err) => {
+          toast.error(err.message, {
+            position: toast.POSITION.BOTTOM_RIGHT,
+          });
+        });
     } else {
       window.location.href = "/login";
     }
@@ -75,34 +89,32 @@ export default function findbusiness() {
     fetchData();
   }, []);
 
-  
-  const SubmitForm  = async (event: any) => {
+  const SubmitForm = async (event: any) => {
     // event.preventDefault();
 
     try {
       const res = await personalInformationSave(user);
       if (res.status == true) {
-        toast.success("User Details saved successfully", {
-          position: toast.POSITION.TOP_RIGHT,
-          toastId: "success",
-        });
+        // toast.success(res.message, {
+        //   position: toast.POSITION.TOP_RIGHT,
+        //   toastId: "success",
+        // });
         setTimeout(() => {
           router.push("/steps/businessinfo");
-        }, 2000);
+        }, 1000);
       } else {
-        toast.error("User Details has not been saved successfully", {
+        toast.error(res.message, {
           position: toast.POSITION.TOP_RIGHT,
           toastId: "error",
         });
       }
     } catch (err) {
-      toast.error("User Details has not been saved successfully", {
+      toast.error("Profile has not been saved successfully", {
         position: toast.POSITION.TOP_RIGHT,
         toastId: "error",
       });
     }
   };
-
 
   const handleAdrChange = (find_business_location: any) => {
     setFindBusinessLocation(find_business_location);
@@ -122,11 +134,11 @@ export default function findbusiness() {
             <div className="container">
               <div className="page-title-content">
                 <h2>Complete Account Details</h2>
-                <ul>
+                {/* <ul>
                   <li>
-                    <a href="/">Home</a>
+                    <a href="/"></a>
                   </li>
-                </ul>
+                </ul> */}
               </div>
             </div>
           </div>
@@ -142,7 +154,10 @@ export default function findbusiness() {
                 </div>
                 <div className="step_border">
                   <div className="step">
-                    <i className="fa fa-circle"></i>
+                    <img
+                      className="sidebar-img w-75"
+                      src="/assets/img/sidebar/user.png"
+                    />
                   </div>
                 </div>
                 <div className="caption hidden-xs hidden-sm">
@@ -155,7 +170,10 @@ export default function findbusiness() {
                 </div>
                 <div className="step_border">
                   <div className="step">
-                    <i className="fa fa-circle"></i>
+                    <img
+                      className="sidebar-img w-75"
+                      src="/assets/img/sidebar/business.png"
+                    />
                   </div>
                 </div>
                 <div className="caption hidden-xs hidden-sm">
@@ -168,7 +186,10 @@ export default function findbusiness() {
                 </div>
                 <div className="step_border">
                   <div className="step">
-                    <i className="fa fa-circle"></i>
+                    <img
+                      className="sidebar-img w-75"
+                      src="/assets/img/sidebar/docs.png"
+                    />
                   </div>
                 </div>
                 <div className="caption hidden-xs hidden-sm">
@@ -181,7 +202,10 @@ export default function findbusiness() {
                 </div>
                 <div className="step_border">
                   <div className="step">
-                    <i className="fa fa-circle"></i>
+                    <img
+                      className="sidebar-img w-75"
+                      src="/assets/img/sidebar/bank.png"
+                    />
                   </div>
                 </div>
                 <div className="caption hidden-xs hidden-sm">
@@ -212,29 +236,36 @@ export default function findbusiness() {
                       <div className="row justify-content-center">
                         <div className="col-md-8" id="register">
                           <div className="row">
-                            <div className="col-md-6 mt-3">
+                            <div className="col-md-6 mt-3 mb-3">
                               <label
                                 htmlFor="exampleFormControlInput1"
                                 className="form-label"
                               >
                                 Email ID{" "}
-                                <span className="text-mandatory">*</span>
+                            <span style={{ color: "red" }}>*</span>
                               </label>
                               <input
                                 type="text"
-                                className="form-control same-input"  {...register("email", {
-                                  required: true,})} id="email" name="email"  onChange={handleChange}
+                                className="form-control same-input"
+                                {...register("email", {
+                                  required: !user,
+                                })}
+                                id="email"
+                                name="email"
+                                onChange={handleChange}
+                                value={user.email ? user.email : ""}
+                                readOnly
                               />
                               <div className="help-block with-errors" />
-                              {errors.email &&
+                              {/* {errors.email &&
                                 errors.email.type === "required" && (
                                   <p
                                     className="text-danger"
-                                    style={{ textAlign: "left" }}
+                                    style={{ textAlign: "left", fontSize: "12px" }}
                                   >
                                     *Please Enter Your Valid Email.
                                   </p>
-                                )}
+                                )} */}
                             </div>
                             <div className="col-md-6 mt-3">
                               <label
@@ -242,79 +273,27 @@ export default function findbusiness() {
                                 className="form-label"
                               >
                                 Linkedin URL{" "}
-                                <span className="text-mandatory">*</span>
+                            <span style={{ color: "red" }}>*</span>
                               </label>
                               <input
                                 type="text"
-                                className="form-control same-input" {...register("linkedin_url", {
-                                  required: true,})} id="linkedin_url" name="linkedin_url" onChange={handleChange}
+                                className="form-control same-input"
+                                {...register("linkedin_url", {
+                                  required: !user,
+                                })}
+                                id="linkedin_url"
+                                name="linkedin_url"
+                                onChange={handleChange}
+                                value={user.linkedin_url}
                               />
-                               <div className="help-block with-errors" />
+                              <div className="help-block with-errors" />
                               {errors.linkedin_url &&
                                 errors.linkedin_url.type === "required" && (
                                   <p
                                     className="text-danger"
-                                    style={{ textAlign: "left" }}
+                                    style={{ textAlign: "left", fontSize: "12px" }}
                                   >
                                     *Please Enter Your Valid Linkedin Url.
-                                  </p>
-                                )}
-                            </div>
-                            <div className="col-md-6 mt-3">
-                              <label htmlFor="" className="d-block mb-4">
-                                Gender <span className="text-mandatory">*</span>
-                              </label>
-                              <div className="form-check form-check-inline">
-                                <input
-                                  className="form-check-input"
-                                  type="radio"
-                                  id="inlineRadio1" {...register("gender", {required: true,})}
-                                  value="male" name="gender" onChange={handleChange}
-                                />
-                                <label
-                                  className="form-check-label"
-                                  htmlFor="inlineRadio1"
-                                >
-                                  Male
-                                </label>
-                              </div>
-                              <div className="form-check form-check-inline">
-                                <input
-                                  className="form-check-input"
-                                  type="radio"
-                                  id="inlineRadio2"{...register("gender", {required: true,})}
-                                  value="female"
-                                  name="gender" onChange={handleChange}
-                                />
-                                <label
-                                  className="form-check-label"
-                                  htmlFor="inlineRadio2"
-                                >
-                                  Female
-                                </label>
-                              </div>
-                              <div className="form-check form-check-inline">
-                                <input
-                                  className="form-check-input"
-                                  type="radio"
-                                  id="inlineRadio3" {...register("gender", {required: true,})}
-                                  value="other" name="gender" onChange={handleChange}
-                                />
-                                <label
-                                  className="form-check-label"
-                                  htmlFor="inlineRadio3"
-                                >
-                                  Others
-                                </label>
-                              </div>
-                              <div className="help-block with-errors" />
-                              {errors.gender &&
-                                errors.gender.type === "required" && (
-                                  <p
-                                    className="text-danger"
-                                    style={{ textAlign: "left" }}
-                                  >
-                                    *Please Select Your Gender.
                                   </p>
                                 )}
                             </div>
@@ -325,84 +304,147 @@ export default function findbusiness() {
                                 className="form-label"
                               >
                                 Phone number{" "}
-                                <span className="text-mandatory">*</span>
+                            <span style={{ color: "red" }}>*</span>
                               </label>
                               <input
                                 type="text"
-                                className="form-control same-input" {...register("phone", {required: true,})}
-                                id="phone" name="phone" onChange={handleChange} maxLength={13}
+                                className="form-control same-input"
+                                {...register("phone", { required: !user })}
+                                id="phone"
+                                name="phone"
+                                onChange={handleChange}
+                                maxLength={13}
+                                value={user.phone}
                               />
-                              <p>
-                                Please enter the number with respective country
-                                code.
-                              </p>
                               <div className="help-block with-errors" />
-                              {errors.gender &&
-                                errors.gender.type === "required" && (
+                              {errors.phone &&
+                                errors.phone.type === "required" && (
                                   <p
                                     className="text-danger"
-                                    style={{ textAlign: "left" }}
+                                    style={{ textAlign: "left", fontSize: "12px" }}
                                   >
-                                    *Please Select Your Gender.
+                                    *Please Your Phone Number.
                                   </p>
                                 )}
                             </div>
-                            <div className="col-sm-6 mt-4">
+
+                            <div className="col-sm-6 mt-3">
                               <label
                                 htmlFor="exampleFormControlInput1"
                                 className="form-label mb-4"
                               >
                                 Country of Citizenship{" "}
-                                <span className="text-mandatory">*</span>
+                            <span style={{ color: "red" }}>*</span>
                               </label>
                               <select
-                                className="form-select form-select-lg mb-3 css-1492t68" {...register("country", {required: true,})} name="country" onChange={handleChange} 
+                                className="form-select form-select-lg mb-3 css-1492t68"
+                                {...register("country", { required: !user })}
+                                name="country"
+                                onChange={handleChange}
                                 aria-label="Default select example"
                               >
-                               <option selected disabled>--SELECT COUNTRY--</option>
-                                                    {
-                                                        countries.map((country, index) => (
-                                                            <option value={country.name}>{country.name}</option>
-                                                        ))
-                                                    }
+                                <option selected disabled>
+                                  --SELECT COUNTRY--
+                                </option>
+                                {countries.map((country, index) => (
+                                  <option
+                                    key={country.name}
+                                    value={country.name}
+                                    selected={user.country === country.name}
+                                  >
+                                    {country.name}
+                                  </option>
+                                ))}
+                                {/* {countries.map((country, index) => (
+                                  <option value={country.name}>
+                                    {country.name}
+                                  </option>
+                                ))} */}
                               </select>
                               <div className="help-block with-errors" />
-                              {errors.country&&
+                              {errors.country &&
                                 errors.country.type === "required" && (
                                   <p
                                     className="text-danger"
-                                    style={{ textAlign: "left" }}
+                                    style={{ textAlign: "left", fontSize: "12px" }}
                                   >
                                     *Please Select Country.
                                   </p>
                                 )}
                             </div>
-                            <div className="col-sm-6 mt-4">
+
+                            <div className="col-md-6 mt-3">
                               <label
                                 htmlFor="exampleFormControlInput1"
-                                className="form-label mb-4"
+                                className="form-label"
                               >
                                 Which city do you live in?{" "}
-                                <span className="text-mandatory">*</span>
+                            <span style={{ color: "red" }}>*</span>
                               </label>
                               <input
                                 type="text"
-                                className="form-control same-input" {...register("city", {required: true,})}
-                                id="city" name="city" onChange={handleChange}
+                                className="form-control same-input"
+                                {...register("city", { required: !user })}
+                                id="city"
+                                name="city"
+                                onChange={handleChange}
+                                value={user.city}
                               />
-                               <div className="help-block with-errors" />
-                              {errors.city&&
+                              <div className="help-block with-errors" />
+                              {errors.city &&
                                 errors.city.type === "required" && (
                                   <p
                                     className="text-danger"
-                                    style={{ textAlign: "left" }}
+                                     style={{ textAlign: "left", fontSize: "12px" }}
                                   >
                                     *Please Enter Your City.
                                   </p>
                                 )}
                             </div>
+                            <div className="col-sm-6 mt-3">
+                              <label
+                                htmlFor="exampleFormControlInput1"
+                                className="form-label mb-4"
+                              >
+                                Gender  <span style={{ color: "red" }}>*</span>
+                              </label>
+
+                              <select
+                                className="form-select form-select-lg mb-3 css-1492t68"
+                                {...register("gender", { required: !user })}
+                                name="gender"
+                                onChange={handleChange}
+                                aria-label="Default select example"
+                                value={user ? user.gender : ""}
+                              >
+                                <option>--SELECT GENDER--</option>
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                                <option value="other">Other</option>
+                              </select>
+                              <div className="help-block with-errors" />
+                              {errors.gender &&
+                                errors.gender.type === "required" && (
+                                  <p
+                                    className="text-danger"
+                                     style={{ textAlign: "left", fontSize: "12px" }}
+                                  >
+                                    *Please Select Gender.
+                                  </p>
+                                )}
+                            </div>
                           </div>
-                          <div
+                          <div className="row mt-3">
+                            <div
+                              className="col-md-12"
+                              style={{ textAlign: "right" }}
+                            >
+                              <button type="submit" className="btn btn-primary">
+                                NEXT
+                              </button>
+                            </div>
+                          </div>
+                          {/* <div
                             className="banner-btn justify-content-between mt-5 mb-5"
                             style={{ textAlign: "right" }}
                           >
@@ -411,7 +453,7 @@ export default function findbusiness() {
                             >
                               NEXT
                             </button>
-                          </div>
+                          </div> */}
                         </div>
                       </div>
                     </form>
@@ -421,7 +463,7 @@ export default function findbusiness() {
             </div>
           </div>
         </div>
-        <ToastContainer autoClose={5000} />
+        <ToastContainer autoClose={1000} />
       </div>
     </>
   );
