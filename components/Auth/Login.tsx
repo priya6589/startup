@@ -39,9 +39,11 @@ export default function Login() {
               window.sessionStorage.setItem("token", res.authorisation.token);
             }
             if (window.localStorage.getItem("user_role") == "admin") {
-              window.location.href = "/services";
-            } else {
+              window.location.href = "/dashboard";
+            } else if (window.localStorage.getItem("user_role") == "startup") {
               window.location.href = "/steps/findbusiness";
+            }else{
+              window.location.href = "/investor-steps/findbusiness";
             }
           } else {
             toast.success(res.message, {

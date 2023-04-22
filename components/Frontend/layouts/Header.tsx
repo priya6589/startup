@@ -171,9 +171,15 @@ export default function HeaderFrontend() {
                             : "dropdown-content"
                         }`}
                       >
+                        {current_user_role=="startup" ?  
                         <a href="/steps/findbusiness" className="colortwo">
                           Profile
                         </a>
+                        :
+                        <a href="/investor-steps/findbusiness" className="colortwo">
+                          Profile
+                        </a> }
+                       
                         <a href="#" onClick={handleLogout} className="colortwo">
                           Logout
                         </a>

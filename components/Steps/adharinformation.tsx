@@ -43,7 +43,7 @@ export default function customereview() {
   
   const handleChange = (event) => {
     let { name, value } = event.target;
-    if (name === ' account_no') {
+    if (name === 'account_no') {
       value = value.replace(/\D/g, '');
       value = value.substring(0, 12);
     }

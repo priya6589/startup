@@ -216,7 +216,7 @@ register('email', {
 
                         <div className="col-md-12 text-center twobox">
                               <div className="images-investor text-center">
-                                <ul className="investor-classs">
+                                <ul className="role-classs">
                                   <li>
                                     {/* <h6>Investors</h6> */}
                                     <input
