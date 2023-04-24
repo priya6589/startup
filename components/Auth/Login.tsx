@@ -41,9 +41,14 @@ export default function Login() {
             if (window.localStorage.getItem("user_role") == "admin") {
               window.location.href = "/dashboard";
             } else if (window.localStorage.getItem("user_role") == "startup") {
-              window.location.href = "/steps/findbusiness";
-            }else{
-              window.location.href = "/investor-steps/findbusiness";
+              setTimeout(() => {
+                window.location.href = "/steps/findbusiness";
+              }, 2000);
+            } else {
+              setTimeout(() => {
+                window.location.href = "/investor-steps/findbusiness";
+              }, 2000);
+
             }
           } else {
             toast.success(res.message, {
@@ -140,21 +145,21 @@ export default function Login() {
                     )}
                   </div>
                 </div>
-                <div className="col-lg-12">
+                <div className=" mt-2 d-flex align-items-left">
                   <div className="form-check">
                     <input
-                      type="checkbox"
-                      name="remember"
-                      onChange={(e) => setRememberMe(true)}
                       className="form-check-input"
-                      id="checkme"
+                      type="checkbox"
+                      id="checkboxNoLabel"
+                      value="1"
+                      name="remember" onChange={(e) => setRememberMe(true)}
                     />
-                    <label className="form-check-label" htmlFor="checkme">
-                      Keep me Log In
-                    </label>
+                    <p className="">Keep me Log In
+                    </p>
                   </div>
                 </div>
-                <div className="col-lg-12">
+
+                <div className="col-lg-12 mt-2">
                   <p className="forgot-password">
                     <a href="/reset-password">Forgot Password?</a>
                   </p>
@@ -162,7 +167,7 @@ export default function Login() {
                 <div className="row mt-3">
                   <div className="col-md-12 text-center">
                     <button type="submit" className="btn btn-primary">
-                    Log In Now
+                      Log In Now
                     </button>
                   </div>
                   <br />
@@ -191,7 +196,7 @@ export default function Login() {
             <img src="assets/img/shape/8.png" alt="image" />
           </div>
         </div>
-        <ToastContainer autoClose={5000} />
+        <ToastContainer autoClose={7000} />
       </div>
     </>
   );

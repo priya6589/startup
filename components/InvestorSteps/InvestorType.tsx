@@ -19,15 +19,8 @@ const textStyle = {
 
 export default function businessinfo(props: any) {
     const router = useRouter();
-    // const [blId, setBlId] = useState("");
-    // const [forwarduId, setForwarduId] = useState("");
-    // const [business_page_id, setBusinessPageId] = useState("");
     const [current_user_id, setCurrentUserId] = useState(false);
-    // const [business_address, setBusinessAddress] = useState("");
-    // const [numberOfLocations, setNumberOfLocations] = useState("");
     const [signup_success, setSignupSuccess] = useState(false);
-    // const [disableBaddr, setDisableBaddr] = useState(false);
-    // const [disableBemail, setDisableBemail] = useState(false);
 
     const { register, handleSubmit, formState: { errors }, } = useForm();
     const [ investorDetails,  seInvestorDetails] = useState({
@@ -57,6 +50,7 @@ export default function businessinfo(props: any) {
     };
 
     useEffect(() => {
+        
         const current_user_data = getCurrentUserData();
         if (current_user_data.id) {
             setCurrentUserId(current_user_data.id);
@@ -82,25 +76,27 @@ export default function businessinfo(props: any) {
         }
     }, []);
 
-    const SubmitForm = async () => {
+    const SubmitForm = async (event) => {
         try {
+            // console.log(investorDetails);
+            // return false;
             const res = await investorTypeInfoSave( investorDetails);
             if (res.status == true) {
-                toast.success("Profile has been Updated Successfully.", {
+                toast.success(res.message, {
                     position: toast.POSITION.TOP_RIGHT,
                     toastId: "success",
                   });
                 setTimeout(() => {
-                    router.push("/");
-                }, 1000);
+                    router.push("/services");
+                }, 2000);
             } else {
-                toast.error("Details has not been saved successfully", {
+                toast.error(res.message, {
                     position: toast.POSITION.TOP_RIGHT,
                     toastId: "error",
                 });
             }
         } catch (err) {
-            toast.error("Business Details has not been saved successfully", {
+            toast.error("Details has not been saved successfully", {
                 position: toast.POSITION.TOP_RIGHT,
                 toastId: "error",
             });
@@ -192,7 +188,6 @@ export default function businessinfo(props: any) {
                         </ol>
                         <div className="container">
                             <div className="register-form">
-                                {/*<h4 className="text-center mt-5">Find your business</h4>*/}
                                 <div className="row step_one">
                                     <div className="col-md-12">
                                         <form className="needs-validation mb-4" onSubmit={handleSubmit(SubmitForm)}>
@@ -205,7 +200,7 @@ export default function businessinfo(props: any) {
                                                     aria-hidden="true"
                                                     data-toggle="tooltip"
                                                     data-placement="top"
-                                                    title="Please select your investor type."
+                                                    title="Please select your investor type.That would be helpful to verify your account."
                                                 ></i>
                                             </h4>
                                             <div className="row justify-content-center">
@@ -220,7 +215,7 @@ export default function businessinfo(props: any) {
                                                                             <input
                                                                                 className="form-check-input gender-radio" id="myCheckbox1"
                                                                                 {...register("investorType", {
-                                                                                    required: true,
+                                                                                    required: true,value:true
                                                                                 })}
                                                                                 onChange={handleChange}
                                                                                 type="radio"
@@ -294,7 +289,7 @@ export default function businessinfo(props: any) {
                         </div>
                     </div>
                 </div>
-                <ToastContainer autoClose={2000} />
+                <ToastContainer autoClose={5000} />
             </div>
         </>
     );

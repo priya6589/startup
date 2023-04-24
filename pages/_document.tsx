@@ -38,7 +38,7 @@ export default function Document() {
         <link rel="stylesheet" href={process.env.NEXT_PUBLIC_BASE_URL + 'assets/css/responsive.css'} />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
         <link rel="icon" type="image/png" href={process.env.NEXT_PUBLIC_BASE_URL + 'assets/img/favicon.png'} />
-
+{/* 
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ti-icons@0.1.2/css/themify-icons.min.css"/>
     <link href="/assets/admin/plugins/datatables/jquery.dataTables.min.css" rel="stylesheet" type="text/css" />
     <link href="/assets/admin/plugins/datatables/responsive.bootstrap.min.css" rel="stylesheet" type="text/css" />
@@ -48,7 +48,7 @@ export default function Document() {
     <link href="/assets/admin/css/icons.css" rel="stylesheet" type="text/css"/>
     <link href="/assets/admin/css/style.css" rel="stylesheet" type="text/css"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@7.2.96/css/materialdesignicons.min.css"/>
-  
+   */}
       </Head>
       <body>
         <Main />
@@ -79,7 +79,7 @@ export default function Document() {
         <script src={process.env.NEXT_PUBLIC_BASE_URL + 'assets/js/wow.min.js'}></script>
         {/* <!-- Custom JS --> */}
         <script src={process.env.NEXT_PUBLIC_BASE_URL + 'assets/js/main.js'}></script>
-
+{/* 
     <script src="https://cdn.jsdelivr.net/npm/@mdi/font@7.2.96/scripts/verify.min.js"></script>
     <script src="/assets/admin/js/modernizr.min.js"></script>
     <script src="/assets/admin/js/detect.js"></script>
@@ -98,7 +98,7 @@ export default function Document() {
     <script src="/assets/admin/pages/dashborad.js"></script>
 
     <script src="/assets/admin/js/app.js"></script>
-    
+     */}
       </body>
     </Html>
   );

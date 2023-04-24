@@ -40,7 +40,6 @@ export default function businessinfo(props: any) {
   const {register,handleSubmit,formState: { errors },} = useForm();
   const [businessDetails, setBusinessDetails] = useState({
       user_id: current_user_id,
-      //  id:"",
       business_name: "",
       reg_businessname: "",
       website_url: "",
@@ -76,7 +75,6 @@ export default function businessinfo(props: any) {
         };
       });
     } else {
-      // For other input elements, update the corresponding property of the businessDetails state
       setBusinessDetails((prevState) => {
         return {
           ...prevState,
@@ -236,7 +234,6 @@ export default function businessinfo(props: any) {
             </ol>
             <div className="container">
               <div className="register-form">
-                {/*<h4 className="text-center mt-5">Find your business</h4>*/}
                 <div className="row step_one">
                   <div className="col-md-12">
                     <form className="needs-validation mb-4"  onSubmit={handleSubmit(SubmitForm)}>
@@ -249,7 +246,7 @@ export default function businessinfo(props: any) {
                           aria-hidden="true"
                           data-toggle="tooltip"
                           data-placement="top"
-                          title="Please type in your full business name into the field below. This would be your registered company name."
+                          title="Please type in your full business details into the field below. This would be your registered company name."
                         ></i>
                       </h4>
                       <div className="row justify-content-center">
@@ -408,7 +405,8 @@ export default function businessinfo(props: any) {
                                 {...register("startup_date", { value:true,
                                   required: true,})}
                                 name="startup_date"  onChange={handleChange} value={businessDetails.startup_date}
-                              />
+                                // max={new Date().toISOString().split("T")[0]}
+                             />
                               {errors.startup_date &&
                                 errors.startup_date.type === "required" && (
                                   <p
@@ -471,10 +469,7 @@ export default function businessinfo(props: any) {
                                 >
                                   Drop your pitch deck here to{" "}
                                   <a href="#">Upload</a> <br />
-                                  <p>
-                                    You can upload a pdf file only (max size 20
-                                    MB)
-                                  </p>
+                                  <p>You can upload any identity card's image jpg,png,jpeg file only (max size 20 MB)<span style={{ color: "red" }}>*</span></p>
                                 </label>
                                 {errors.logo && errors.logo.type === "required" && !businessDetails.logo && (
                                   <p

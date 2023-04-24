@@ -43,12 +43,6 @@ export default function customereview() {
 
   const handleChange = (event) => {
     let { name, value } = event.target;
-    if (name === 'pan_number') {
-      // Remove all non-digit characters from value
-      value = value.replace(/\D/g, '');
-      // Limit the length of value to 12 characters
-      value = value.substring(0, 12);
-    }
     if (name === 'uid') {
       // Remove all non-digit characters from value
       value = value.replace(/\D/g, '');
@@ -193,6 +187,7 @@ export default function customereview() {
                   <img className="sidebar-img w-75" src="/assets/img/sidebar/bank.png"/>
                   </div>
                 </div>
+                
                 <div className="caption hidden-xs hidden-sm">
                   <span>BANK INFORMATION</span>
                 </div>
@@ -200,7 +195,6 @@ export default function customereview() {
             </ol>
             <div className="container">
               <div className="register-form">
-                {/*<h4 className="text-center mt-5">Find your business</h4>*/}
                 <div className="row step_one">
                   <div className="col-md-12">
                     <form
@@ -209,14 +203,14 @@ export default function customereview() {
                       encType="multipart/form-data"
                     >
                       <h4 className="black_bk_col fontweight500 font_20 mb-4 text-center">
-                        Basic Details
+                        Basic Details{" "}
                         <i
                           style={{ cursor: "pointer" }}
                           className="fa fa-info-circle"
                           aria-hidden="true"
                           data-toggle="tooltip"
                           data-placement="top"
-                          title="Please type in your full business name into the field below. This would be your registered company name."
+                          title="Please type in your full basics required details into the field below. This would be your registered company name."
                         ></i>
                       </h4>
                       <div className="row justify-content-center">
@@ -267,7 +261,7 @@ export default function customereview() {
                                 className="form-control same-input"
                                 id="uid"
                                 {...register("uid", {
-                                  value:true,required: true,
+                                  value:true,required: true
                                 })}
                                 value={basicDetails.uid}
                                 name="uid"
@@ -275,7 +269,7 @@ export default function customereview() {
                                 maxLength={12}
                               />
                               <div className="help-block with-errors" />
-                              {errors.uid && errors.uid.type === "required" && (
+                              {errors.uid  && (
                                 <p
                                   className="text-danger"
                                    style={{ textAlign: "left", fontSize: "12px" }}
@@ -301,7 +295,8 @@ export default function customereview() {
                                 value={basicDetails.dob}
                                 name="dob"
                                 onChange={handleChange}
-                                placeholder="DD/MM/YY"
+                                placeholder="basicDetails.dob ? '' : 'DD/MM/YY'"  min={`${new Date().getMonth() - 18}-01-01`}
+                                max={`${new Date().getFullYear() - 18}-12-31`}
                               />
                               <div className="help-block with-errors" />
                               {errors.dob && errors.dob.type === "required" && (
@@ -323,10 +318,10 @@ export default function customereview() {
                                   id="proof_img"
                                   type="file"
                                   {...register("proof_img", {
-                                    value:true,required: true,
+                                    value:true,required: !basicDetails.proof_img,
                                   })}
                                   name="proof_img"
-                                  onChange={handleChange}
+                                  onChange={handleChange} 
                                 />
 
                                 <label
@@ -352,6 +347,14 @@ export default function customereview() {
                                       *Please upload Your Proof.
                                     </p>
                                   )}
+                                  {!errors.proof_img && basicDetails.proof_img && (
+                                  <p
+                                    className="text-success"
+                                    style={{ textAlign: "left", fontSize: "12px" }}
+                                  >
+                                    Image Uploaded Successfully.
+                                  </p>
+                                )}
                               </div>
                             </div>
                           </div>

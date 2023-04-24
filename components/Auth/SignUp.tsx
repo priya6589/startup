@@ -19,25 +19,29 @@ const Signup = () => {
 
   // const PASSWORD_REGEX = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+~\-=?]).{8,}$/;
 
-// Add a validation rule for the password field
-register('password', {
-  required: 'Password is required',
+  // Add a validation rule for the password field
+  register('password', {
+    required: 'Password is required',
     minLength: {
       value: 8,
       message: 'Password must be at least 8 characters long',
+    },
+    maxLength: {
+      value: 16,
+      message: 'Password cannot be more 16 characters.',
     },
     pattern: {
       value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?])/,
       message: 'Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character',
     },
-});
-register('email', {
-  required: 'Email is required',
+  });
+  register('email', {
+    required: 'Email is required',
     pattern: {
       value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
       message: 'Enter a valid email',
     },
-});
+  });
 
   const SubmitForm = () => {
     const user = {
@@ -47,12 +51,12 @@ register('email', {
       password: password,
       role: role,
     };
-      // Validate email format
-      // const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      // if (emailRegex.test(user.email)) {
-      //   // Email is not valid, set the value to empty string
-      //   alert("error");
-      // }
+    // Validate email format
+    // const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    // if (emailRegex.test(user.email)) {
+    //   // Email is not valid, set the value to empty string
+    //   alert("error");
+    // }
     userRegister(user)
       .then((res) => {
         //   console.log(res);
@@ -170,19 +174,19 @@ register('email', {
                           type="email"
                           id="email"
                           className="form-control"
-                          {...register("email", {
-                            onChange: (e) => setEmail(e.target.value),
-                          })}
+                          {...register("email")}
+                          value={email}
+                          onChange={(e) => setEmail(e.target.value)}
                         />
                         <div className="help-block with-errors" />
                         {errors.email && (
-                            <p
-                              className="text-danger"
-                              style={{ textAlign: "left", fontSize: "12px" }}
-                            >
+                          <p
+                            className="text-danger"
+                            style={{ textAlign: "left", fontSize: "12px" }}
+                          >
                             *{errors.email.message}
-                            </p>
-                          )}
+                          </p>
+                        )}
                       </div>
 
                       <div className="form-group col-md-6">
@@ -192,20 +196,20 @@ register('email', {
                         <input
                           type="password"
                           id="password"
-                          className="form-control"
+                          className="form-control" maxLength={16}
                           {...register("password", {
                             onChange: (e) => setPassword(e.target.value),
                           })}
                         />
-                          <div className="help-block with-errors" />
+                        <div className="help-block with-errors" />
                         {errors.password && (
-                            <p
-                              className="text-danger"
-                              style={{ textAlign: "left", fontSize: "12px" }}
-                            >
+                          <p
+                            className="text-danger"
+                            style={{ textAlign: "left", fontSize: "12px" }}
+                          >
                             *{errors.password.message}
-                            </p>
-                          )}
+                          </p>
+                        )}
                       </div>
 
                       <div className="form-group col-md-12">
@@ -215,59 +219,59 @@ register('email', {
                         </label>
 
                         <div className="col-md-12 text-center twobox">
-                              <div className="images-investor text-center">
-                                <ul className="role-classs">
-                                  <li>
-                                    {/* <h6>Investors</h6> */}
-                                    <input
-                                      className="form-check-input gender-radio" id="myCheckbox1" 
-                                      {...register("role", {
-                                        onChange: (e) =>
-                                          setRole(e.target.value),
-                                        required: true,
-                                      })}
-                                      type="radio"
-                                      name="role"
-                                      value="investor"
-                                    />
-                                    <label htmlFor="myCheckbox1">
-                                      <img src="assets/img/invest.png" />
-                                    </label>
-                                  </li>
-                                  <li>
-                                    {/* <h6>Startup</h6> */}
-                                    <input
-                                      className="form-check-input gender-radio" id="myCheckbox2"
-                                      {...register("role", {
-                                        onChange: (e) =>
-                                          setRole(e.target.value),
-                                        required: true,
-                                      })}
-                                      type="radio"
-                                      name="role"
-                                      value="startup"
-                                    />
-                                    <label htmlFor="myCheckbox2">
-                                    <img src="assets/img/startup.png" />
-                                    </label>
-                                  </li>
-                                </ul>
-                             
+                          <div className="images-investor text-center">
+                            <ul className="role-classs">
+                              <li>
+                                {/* <h6>Investors</h6> */}
+                                <input
+                                  className="form-check-input gender-radio" id="myCheckbox1"
+                                  {...register("role", {
+                                    onChange: (e) =>
+                                      setRole(e.target.value),
+                                    required: true,
+                                  })}
+                                  type="radio"
+                                  name="role"
+                                  value="investor"
+                                />
+                                <label htmlFor="myCheckbox1">
+                                  <img src="assets/img/invest.png" />
+                                </label>
+                              </li>
+                              <li>
+                                {/* <h6>Startup</h6> */}
+                                <input
+                                  className="form-check-input gender-radio" id="myCheckbox2"
+                                  {...register("role", {
+                                    onChange: (e) =>
+                                      setRole(e.target.value),
+                                    required: true,
+                                  })}
+                                  type="radio"
+                                  name="role"
+                                  value="startup"
+                                />
+                                <label htmlFor="myCheckbox2">
+                                  <img src="assets/img/startup.png" />
+                                </label>
+                              </li>
+                            </ul>
+
                           </div>
                           <div className="help-block with-errors" />
                           <div className="error text-center">
-                          {errors.role && errors.role.type === "required" && (
-                          <p
-                            className="text-danger"
-                            style={{ textAlign: "center", fontSize: "12px" }}
-                          >
-                            *Please Select Your Role.
-                          </p>
-                        )}
-                        </div>
+                            {errors.role && errors.role.type === "required" && (
+                              <p
+                                className="text-danger"
+                                style={{ textAlign: "center", fontSize: "12px" }}
+                              >
+                                *Please Select Your Role.
+                              </p>
+                            )}
+                          </div>
                         </div>
 
-                        
+
                       </div>
 
                       <div className="form-group col-md-12 mt-3">

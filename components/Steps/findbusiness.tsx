@@ -50,11 +50,22 @@ export default function findbusiness() {
       // Limit the length of value to 12 characters
       value = value.substring(0, 12);
     }
+
+    var selectedCountry = countries.find(
+      (country) => country.name === value
+    );
+    var countryCode = "";
+    if (selectedCountry) {
+      countryCode =selectedCountry.country_code;
+    }
+    
+   console.log(countryCode);
     setUser((prevState) => {
       return {
         ...prevState,
         [name]: value,
         id: current_user_id,
+        phone: countryCode ? `+${countryCode}` : "",
       };
     });
   };
@@ -89,6 +100,7 @@ export default function findbusiness() {
     const fetchData = async () => {
       const data = await getCountries({});
       if (data) {
+        console.log(data.data.country_code);
         setcountries(data.data);
       }
     };
@@ -97,8 +109,6 @@ export default function findbusiness() {
   }, []);
 
   const SubmitForm = async (event: any) => {
-    // event.preventDefault();
-
     try {
       const res = await personalInformationSave(user);
       if (res.status == true) {
@@ -112,7 +122,7 @@ export default function findbusiness() {
         });
       }
     } catch (err) {
-      toast.error("Profile has not been saved successfully", {
+      toast.error(err, {
         position: toast.POSITION.TOP_RIGHT,
         toastId: "error",
       });
@@ -226,14 +236,14 @@ export default function findbusiness() {
                       onSubmit={handleSubmit(SubmitForm)}
                     >
                       <h4 className="black_bk_col fontweight500 font_20 mb-4 text-center">
-                        Let's Get Started
+                        Let's Get Started&nbsp;
                         <i
                           style={{ cursor: "pointer" }}
                           className="fa fa-info-circle"
                           aria-hidden="true"
                           data-toggle="tooltip"
                           data-placement="top"
-                          title="Please type in your full business name into the field below. This would be your registered company name."
+                          title="Please type in your full personal information into the field below. This would be helpfull to verify your account."
                         ></i>
                       </h4>
                       <div className="row justify-content-center">
@@ -301,54 +311,8 @@ export default function findbusiness() {
                                 </p>
                               )} */}
                             </div>
-
-                            <div className="col-md-6 mt-3">
-                              <label
-                                htmlFor="exampleFormControlInput1"
-                                className="form-label"
-                              >
-                                Phone number{" "}
-                                <span style={{ color: "red" }}>*</span>
-                              </label>
-                              <input
-                                type="text"
-                                className="form-control same-input"
-                                {...register("phone", {
-                                  value: true,
-                                  required: true,
-                                  minLength: {
-                                    value: 12,
-                                    message: 'Please Enter a Valid Phone Number',
-                                  },
-                                  pattern: {
-                                    value: /^[0-9]*$/,
-                                    message: "Please Enter a Valid Phone Number",
-                                  },
-                                })}
-                                id="phone"
-                                name="phone"
-                                onChange={handleChange}
-                                maxLength={12}
-                                value={user.phone}
-                              />
-                              <div className="help-block with-errors" />
-                              {errors.phone && errors.phone.type === "required" && (
-                                <p
-                                  className="text-danger"
-                                  style={{ textAlign: "left", fontSize: "12px" }}
-                                >
-                                  *Please Enter Your Phone Number.
-                                </p>
-                              )}
-                              {errors.phone && errors.phone.type === "minLength" && (
-                                <p className="text-danger" style={{ textAlign: "left", fontSize: "12px" }}>
-                                  *{errors.phone.message}
-                                </p>
-                              )}
-
-
-                            </div>
-
+ 
+                            
                             <div className="col-sm-6 mt-3">
                               <label
                                 htmlFor="exampleFormControlInput1"
@@ -379,11 +343,6 @@ export default function findbusiness() {
                                     {country.name}
                                   </option>
                                 ))}
-                                {/* {countries.map((country, index) => (
-                                  <option value={country.name}>
-                                    {country.name}
-                                  </option>
-                                ))} */}
                               </select>
                               <div className="help-block with-errors" />
                               {errors.country &&
@@ -393,6 +352,54 @@ export default function findbusiness() {
                                     *Please Select Country.
                                   </p>
                                 )}
+
+                            </div>
+
+                            <div className="col-md-6 mt-3">
+                              <label
+                                htmlFor="exampleFormControlInput1"
+                                className="form-label"
+                              >
+                                Phone number{" "}
+                                <span style={{ color: "red" }}>*</span>
+                              </label>
+                              <input
+                                type="text"
+                                className="form-control same-input"
+                                {...register("phone", {
+                                  value: true,
+                                  required: true,
+                                  minLength: {
+                                    value: 12,
+                                    message: 'Please Enter a Valid Phone Number',
+                                  },
+                                  pattern: {
+                                    value: /^[0-9]*$/,
+                                    message: "Please Enter a Valid Phone Number",
+                                  },
+                                })}
+                                id="phone"
+                                name="phone"
+                                onChange={handleChange}
+                                maxLength={12}
+                                value={user.phone}
+
+                              />
+                              <div className="help-block with-errors" />
+                              {errors.phone && errors.phone.type === "required" && (
+                                <p
+                                  className="text-danger"
+                                  style={{ textAlign: "left", fontSize: "12px" }}
+                                >
+                                  *Please Enter Your Phone Number.
+                                </p>
+                              )}
+                              {errors.phone && errors.phone.type === "minLength" && (
+                                <p className="text-danger" style={{ textAlign: "left", fontSize: "12px" }}>
+                                  *{errors.phone.message}
+                                </p>
+                              )}
+
 
                             </div>
 

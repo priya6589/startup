@@ -50,6 +50,16 @@ export default function findbusiness() {
       // Limit the length of value to 12 characters
       value = value.substring(0, 12);
     }
+  // if (name=='linkedin_url'){
+  //   {register("linkedin_url", {
+  //     value: true,
+  //     required: true,
+  //     pattern: {
+  //       value: /^((http|https):\/\/)?(www\.)?linkedin\.com/,
+  //       message: "Please Enter a Valid LinkedIn url",
+  //     },
+  //   })}
+  // }
     setUser((prevState) => {
       return {
         ...prevState,
@@ -226,7 +236,7 @@ export default function findbusiness() {
                       onSubmit={handleSubmit(SubmitForm)}
                     >
                       <h4 className="black_bk_col fontweight500 font_20 mb-4 text-center">
-                        Let's Get Started
+                        Let's Get Started&nbsp;
                         <i
                           style={{ cursor: "pointer" }}
                           className="fa fa-info-circle"
@@ -275,10 +285,10 @@ export default function findbusiness() {
                                 {...register("linkedin_url", {
                                   value: true,
                                   required: true,
-                                  // pattern: {
-                                  //   value: /^((http|https):\/\/)?(www\.)?linkedin\.com\/?$/,
-                                  //   message: "Please Enter a Valid LinkedIn url",
-                                  // },
+                                  pattern: {
+                                    value: /^((http|https):\/\/)?(www\.)?linkedin\.com\/?$/,
+                                    message: "Please Enter a Valid LinkedIn url",
+                                  },
                                 })}
                                 id="linkedin_url"
                                 name="linkedin_url"
@@ -286,8 +296,7 @@ export default function findbusiness() {
                                 value={user.linkedin_url}
                               />
                               <div className="help-block with-errors" />
-                              {errors.linkedin_url &&
-                                errors.linkedin_url.type === "required" && (
+                              {errors.linkedin_url && (
                                   <p
                                     className="text-danger"
                                     style={{ textAlign: "left", fontSize: "12px" }}

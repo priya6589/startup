@@ -104,7 +104,7 @@ export default function customereview() {
         });
       }
     } catch (err) {
-      toast.error("Bank Details has not been saved successfully", {
+      toast.error("Details has not been saved successfully", {
         position: toast.POSITION.TOP_RIGHT,
         toastId: "error",
       });
@@ -196,19 +196,18 @@ export default function customereview() {
             </ol>
             <div className="container">
               <div className="register-form">
-                {/*<h4 className="text-center mt-5">Find your business</h4>*/}
                 <div className="row step_one">
                   <div className="col-md-12">
                     <form className="needs-validation mb-4" onSubmit={handleSubmit(SubmitForm)}>
                       <h4 className="black_bk_col fontweight500 font_20 mb-4 text-center">
-                         Bank Details
+                         Bank Details{" "}
                         <i
                           style={{ cursor: "pointer" }}
                           className="fa fa-info-circle"
                           aria-hidden="true"
                           data-toggle="tooltip"
                           data-placement="top"
-                          title="Please type in your full business name into the field below. This would be your registered company name."
+                          title="Please type in your full bank details into the field below. This would be your registered company name."
                         ></i>
                       </h4>
                       <div className="row justify-content-center">
@@ -294,23 +293,22 @@ export default function customereview() {
                                 htmlFor="exampleFormControlInput1"
                                 className="form-label"
                               >
-                                Ifsc Code{" "}
+                                IFSC Code{" "}
                                 <span className="text-mandatory">*</span>
                               </label>
                               <input
-                                type="text"
+                                type="text" maxLength={11}
                                 className="form-control same-input"
                                 id="ifsc_code" {...register("ifsc_code", {
-                                 value:true, required: true,
+                                 value:true, required: true,max:11
                                 })}   value={bankDetails.ifsc_code}  name="ifsc_code" onChange={handleChange}
                               />
-                               {errors.ifsc_code &&
-                                errors.ifsc_code.type === "required" && (
+                               {errors.ifsc_code  && (
                                   <p
                                     className="text-danger"
                                      style={{ textAlign: "left", fontSize: "12px" }}
                                   >
-                                    *Please Enter Your valid Ifsc Code.
+                                    *Please Enter Your valid IFSC Code.
                                   </p>
                                 )}
                             </div>
