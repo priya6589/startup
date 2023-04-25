@@ -40,7 +40,7 @@ const Dashboard = () => {
             <div className="card-body">
               <div className="mb-4">
                 <div className="float-start mini-stat-img me-4">
-                  <img src="assets/images/services-icon/01.png"  />
+                  <img src="/assets/images/services-icon/01.png"  />
                 </div>
                 <h5 className="font-size-16 text-uppercase text-white-50">Orders</h5>
                 <h4 className="fw-medium font-size-24">1,685 <i className="mdi mdi-arrow-up text-success ms-2" /></h4>
@@ -62,7 +62,7 @@ const Dashboard = () => {
             <div className="card-body">
               <div className="mb-4">
                 <div className="float-start mini-stat-img me-4">
-                  <img src="assets/images/services-icon/02.png"  />
+                  <img src="/assets/images/services-icon/02.png"  />
                 </div>
                 <h5 className="font-size-16 text-uppercase text-white-50">Revenue</h5>
                 <h4 className="fw-medium font-size-24">52,368 <i className="mdi mdi-arrow-down text-danger ms-2" /></h4>
@@ -84,7 +84,7 @@ const Dashboard = () => {
             <div className="card-body">
               <div className="mb-4">
                 <div className="float-start mini-stat-img me-4">
-                  <img src="assets/images/services-icon/03.png"  />
+                  <img src="/assets/images/services-icon/03.png"  />
                 </div>
                 <h5 className="font-size-16 text-uppercase text-white-50">Average Price</h5>
                 <h4 className="fw-medium font-size-24">15.8 <i className="mdi mdi-arrow-up text-success ms-2" /></h4>
@@ -106,7 +106,7 @@ const Dashboard = () => {
             <div className="card-body">
               <div className="mb-4">
                 <div className="float-start mini-stat-img me-4">
-                  <img src="assets/images/services-icon/04.png"  />
+                  <img src="/assets/images/services-icon/04.png"  />
                 </div>
                 <h5 className="font-size-16 text-uppercase text-white-50">Product Sold</h5>
                 <h4 className="fw-medium font-size-24">2436 <i className="mdi mdi-arrow-up text-success ms-2" /></h4>
@@ -346,7 +346,7 @@ const Dashboard = () => {
                       <i className="mdi mdi-arrow-right fs-5" />
                     </a>
                   </div>
-                  <h6 className="mb-0"><img src="assets/images/users/user-3.jpg"  className="avatar-sm rounded-circle me-2" /> James Athey</h6>
+                  <h6 className="mb-0"><img src="/assets/images/users/user-3.jpg"  className="avatar-sm rounded-circle me-2" /> James Athey</h6>
                 </div>
               </div>
             </div>
@@ -375,7 +375,7 @@ const Dashboard = () => {
                       <th scope="row">#14256</th>
                       <td>
                         <div>
-                          <img src="assets/images/users/user-2.jpg"  className="avatar-xs rounded-circle me-2" /> Philip Smead
+                          <img src="/assets/images/users/user-2.jpg"  className="avatar-xs rounded-circle me-2" /> Philip Smead
                         </div>
                       </td>
                       <td>15/1/2018</td>
@@ -391,7 +391,7 @@ const Dashboard = () => {
                       <th scope="row">#14257</th>
                       <td>
                         <div>
-                          <img src="assets/images/users/user-3.jpg"  className="avatar-xs rounded-circle me-2" /> Brent Shipley
+                          <img src="/assets/images/users/user-3.jpg"  className="avatar-xs rounded-circle me-2" /> Brent Shipley
                         </div>
                       </td>
                       <td>16/1/2019</td>
@@ -407,7 +407,7 @@ const Dashboard = () => {
                       <th scope="row">#14258</th>
                       <td>
                         <div>
-                          <img src="assets/images/users/user-4.jpg"  className="avatar-xs rounded-circle me-2" /> Robert Sitton
+                          <img src="/assets/images/users/user-4.jpg"  className="avatar-xs rounded-circle me-2" /> Robert Sitton
                         </div>
                       </td>
                       <td>17/1/2019</td>
@@ -423,7 +423,7 @@ const Dashboard = () => {
                       <th scope="row">#14259</th>
                       <td>
                         <div>
-                          <img src="assets/images/users/user-5.jpg"  className="avatar-xs rounded-circle me-2" /> Alberto Jackson
+                          <img src="/assets/images/users/user-5.jpg"  className="avatar-xs rounded-circle me-2" /> Alberto Jackson
                         </div>
                       </td>
                       <td>18/1/2019</td>
@@ -439,7 +439,7 @@ const Dashboard = () => {
                       <th scope="row">#14260</th>
                       <td>
                         <div>
-                          <img src="assets/images/users/user-6.jpg"  className="avatar-xs rounded-circle me-2" /> David Sanchez
+                          <img src="/assets/images/users/user-6.jpg"  className="avatar-xs rounded-circle me-2" /> David Sanchez
                         </div>
                       </td>
                       <td>19/1/2019</td>
@@ -455,7 +455,7 @@ const Dashboard = () => {
                       <th scope="row">#14261</th>
                       <td>
                         <div>
-                          <img src="assets/images/users/user-2.jpg"  className="avatar-xs rounded-circle me-2" /> Philip Smead
+                          <img src="/assets/images/users/user-2.jpg"  className="avatar-xs rounded-circle me-2" /> Philip Smead
                         </div>
                       </td>
                       <td>15/1/2018</td>
@@ -481,7 +481,7 @@ const Dashboard = () => {
                 <ul className="conversation-list" data-simplebar style={{maxHeight:"367px"}}>
                   <li className="clearfix">
                     <div className="chat-avatar">
-                      <img src="assets/images/users/user-2.jpg" className="avatar-xs rounded-circle" alt="male" />
+                      <img src="/assets/images/users/user-2.jpg" className="avatar-xs rounded-circle" alt="male" />
                       <span className="time">10:00</span>
                     </div>
                     <div className="conversation-text">
@@ -495,7 +495,7 @@ const Dashboard = () => {
                   </li>
                   <li className="clearfix odd">
                     <div className="chat-avatar">
-                      <img src="assets/images/users/user-3.jpg" className="avatar-xs rounded-circle" alt="Female" />
+                      <img src="/assets/images/users/user-3.jpg" className="avatar-xs rounded-circle" alt="Female" />
                       <span className="time">10:01</span>
                     </div>
                     <div className="conversation-text">
@@ -509,7 +509,7 @@ const Dashboard = () => {
                   </li>
                   <li className="clearfix">
                     <div className="chat-avatar">
-                      <img src="assets/images/users/user-2.jpg" className="avatar-xs rounded-circle" alt="male" />
+                      <img src="/assets/images/users/user-2.jpg" className="avatar-xs rounded-circle" alt="male" />
                       <span className="time">10:04</span>
                     </div>
                     <div className="conversation-text">
@@ -523,7 +523,7 @@ const Dashboard = () => {
                   </li>
                   <li className="clearfix odd">
                     <div className="chat-avatar">
-                      <img src="assets/images/users/user-3.jpg" className="avatar-xs rounded-circle" alt="male" />
+                      <img src="/assets/images/users/user-3.jpg" className="avatar-xs rounded-circle" alt="male" />
                       <span className="time">10:05</span>
                     </div>
                     <div className="conversation-text">
@@ -537,14 +537,14 @@ const Dashboard = () => {
                   </li>
                   <li className="clearfix odd">
                     <div className="chat-avatar">
-                      <img src="assets/images/users/user-3.jpg" className="avatar-xs rounded-circle" alt="male" />
+                      <img src="/assets/images/users/user-3.jpg" className="avatar-xs rounded-circle" alt="male" />
                       <span className="time">10:08</span>
                     </div>
                     <div className="conversation-text">
                       <div className="ctext-wrap">
                         <span className="user-name mb-2">Smith</span>
-                        <img src="assets/images/small/img-1.jpg"  height={48} className="rounded me-2" />
-                        <img src="assets/images/small/img-2.jpg"  height={48} className="rounded" />
+                        <img src="/assets/images/small/img-1.jpg"  height={48} className="rounded me-2" />
+                        <img src="/assets/images/small/img-2.jpg"  height={48} className="rounded" />
                       </div>
                     </div>
                   </li>
@@ -568,15 +568,6 @@ const Dashboard = () => {
     </div> {/* container-fluid */}
   </div>
   {/* End Page-content */}
-  <footer className="footer">
-    <div className="container-fluid">
-      <div className="row">
-        <div className="col-12">
-          ©  Veltrix<span className="d-none d-sm-inline-block"> - Crafted with <i className="mdi mdi-heart text-danger" /> by Themesbrand.</span>
-        </div>
-      </div>
-    </div>
-  </footer>
 </div>
     </>
   )

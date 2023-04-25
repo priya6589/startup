@@ -35,6 +35,7 @@ export default function findbusiness() {
     country: "",
     city: "",
     phone: "",
+    country_code: ""
   });
   const {
     register,
@@ -56,18 +57,25 @@ export default function findbusiness() {
     );
     var countryCode = "";
     if (selectedCountry) {
-      countryCode =selectedCountry.country_code;
+      countryCode = selectedCountry.country_code;
     }
-    
-   console.log(countryCode);
+    setUser((prevState) => {
+      let newValue = value;
+      if (name === 'phone' && prevState.country_code) {
+        // If a country code is already selected, prepend it to the phone number
+        newValue = `${prevState.country_code}${value}`;
+      }});
+  
+    //  console.log(countryCode);
     setUser((prevState) => {
       return {
         ...prevState,
         [name]: value,
         id: current_user_id,
-        phone: countryCode ? `+${countryCode}` : "",
+        country_code: countryCode ? `${countryCode}` : " ",
       };
     });
+    
   };
 
   useEffect(() => {
@@ -100,7 +108,6 @@ export default function findbusiness() {
     const fetchData = async () => {
       const data = await getCountries({});
       if (data) {
-        console.log(data.data.country_code);
         setcountries(data.data);
       }
     };
@@ -311,8 +318,8 @@ export default function findbusiness() {
                                 </p>
                               )} */}
                             </div>
- 
-                            
+
+
                             <div className="col-sm-6 mt-3">
                               <label
                                 htmlFor="exampleFormControlInput1"
@@ -336,7 +343,7 @@ export default function findbusiness() {
                                 </option>
                                 {countries.map((country, index) => (
                                   <option
-                                    key={country.name}
+                                    key={country.id}
                                     value={country.name}
                                     selected={user.country === country.name}
                                   >
@@ -363,14 +370,19 @@ export default function findbusiness() {
                                 Phone number{" "}
                                 <span style={{ color: "red" }}>*</span>
                               </label>
-                              <input
-                                type="text"
+                              <div className="input-group">
+                              <div className="input-group-prepend">
+                                <span className="input-group-text" id="basic-addon1">
+                                  {user.country_code}
+                                </span>
+                              </div>
+                              <input type="text"
                                 className="form-control same-input"
                                 {...register("phone", {
                                   value: true,
                                   required: true,
                                   minLength: {
-                                    value: 12,
+                                    value: 10,
                                     message: 'Please Enter a Valid Phone Number',
                                   },
                                   pattern: {
@@ -381,10 +393,10 @@ export default function findbusiness() {
                                 id="phone"
                                 name="phone"
                                 onChange={handleChange}
-                                maxLength={12}
-                                value={user.phone}
-
+                                maxLength={10}
+                                value={user.phone ? user.phone.replace(/^\+91-/, '') : ''}
                               />
+                              </div>
                               <div className="help-block with-errors" />
                               {errors.phone && errors.phone.type === "required" && (
                                 <p

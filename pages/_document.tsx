@@ -38,17 +38,15 @@ export default function Document() {
         <link rel="stylesheet" href={process.env.NEXT_PUBLIC_BASE_URL + 'assets/css/responsive.css'} />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
         <link rel="icon" type="image/png" href={process.env.NEXT_PUBLIC_BASE_URL + 'assets/img/favicon.png'} />
-{/* 
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ti-icons@0.1.2/css/themify-icons.min.css"/>
-    <link href="/assets/admin/plugins/datatables/jquery.dataTables.min.css" rel="stylesheet" type="text/css" />
-    <link href="/assets/admin/plugins/datatables/responsive.bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <link href="/assets/admin/plugins/datatables/dataTables.bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <link href="/assets/admin/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
-    <link href="/assets/admin/css/icons.css" rel="stylesheet" type="text/css"/>
-    <link href="/assets/admin/css/style.css" rel="stylesheet" type="text/css"/>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@7.2.96/css/materialdesignicons.min.css"/>
-   */}
+
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ti-icons@0.1.2/css/themify-icons.min.css" />
+        <link href={process.env.NEXT_PUBLIC_BASE_URL +"assets/admin/css/bootstrap.min.css"} rel="stylesheet" type="text/css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+        <link href={process.env.NEXT_PUBLIC_BASE_URL +"assets/admin/css/icons.min.css"} rel="stylesheet" type="text/css" />
+        <link href={process.env.NEXT_PUBLIC_BASE_URL +"assets/admin/css/app.min.css"} rel="stylesheet" type="text/css" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@7.2.96/css/materialdesignicons.min.css" />
+
       </Head>
       <body>
         <Main />
@@ -79,26 +77,9 @@ export default function Document() {
         <script src={process.env.NEXT_PUBLIC_BASE_URL + 'assets/js/wow.min.js'}></script>
         {/* <!-- Custom JS --> */}
         <script src={process.env.NEXT_PUBLIC_BASE_URL + 'assets/js/main.js'}></script>
-{/* 
-    <script src="https://cdn.jsdelivr.net/npm/@mdi/font@7.2.96/scripts/verify.min.js"></script>
-    <script src="/assets/admin/js/modernizr.min.js"></script>
-    <script src="/assets/admin/js/detect.js"></script>
-    <script src="/assets/admin/js/fastclick.js"></script>
-    <script src="/assets/admin/js/jquery.slimscroll.js"></script>
-    <script src="/assets/admin/js/jquery.blockUI.js"></script>
-    <script src="/assets/admin/js/waves.js"></script>
-    <script src="/assets/admin/js/wow.min.js"></script>
-    <script src="/assets/admin/js/jquery.nicescroll.js"></script>
-    <script src="/assets/admin/js/jquery.scrollTo.min.js"></script>
-    <script src="/assets/admin/plugins/jquery-sparkline/jquery.sparkline.min.js"></script>
-    <script src="/assets/admin/plugins/datatables/jquery.dataTables.min.js"></script>
-    <script src="/assets/admin/plugins/datatables/dataTables.bootstrap.js"></script>
-    <script src="/assets/admin/plugins/datatables/dataTables.responsive.min.js"></script>
-    <script src="/assets/admin/plugins/datatables/responsive.bootstrap.min.js"></script>
-    <script src="/assets/admin/pages/dashborad.js"></script>
 
-    <script src="/assets/admin/js/app.js"></script>
-     */}
+        <script src={process.env.NEXT_PUBLIC_BASE_URL +"assets/admin/js/app.js"}></script>
+
       </body>
     </Html>
   );

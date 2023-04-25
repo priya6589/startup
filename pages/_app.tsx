@@ -8,8 +8,8 @@ export default function App({ Component, pageProps }: AppProps) {
   const current_user = getCurrentUserData();
   let Layout = FrontendLayout; // default layout is FrontendLayout
   if (current_user.role === 'admin') {
-    // Layout = AdminLayout;
-    Layout =FrontendLayout;
+    Layout = AdminLayout;
+    // Layout =FrontendLayout;
   }else{
     Layout = FrontendLayout;
   }

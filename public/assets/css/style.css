@@ -8469,3 +8469,7 @@ img .sidebar-img {
 .startup-label {
     background-image: url(../../assets/img/startup2.png);
 }
+.input-group-text{
+    height: 35px;
+    width: 55px;
+}

@@ -39,16 +39,18 @@ export default function Login() {
               window.sessionStorage.setItem("token", res.authorisation.token);
             }
             if (window.localStorage.getItem("user_role") == "admin") {
-              window.location.href = "/dashboard";
-            } else if (window.localStorage.getItem("user_role") == "startup") {
+              setTimeout(() => {
+                window.location.href = "/admin/dashboard/";
+              }, 1000);
+            } 
+            
+            if (window.localStorage.getItem("user_role") == "startup") {
               setTimeout(() => {
                 window.location.href = "/steps/findbusiness";
               }, 2000);
-            } else {
-              setTimeout(() => {
-                window.location.href = "/investor-steps/findbusiness";
-              }, 2000);
-
+            } 
+            if ( window.localStorage.getItem("user_role") == "investor") {
+              window.location.href = "/investor-steps/findbusiness";
             }
           } else {
             toast.success(res.message, {
