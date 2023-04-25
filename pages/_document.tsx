@@ -41,10 +41,10 @@ export default function Document() {
 
 
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ti-icons@0.1.2/css/themify-icons.min.css" />
-        <link href={process.env.NEXT_PUBLIC_BASE_URL +"assets/admin/css/bootstrap.min.css"} rel="stylesheet" type="text/css" />
+        {/* <link href={process.env.NEXT_PUBLIC_BASE_URL +"assets/admin/css/bootstrap.min.css"} rel="stylesheet" type="text/css" /> */}
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
         <link href={process.env.NEXT_PUBLIC_BASE_URL +"assets/admin/css/icons.min.css"} rel="stylesheet" type="text/css" />
-        <link href={process.env.NEXT_PUBLIC_BASE_URL +"assets/admin/css/app.min.css"} rel="stylesheet" type="text/css" />
+        {/* <link href={process.env.NEXT_PUBLIC_BASE_URL +"assets/admin/css/app.min.css"} rel="stylesheet" type="text/css" /> */}
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@7.2.96/css/materialdesignicons.min.css" />
 
       </Head>
