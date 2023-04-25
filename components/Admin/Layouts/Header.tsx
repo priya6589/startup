@@ -5,29 +5,28 @@ const Header = () => {
     <>
       <div className="navbar-header">
         <div className="d-flex">
-          {/* LOGO */}
           <div className="navbar-brand-box">
             <a href="/admin/dashboard/" className="logo logo-dark">
               <span className="logo-sm">
-                <img src="/assets/img/logo.png" alt height={22} />
+                <img src="/assets/img/logo.png" height={22} />
               </span>
               <span className="logo-lg">
-                <img src="/assets/images/logo-dark.png" alt height={17} />
+                <img src="/assets/img/logo.png" height={17} />
               </span>
             </a>
             <a href="/admin/dashboard" className="logo logo-light">
               <span className="logo-sm">
-                <img src="/assets/img/logo.png" alt height={22} />
+                <img src="/assets/img/logo.png" height={22} />
               </span>
               <span className="logo-lg">
-                <img src="/assets/images/logo-light.png" alt height={18} />
+                <img src="/assets/img/logo.png" height={18} />
               </span>
             </a>
           </div>
           <button type="button" className="btn btn-sm px-3 font-size-24 header-item waves-effect" id="vertical-menu-btn">
             <i className="mdi mdi-menu" />
           </button>
-          <div className="d-none d-sm-block">
+          {/* <div className="d-none d-sm-block">
             <div className="dropdown pt-3 d-inline-block">
               <a className="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Create <i className="mdi mdi-chevron-down" />
@@ -40,7 +39,7 @@ const Header = () => {
                 <a className="dropdown-item" href="#">Separated link</a>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
         <div className="d-flex">
           {/* App Search*/}
@@ -67,33 +66,6 @@ const Header = () => {
               </form>
             </div>
           </div>
-          <div className="dropdown d-none d-md-block ms-2">
-            <button type="button" className="btn header-item waves-effect" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <img className="me-2" src="/assets/images/flags/us_flag.jpg" alt="Header Language" height={16} /> English <span className="mdi mdi-chevron-down" />
-            </button>
-            <div className="dropdown-menu dropdown-menu-end">
-              {/* item*/}
-              <a href="javascript:void(0);" className="dropdown-item notify-item">
-                <img src="/assets/images/flags/germany_flag.jpg" alt="user-image" className="me-1" height={12} /> <span className="align-middle"> German </span>
-              </a>
-              {/* item*/}
-              <a href="javascript:void(0);" className="dropdown-item notify-item">
-                <img src="/assets/images/flags/italy_flag.jpg" alt="user-image" className="me-1" height={12} /> <span className="align-middle"> Italian </span>
-              </a>
-              {/* item*/}
-              <a href="javascript:void(0);" className="dropdown-item notify-item">
-                <img src="/assets/images/flags/french_flag.jpg" alt="user-image" className="me-1" height={12} /> <span className="align-middle"> French </span>
-              </a>
-              {/* item*/}
-              <a href="javascript:void(0);" className="dropdown-item notify-item">
-                <img src="/assets/images/flags/spain_flag.jpg" alt="user-image" className="me-1" height={12} /> <span className="align-middle"> Spanish </span>
-              </a>
-              {/* item*/}
-              <a href="javascript:void(0);" className="dropdown-item notify-item">
-                <img src="/assets/images/flags/russia_flag.jpg" alt="user-image" className="me-1" height={12} /> <span className="align-middle"> Russian </span>
-              </a>
-            </div>
-          </div>
           <div className="dropdown d-none d-lg-inline-block">
             <button type="button" className="btn header-item noti-icon waves-effect" data-bs-toggle="fullscreen">
               <i className="mdi mdi-fullscreen" />
@@ -112,8 +84,8 @@ const Header = () => {
                   </div>
                 </div>
               </div>
-              <div data-simplebar style={{ "max-height": "230px" }}>
-                <a href className="text-reset notification-item">
+              <div data-simplebar style={{ maxHeight: "230px" }}>
+                <a className="text-reset notification-item">
                   <div className="d-flex">
                     <div className="flex-shrink-0 me-3">
                       <div className="avatar-xs">
@@ -130,7 +102,7 @@ const Header = () => {
                     </div>
                   </div>
                 </a>
-                <a href className="text-reset notification-item">
+                <a className="text-reset notification-item">
                   <div className="d-flex">
                     <div className="flex-shrink-0 me-3">
                       <div className="avatar-xs">
@@ -147,7 +119,7 @@ const Header = () => {
                     </div>
                   </div>
                 </a>
-                <a href className="text-reset notification-item">
+                <a className="text-reset notification-item">
                   <div className="d-flex">
                     <div className="flex-shrink-0 me-3">
                       <div className="avatar-xs">
@@ -164,7 +136,7 @@ const Header = () => {
                     </div>
                   </div>
                 </a>
-                <a href className="text-reset notification-item">
+                <a className="text-reset notification-item">
                   <div className="d-flex">
                     <div className="flex-shrink-0 me-3">
                       <div className="avatar-xs">
@@ -181,7 +153,7 @@ const Header = () => {
                     </div>
                   </div>
                 </a>
-                <a href className="text-reset notification-item">
+                <a className="text-reset notification-item">
                   <div className="d-flex">
                     <div className="flex-shrink-0 me-3">
                       <div className="avatar-xs">
@@ -213,7 +185,7 @@ const Header = () => {
               <img className="rounded-circle header-profile-user" src="/assets/images/users/user-4.jpg" alt="Header Avatar" />
             </button>
             <div className="dropdown-menu dropdown-menu-end">
-              {/* item*/}
+             
               <a className="dropdown-item" href="#"><i className="mdi mdi-account-circle font-size-17 align-middle me-1" /> Profile</a>
               <a className="dropdown-item" href="#"><i className="mdi mdi-wallet font-size-17 align-middle me-1" /> My Wallet</a>
               <a className="dropdown-item d-flex align-items-center" href="#"><i className="mdi mdi-cog font-size-17 align-middle me-1" /> Settings<span className="badge bg-success ms-auto">11</span></a>

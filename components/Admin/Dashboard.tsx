@@ -12,24 +12,8 @@ const Dashboard = () => {
           <div className="col-md-8">
             <h6 className="page-title">Dashboard</h6>
             <ol className="breadcrumb m-0">
-              <li className="breadcrumb-item active">Welcome to Veltrix Dashboard</li>
+              <li className="breadcrumb-item active">Welcome to Startup Dashboard</li>
             </ol>
-          </div>
-          <div className="col-md-4">
-            <div className="float-end d-none d-md-block">
-              <div className="dropdown">
-                <button className="btn btn-primary  dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                  <i className="mdi mdi-cog me-2" /> Settings
-                </button>
-                <div className="dropdown-menu dropdown-menu-end">
-                  <a className="dropdown-item" href="#">Action</a>
-                  <a className="dropdown-item" href="#">Another action</a>
-                  <a className="dropdown-item" href="#">Something else here</a>
-                  <div className="dropdown-divider" />
-                  <a className="dropdown-item" href="#">Separated link</a>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </div>

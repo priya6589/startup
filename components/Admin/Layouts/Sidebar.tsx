@@ -11,18 +11,18 @@ const Sidebar = () => {
       <ul className="metismenu list-unstyled" id="side-menu">
         <li className="menu-title">Main</li>
         <li>
-          <a href="index.html" className="waves-effect">
+          <a href="/admin/dashboard/" className="waves-effect">
             <i className="ti-home" /><span className="badge rounded-pill bg-primary float-end">1</span>
             <span>Dashboard</span>
           </a>
         </li>
         <li>
-          <a href="calendar.html" className=" waves-effect">
+          <a href="" className=" waves-effect">
             <i className="ti-calendar" />
             <span>Calendar</span>
           </a>
         </li>
-        <li>
+        {/* <li>
           <a href="javascript: void(0);" className="has-arrow waves-effect">
             <i className="ti-email" />
             <span>Email</span>
@@ -32,8 +32,8 @@ const Sidebar = () => {
             <li><a href="email-read.html">Email Read</a></li>
             <li><a href="email-compose.html">Email Compose</a></li>
           </ul>
-        </li>
-        <li className="menu-title">Components</li>
+        </li> */}
+        {/* <li className="menu-title">Components</li>
         <li>
           <a href="javascript: void(0);" className="has-arrow waves-effect">
             <i className="ti-package" />
@@ -62,8 +62,8 @@ const Sidebar = () => {
             <li><a href="ui-rating.html">Rating</a></li>
             <li><a href="ui-utilities.html">Utilities</a></li>
           </ul>
-        </li>
-        <li>
+        </li> */}
+        {/* <li>
           <a href="javascript: void(0);" className="waves-effect">
             <i className="ti-receipt" />
             <span className="badge rounded-pill bg-success float-end">9</span>
@@ -80,8 +80,8 @@ const Sidebar = () => {
             <li><a href="form-wizard.html">Form Wizard</a></li>
             <li><a href="form-mask.html">Form Mask</a></li>
           </ul>
-        </li>
-        <li>
+        </li> */}
+        {/* <li>
           <a href="javascript: void(0);" className="has-arrow waves-effect">
             <i className="ti-pie-chart" />
             <span>Charts</span>
@@ -94,8 +94,8 @@ const Sidebar = () => {
             <li><a href="charts-knob.html">Jquery Knob Chart</a></li>
             <li><a href="charts-sparkline.html">Sparkline Chart</a></li>
           </ul>
-        </li>
-        <li>
+        </li> */}
+        {/* <li>
           <a href="javascript: void(0);" className="has-arrow waves-effect">
             <i className="ti-view-grid" />
             <span>Tables</span>
@@ -106,7 +106,7 @@ const Sidebar = () => {
             <li><a href="tables-responsive.html">Responsive Tables</a></li>
             <li><a href="tables-editable.html">Editable Tables</a></li>
           </ul>
-        </li>
+        </li> */}
         <li>
           <a href="javascript: void(0);" className="has-arrow waves-effect">
             <i className="ti-face-smile" />

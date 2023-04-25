@@ -7,11 +7,8 @@ import { getCurrentUserData } from '@/lib/session';
 export default function App({ Component, pageProps }: AppProps) {
   const current_user = getCurrentUserData();
   let Layout = FrontendLayout; // default layout is FrontendLayout
-  if (current_user.role === 'admin') {
+  if (current_user && current_user.role === 'admin') {
     Layout = AdminLayout;
-    // Layout =FrontendLayout;
-  }else{
-    Layout = FrontendLayout;
   }
   return (
     <>

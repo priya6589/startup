@@ -39,15 +39,15 @@ export default function Document() {
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
         <link rel="icon" type="image/png" href={process.env.NEXT_PUBLIC_BASE_URL + 'assets/img/favicon.png'} />
 
-
+        <link href={process.env.NEXT_PUBLIC_BASE_URL + "assets/admin/libs/chartist/chartist.min.css"} rel="stylesheet" />
+        <link href={process.env.NEXT_PUBLIC_BASE_URL + "assets/admin/css/bootstrap.min.css"} id="bootstrap-style" rel="stylesheet" type="text/css" />
+        <link href={process.env.NEXT_PUBLIC_BASE_URL + "assets/admin/css/icons.min.css"} rel="stylesheet" type="text/css" />
+        <link href={process.env.NEXT_PUBLIC_BASE_URL + "assets/admin/css/app.min.css"} id="app-style" rel="stylesheet" type="text/css" />
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ti-icons@0.1.2/css/themify-icons.min.css" />
-        {/* <link href={process.env.NEXT_PUBLIC_BASE_URL +"assets/admin/css/bootstrap.min.css"} rel="stylesheet" type="text/css" /> */}
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-        <link href={process.env.NEXT_PUBLIC_BASE_URL +"assets/admin/css/icons.min.css"} rel="stylesheet" type="text/css" />
-        {/* <link href={process.env.NEXT_PUBLIC_BASE_URL +"assets/admin/css/app.min.css"} rel="stylesheet" type="text/css" /> */}
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@7.2.96/css/materialdesignicons.min.css" />
-
-      </Head>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css.map" />
+      </Head>    
       <body>
         <Main />
         <NextScript />
@@ -78,7 +78,20 @@ export default function Document() {
         {/* <!-- Custom JS --> */}
         <script src={process.env.NEXT_PUBLIC_BASE_URL + 'assets/js/main.js'}></script>
 
-        <script src={process.env.NEXT_PUBLIC_BASE_URL +"assets/admin/js/app.js"}></script>
+        <script src={process.env.NEXT_PUBLIC_BASE_URL + "assets/admin/libs/jquery/jquery.min.js"}></script>
+        <script src={process.env.NEXT_PUBLIC_BASE_URL + "assets/admin/libs/bootstrap/js/bootstrap.bundle.min.js"}></script>
+        <script src={process.env.NEXT_PUBLIC_BASE_URL + "assets/admin/libs/metismenu/metisMenu.min.js"}></script>
+        <script src={process.env.NEXT_PUBLIC_BASE_URL + "assets/admin/libs/simplebar/simplebar.min.js"}></script>
+        <script src={process.env.NEXT_PUBLIC_BASE_URL + "assets/admin/libs/node-waves/waves.min.js"}></script>
+
+        <script src={process.env.NEXT_PUBLIC_BASE_URL + "assets/admin/libs/peity/jquery.peity.min.js"}></script>
+
+        <script src={process.env.NEXT_PUBLIC_BASE_URL + "assets/admin/libs/chartist/chartist.min.js"}></script>
+        <script src={process.env.NEXT_PUBLIC_BASE_URL + "assets/admin/libs/chartist-plugin-tooltips/chartist-plugin-tooltip.min.js"}></script>
+
+        <script src={process.env.NEXT_PUBLIC_BASE_URL + "assets/admin/js/pages/dashboard.init.js"}></script>
+
+        <script src={process.env.NEXT_PUBLIC_BASE_URL + "assets/admin/js/app.js"}></script>
 
       </body>
     </Html>

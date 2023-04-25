@@ -5,10 +5,8 @@ const Layout = ({ children }:any) => {
   return (
     <>
       <Header />
-      <div className="container">
       <Sidebar/>
       <main>{children}</main>
-       </div>
       <Footer />
     
     </>
