@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useRouter } from "next/router";
+import {getCurrentUserData} from "../../lib/session";
 const alertStyle = {
   color: 'red',
 };
@@ -11,233 +12,226 @@ const textStyle = {
 };
 
 
-export default function customizereview(){
+export default function customizereview() {
   const router = useRouter();
-  const [blId, setBlId] = useState('');
-  const [forwarduId, setForwarduId] = useState('');
-  const [business_review_link, setBusinessReviewLink] = useState('');
-  const [business_name, setBusinessName] = useState('');
-  const [facebook_link, setFacebookLink] = useState('');
-  const [twitter_link, setTwitterLink] = useState('');
-  const [linkedin_link, setLinkedinLink] = useState('');
-  const [instagram_link, setInstagramLink] = useState('');
-  const [client_satisfaction, setClientSatisfaction] = useState('');
-  const [signup_success, setSignupSuccess] = useState(false);
-  const [disablePurl, setDisablePurl] = useState(false);
-  const [disablePurls, setDisablePurls] = useState(false);
-  const [copied, setCopied] = useState(false);
-
-  const handleSubmit = (event:any) => {
+  const [current_user_id, setCurrentUserId] = useState(false);
+  const [terms,  setTerms] = useState({
+    user_id: current_user_id,
+    principal_residence: "",
+    cofounder:"",
+    prev_investment_exp:"",
+    experience:"",
+});
+  const handleSubmit = (event: any) => {
     event.preventDefault();
-    savedata();
-  }
-  const savedata = () => {
-    var blid = blId;
-    const data = {
-        user_id: forwarduId,
-        business_review_link: business_review_link,
-        facebook_link: facebook_link,
-        twitter_link: twitter_link,
-        linkedin_link: linkedin_link,
-        instagram_link: instagram_link,
-        client_satisfaction: client_satisfaction,
-    }
-  }
 
-  const diasbleCopyMsg = () => {
-    setCopied(true);
   }
+ 
   
-  if (signup_success) return router.push('/steps/billing');
 
-return (
-    <>  
+  return (
+    <>
       <div className="page-title-area item-bg-5">
         <div className="d-table">
-            <div className="d-table-cell">
-                <div className="container">
-                    <div className="page-title-content">
-                        <h2>Complete Account Details</h2>
-                        <ul>
-                            <li><a href="/">Home</a></li>
-                        </ul>
-                    </div>
-                </div>
+          <div className="d-table-cell">
+            <div className="container">
+              <div className="page-title-content">
+                <h2>Complete Account Details</h2>
+                <ul>
+                  <li><a href="/">Home</a></li>
+                </ul>
+              </div>
             </div>
+          </div>
         </div>
       </div>
       <div className="left-bar">
         <div className="container">
-            <div id="app">     
-              <ol className="step-indicator">
-                <li className="">
-                    <div className="step_name">Step <span>1</span></div>
-                    <div className="step_border">
-                      <div className="step_complete"><i className="fa fa-check-circle" aria-hidden="true"></i></div>
-                    </div>
-                    <div className="caption hidden-xs hidden-sm"><span>FIND YOUR BUSINESS</span></div>
-                </li>
-                <li className="">
-                    <div className="step_name">Step <span>2</span></div>
-                    <div className="step_border">
-                      <div className="step_complete"><i className="fa fa-check-circle" aria-hidden="true"></i></div>
-                    </div>
-                    <div className="caption hidden-xs hidden-sm"><span>BUSINESS INFORMATION</span></div>
-                </li>
-                <li className="active">
-                    <div className="step_name">Step <span>3</span></div>
-                    <div className="step_border">
-                      <div className="step"><i className="fa fa-circle"></i></div>
-                    </div>
-                    <div className="caption hidden-xs hidden-sm"><span>CUSTOMIZE REVIEW SYSTEM</span></div>
-                </li>
-                <li className="">
-                    <div className="step_name">Step <span>4</span></div>
-                    <div className="step_border">
-                      <div className="step"><i className="fa fa-circle"></i></div>
-                    </div>
-                    <div className="caption hidden-xs hidden-sm"><span>BILLING TO STRIPE</span></div>
-                </li>
-              </ol>
-              <div className="container">
-                <div className="register-form">
-                  {/*<h4 className="text-center mt-5">Find your business</h4>*/}
-                  <div className="row step_one">
-                    <div className="col-md-12">
-                      <form className="needs-validation mb-4" >
-                        <h4 className="black_bk_col fontweight500 font_20 mb-4 text-center"> Customize Review <i style={{"cursor":'pointer'}} className="fa fa-info-circle" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Please type in your full business name into the field below. This would be your registered company name."></i></h4>
-                        <div className="row justify-content-center">
-                          <div className="col-md-8" id="register">
-                            <div className="row">
-                                <div className="col-md-6 mt-3">
-                                    <label htmlFor="exampleFormControlInput1" className="form-label">First Name <span className="text-mandatory">*</span></label>
-                                    <input type="text" className="form-control same-input" name="" id=""/>
-                                </div>
-                                <div className="col-md-6 mt-3">
-                                    <label htmlFor="exampleFormControlInput1" className="form-label">Last Name <span className="text-mandatory">*</span></label>
-                                    <input type="text" className="form-control same-input" name="" id=""/>
-                                </div>
-                                <div className="col-md-6 mt-3">
-                                    <label htmlFor="exampleFormControlInput1" className="form-label">Email ID <span className="text-mandatory">*</span></label>
-                                    <input type="text" className="form-control same-input" name="" id=""/>
-                                </div>
-                                <div className="col-md-6 mt-3">
-                                    <label htmlFor="exampleFormControlInput1" className="form-label">Password <span className="text-mandatory">*</span></label>
-                                    <input type="text" className="form-control same-input" name="" id=""/>
-                                </div>
-                                <div className="col-md-6 mt-3">
-                                    <label htmlFor="" className="d-block mb-4">Gender <span className="text-mandatory">*</span></label>
-                                    <div className="form-check form-check-inline">
-                                        <input className="form-check-input" type="radio" name="inlineRadioOptions"
-                                            id="inlineRadio1" value="option1"/>
-                                        <label className="form-check-label" htmlFor="inlineRadio1">Male</label>
+          <div id="app">
+            <ol className="step-indicator">
+              <li className="">
+                <div className="step_name">
+                  Step <span>1</span>
+                </div>
+                <div className="step_border">
+                  <div className="step_complete">
+                    <i className="flaticon-checked" aria-hidden="true"></i>
+                  </div>
+                </div>
+                <div
+                  className="caption hidden-xs hidden-sm"
+                  style={{ color: "#82b440" }}
+                >
+                  <span>PERSONAL INFORMATION</span>
+                </div>
+              </li>
+              <li className="">
+                <div className="step_name">
+                  Step <span>2</span>
+                </div>
+                <div className="step_border">
+                  <div className="step">
+                    <img
+                      className="sidebar-img w-100"
+                      src="/assets/img/investor/dollar.png"
+                    />
+                  </div>
+                </div>
+                <div className="caption hidden-xs hidden-sm">
+                  <span>INVESTOR INFORMATION</span>
+                </div>
+              </li>
+              <li className="active">
+                <div className="step_name">
+                  Step <span>3</span>
+                </div>
+                <div className="step_border">
+                  <div className="step">
+                    <img
+                      className="sidebar-img w-50"
+                      src="/assets/img/investor/download2.png"
+                    />
+                  </div>
+                </div>
+                <div className="caption hidden-xs hidden-sm">
+                  <span>BASIC INFORMATION</span>
+                </div>
+              </li>
+            </ol>
+            <div className="container">
+              <div className="register-form">
+                <div className="row step_one">
+                  <div className="col-md-12">
+                  <h4 className="black_bk_col fontweight500 font_20 mb-4 text-center">
+                                                {" "}
+                                               Terms & Conditions{" "}
+                                                <i
+                                                    style={{ cursor: "pointer" }}
+                                                    className="fa fa-info-circle"
+                                                    aria-hidden="true"
+                                                    data-toggle="tooltip"
+                                                    data-placement="top"
+                                                    title="Please select your investor type.That would be helpful to verify your account."
+                                                ></i>
+                  </h4>
+                    <form className="needs-validation mb-4" >
+                      <section>
+                        <div className="container" id="option_select">
+                          <div className="row">
+                            <div className="col-md-12">
+                              <select className="options">
+                                <option value={1}>Individual</option>
+                                <option value={2}>Body Corporate/VC/PE/Family Office 1 /Corporate Institution</option>
+                                <option value={3}>Accelerators and Incubators</option>
+                              </select>
+                              <div id="checkbox-group-1" className="hidden">
+                                <div className="same-card">
+                                  <div className="row">
+                                    <div className="col-auto">
+                                      <input type="checkbox" id="checkbox1" name="checkbox1" />
                                     </div>
-                                    <div className="form-check form-check-inline">
-                                        <input className="form-check-input" type="radio" name="inlineRadioOptions"
-                                            id="inlineRadio2" value="option2"/>
-                                        <label className="form-check-label" htmlFor="inlineRadio2">Female</label>
+                                    <div className="col">
+                                      <label htmlFor="checkbox1">
+                                      Net tangible assets of at least INR 2 Crore excluding value of his principal residence
+                                      </label>
                                     </div>
-                                    <div className="form-check form-check-inline">
-                                        <input className="form-check-input" type="radio" name="inlineRadioOptions"
-                                            id="inlineRadio3" value="option3"/>
-                                        <label className="form-check-label" htmlFor="inlineRadio3">Others</label>
+                                  </div>
+                                </div>
+                                <div className="same-card">
+                                  <div className="row">
+                                    <div className="col-auto">
+                                      <input type="checkbox" id="checkbox2" name="checkbox2" />
                                     </div>
-                                </div>
-                                <div className="col-md-6 mt-3">
-                                    <label htmlFor="exampleFormControlInput1" className="form-label">Linkedin URL <span className="text-mandatory">*</span></label>
-                                    <input type="text" className="form-control same-input" name="linkedin_url" id=""/>
-                                </div>
-                                <div className="col-md-6 mt-3">
-                                    <label htmlFor="exampleFormControlInput1" className="form-label">Phone number <span className="text-mandatory">*</span></label>
-                                    <input type="text" className="form-control same-input" name="" id=""/>
-                                    <p>Please enter the number with respective country code.</p>
-                                </div>
-                                <div className="col-sm-6 mt-4">
-                                    <label htmlFor="exampleFormControlInput1" className="form-label mb-4">Country of Citizenship <span className="text-mandatory">*</span></label>
-                                    <select className="form-select form-select-lg mb-3 css-1492t68 " aria-label=".form-select-lg example">
-                                      <option selected>Open this select menu</option>
-                                      <option value="1">One</option>
-                                      <option value="2">Two</option>
-                                      <option value="3">Three</option>
-                                    </select>
-                                </div>
-                                <div className="col-sm-6 mt-4">
-                                    <label htmlFor="exampleFormControlInput1" className="form-label mb-4">Which city do you live in? <span className="text-mandatory">*</span></label>
-                                    <select className="form-select form-select-lg css-1492t68" aria-label=".form-select-lg example">
-                                        <option selected>Open this select menu</option>
-                                        <option value="1">One</option>
-                                        <option value="2">Two</option>
-                                        <option value="3">Three</option>
-                                    </select>
-                                </div>
-                                <div className="col-md-6">
-                                    <label htmlFor="" className="d-block mb-4">Do you have assets worth over INR 2 cr apart from your
-                                        primary residence? <span className="text-mandatory">*</span></label>
-                                    <div className="form-check form-check-inline">
-                                        <input className="form-check-input" type="radio" name="inlineRadioOptions"
-                                            id="inlineRadio1" value="option1"/>
-                                        <label className="form-check-label" htmlFor="inlineRadio1">YES</label>
+                                    <div className="col">
+                                      <label htmlFor="checkbox2">Has invested in startups before</label>
                                     </div>
-                                    <div className="form-check form-check-inline">
-                                        <input className="form-check-input" type="radio" name="inlineRadioOptions"
-                                            id="inlineRadio2" value="option2"/>
-                                        <label className="form-check-label" htmlFor="inlineRadio2">NO</label>
+                                  </div>
+                                </div>
+                                <div className="same-card">
+                                  <div className="row">
+                                    <div className="col-auto">
+                                      <input type="checkbox" id="checkbox3" name="checkbox3" />
                                     </div>
-                                    <p>This information is required as per SEBI guidelines</p>
+                                    <div className="col">
+                                      <label htmlFor="checkbox3">come from an entrepreneurial family or have been a
+                                        founder/co-founder of a business
+                                        venture</label>
+                                    </div>
+                                  </div>
                                 </div>
-                                <div className="col-sm-6">
-                                    <label htmlFor="exampleFormControlInput1" className="form-label mb-4">Which of these best describes
-                                        you? <span className="text-mandatory">*</span></label>
-                                    <select className="form-select form-select-lg css-1492t68" aria-label=".form-select-lg example">
-                                        <option selected>Open this select menu</option>
-                                        <option value="1">One</option>
-                                        <option value="2">Two</option>
-                                        <option value="3">Three</option>
-                                    </select>
+                                <div className="same-card">
+                                  <div className="row">
+                                    <div className="col-auto">
+                                      <input type="checkbox" id="checkbox4" name="checkbox4" />
+                                    </div>
+                                    <div className="col">
+                                      <label htmlFor="checkbox4">Senior management professional with at least 10 years of
+                                        experience
+                                      </label>
+                                    </div>
+                                  </div>
                                 </div>
-                                <label htmlFor="" className="mt-5">Help us understand your experience better (multiple options can be
-                                    selected)<span className="text-mandatory">*</span></label>
-                                <div className=" mt-3 d-flex align-content-center">
-                                    <input className="form-check-input" type="checkbox" id="checkboxNoLabel" value=""
-                                        aria-label=""/>
-                                    <p className="">You have invested in startups before</p>
+                              </div>
+                              <div id="checkbox-group-2" className="hidden">
+                                <div className="same-card">
+                                  <div className="row">
+                                    <div className="col-auto">
+                                      <input type="checkbox" id="checkbox5" name="checkbox5" />
+                                    </div>
+                                    <div className="col">
+                                      <label htmlFor="checkbox5">Net worth of at least INR 10 Crore</label>
+                                    </div>
+                                  </div>
                                 </div>
-                                <div className=" mt-3 d-flex align-content-center">
-                                    <input className="form-check-input" type="checkbox" id="checkboxNoLabel" value=""
-                                        aria-label=""/>
-                                    <p className="">You come from an entrepreneurial family or have been a founder/co-founder of a business venture family</p>
+                              </div>
+                              <div id="checkbox-group-3" className="hidden">
+                                <div className="same-card">
+                                  <div className="row">
+                                    <div className="col-auto">
+                                      <input type="checkbox" id="checkbox6" name="checkbox6" />
+                                    </div>
+                                    <div className="col">
+                                      <label htmlFor="checkbox6">No Requirement</label>
+                                    </div>
+                                  </div>
                                 </div>
-                                <div className=" mt-3 d-flex align-content-center">
-                                    <input className="form-check-input" type="checkbox" id="checkboxNoLabel" value=""
-                                        aria-label=""/>
-                                    <p className="">You have at least 10 years of work experience</p>
-                                </div>
-                                <div className=" mt-3 d-flex align-content-center">
-                                    <input className="form-check-input" type="checkbox" id="checkboxNoLabel" value=""
-                                        aria-label=""/>
-                                    <p className="">None of the above</p>
-                                </div>
-                                <div className=" mt-3 d-flex align-items-center">
-                                    <input className="form-check-input" type="checkbox" id="checkboxNoLabel" value=""
-                                        aria-label=""/>
-                                    <p className="">I certify that all the information provided by me is accurate and I am willing to provide evidence for the same for KYC purposes when requested.</p>
-                                </div>
-                            </div>
-                            <div className="banner-btn justify-content-between d-md-flex mt-5 mb-5">
-                              <a href={`/steps/businessinfo`} className="default-btn">Go back</a>
-                              <a href="#" className="default-btn" onClick={handleSubmit}>Sign Up
-                              </a>
+                              </div>
                             </div>
                           </div>
                         </div>
-                      </form>
-                    </div>
+                      </section>
+
+                      <div className="row mt-3">
+                        <div
+                          className="col-md-6"
+                          style={{ textAlign: "left" }}
+                        >
+                          <a
+                            href={`/investor-steps/findbusiness`}
+                            className="btn btn-primary"
+                            id="back"
+                          >
+                            Go back
+                          </a>
+                        </div>
+
+                        <div
+                          className="col-md-6"
+                          style={{ textAlign: "right" }}
+                        >
+                          <button type="submit" className="btn btn-primary">
+                            Submit
+                          </button>
+                        </div>
+                      </div>
+                    </form>
                   </div>
                 </div>
               </div>
             </div>
+          </div>
         </div>
-        <ToastContainer autoClose={5000} />
+        {/* <ToastContainer autoClose={5000} /> */}
       </div>
     </>
   );

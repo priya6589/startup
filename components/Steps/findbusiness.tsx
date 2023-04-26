@@ -59,14 +59,7 @@ export default function findbusiness() {
     if (selectedCountry) {
       countryCode = selectedCountry.country_code;
     }
-    setUser((prevState) => {
-      let newValue = value;
-      if (name === 'phone' && prevState.country_code) {
-        // If a country code is already selected, prepend it to the phone number
-        newValue = `${prevState.country_code}${value}`;
-      }});
   
-    //  console.log(countryCode);
     setUser((prevState) => {
       return {
         ...prevState,
@@ -77,6 +70,26 @@ export default function findbusiness() {
     });
     
   };
+
+  const phonClick=(event)=>{
+    let { name, value } = event.target;
+    var selectedCountry = countries.find(
+      (country) => country.name === value
+    );
+    var countryCode = "";
+    if (selectedCountry) {
+      countryCode = selectedCountry.country_code;
+    }
+  
+    setUser((prevState) => {
+      return {
+        ...prevState,
+        [name]: value,
+        id: current_user_id,
+        country_code: countryCode ? `${countryCode}` : " ",
+      };
+    });
+  }
 
   useEffect(() => {
     const current_user_data = getCurrentUserData();
@@ -392,7 +405,7 @@ export default function findbusiness() {
                                 })}
                                 id="phone"
                                 name="phone"
-                                onChange={handleChange}
+                                onChange={handleChange} onClick={phonClick}
                                 maxLength={10}
                                 value={user.phone ? user.phone.replace(/^\+91-/, '') : ''}
                               />

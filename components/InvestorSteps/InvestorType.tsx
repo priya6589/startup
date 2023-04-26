@@ -87,7 +87,7 @@ export default function businessinfo(props: any) {
                     toastId: "success",
                   });
                 setTimeout(() => {
-                    router.push("/services");
+                    router.push("/investor-steps/customizereview");
                 }, 2000);
             } else {
                 toast.error(res.message, {
@@ -153,15 +153,15 @@ export default function businessinfo(props: any) {
                                     <span>INVESTOR INFORMATION</span>
                                 </div>
                             </li>
-                            {/* <li className="">
+                            <li className="active">
                                 <div className="step_name">
                                     Step <span>3</span>
                                 </div>
                                 <div className="step_border">
                                     <div className="step">
                                         <img
-                                            className="sidebar-img w-75"
-                                            src="/assets/img/sidebar/docs.png"
+                                            className="sidebar-img w-50"
+                                            src="/assets/img/investor/download2.png"
                                         />
                                     </div>
                                 </div>
@@ -169,22 +169,7 @@ export default function businessinfo(props: any) {
                                     <span>BASIC INFORMATION</span>
                                 </div>
                             </li>
-                            <li className="">
-                                <div className="step_name">
-                                    Step <span>4</span>
-                                </div>
-                                <div className="step_border">
-                                    <div className="step">
-                                        <img
-                                            className="sidebar-img w-75"
-                                            src="/assets/img/sidebar/bank.png"
-                                        />
-                                    </div>
-                                </div>
-                                <div className="caption hidden-xs hidden-sm">
-                                    <span>BANK INFORMATION</span>
-                                </div>
-                            </li> */}
+                           
                         </ol>
                         <div className="container">
                             <div className="register-form">

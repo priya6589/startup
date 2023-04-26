@@ -4,6 +4,7 @@ Default CSS
 
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Catamaran:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
 body {
     padding: 0;
     margin: 0;
@@ -208,6 +209,7 @@ h6:last-child {
         -webkit-transform: translateX(0);
         transform: translateX(0);
     }
+
     to {
         -webkit-transform: translateX(85px);
         transform: translateX(85px);
@@ -219,6 +221,7 @@ h6:last-child {
         -webkit-transform: translateX(0);
         transform: translateX(0);
     }
+
     to {
         -webkit-transform: translateX(85px);
         transform: translateX(85px);
@@ -331,6 +334,7 @@ Preloader Area CSS
         transform: scale(0, 0);
         opacity: 0.5;
     }
+
     100% {
         -webkit-transform: scale(1, 1);
         transform: scale(1, 1);
@@ -344,6 +348,7 @@ Preloader Area CSS
         transform: scale(0, 0);
         opacity: 0.5;
     }
+
     100% {
         -webkit-transform: scale(1, 1);
         transform: scale(1, 1);
@@ -1056,30 +1061,38 @@ Navbar Area CSS
     .fria-responsive-nav {
         display: block;
     }
+
     .fria-responsive-nav .fria-responsive-menu {
         position: relative;
     }
+
     .fria-responsive-nav .fria-responsive-menu.mean-container .mean-nav ul {
         font-size: 15px;
     }
+
     .fria-responsive-nav .fria-responsive-menu.mean-container .mean-nav ul li a.active {
         color: #086AD8;
     }
+
     .fria-responsive-nav .fria-responsive-menu.mean-container .mean-nav ul li a i {
         display: none;
     }
+
     .fria-responsive-nav .fria-responsive-menu.mean-container .mean-nav ul li li a {
         font-size: 14px;
     }
+
     .fria-responsive-nav .fria-responsive-menu.mean-container .navbar-nav {
         overflow-y: scroll;
         height: 336px;
         -webkit-box-shadow: 0 7px 13px 0 rgba(0, 0, 0, 0.1);
         box-shadow: 0 7px 13px 0 rgba(0, 0, 0, 0.1);
     }
+
     .fria-responsive-nav .mean-container a.meanmenu-reveal {
         color: #212121;
     }
+
     .fria-responsive-nav .mean-container a.meanmenu-reveal span {
         background: #212121;
         position: relative;
@@ -1087,19 +1100,23 @@ Navbar Area CSS
         margin-top: -5.8px;
         border-radius: 5px;
     }
+
     .fria-responsive-nav .mean-container .others-options {
         display: none;
     }
+
     .fria-responsive-nav .logo {
         position: relative;
         width: 50%;
         z-index: 999;
     }
+
     .navbar-area {
         background-color: #ffffff;
         padding-top: 15px;
         padding-bottom: 15px;
     }
+
     .fria-nav {
         display: none;
     }
@@ -1486,11 +1503,13 @@ Creative Area CSS
         -webkit-transform: scale(1);
         transform: scale(1);
     }
+
     75% {
         -webkit-transform: scale(1.75);
         transform: scale(1.75);
         opacity: 1;
     }
+
     100% {
         -webkit-transform: scale(2);
         transform: scale(2);
@@ -1503,11 +1522,13 @@ Creative Area CSS
         -webkit-transform: scale(1);
         transform: scale(1);
     }
+
     75% {
         -webkit-transform: scale(1.75);
         transform: scale(1.75);
         opacity: 1;
     }
+
     100% {
         -webkit-transform: scale(2);
         transform: scale(2);
@@ -1917,6 +1938,7 @@ Services Area CSS
         -webkit-transform: rotate(0deg);
         transform: rotate(0deg);
     }
+
     to {
         -webkit-transform: rotate(360deg);
         transform: rotate(360deg);
@@ -1928,6 +1950,7 @@ Services Area CSS
         -webkit-transform: rotate(0deg);
         transform: rotate(0deg);
     }
+
     to {
         -webkit-transform: rotate(360deg);
         transform: rotate(360deg);
@@ -1939,22 +1962,27 @@ Services Area CSS
         -webkit-transform: translate(0px, 0px) rotate(0deg);
         transform: translate(0px, 0px) rotate(0deg);
     }
+
     20% {
         -webkit-transform: translate(73px, -1px) rotate(36deg);
         transform: translate(73px, -1px) rotate(36deg);
     }
+
     40% {
         -webkit-transform: translate(141px, 72px) rotate(72deg);
         transform: translate(141px, 72px) rotate(72deg);
     }
+
     60% {
         -webkit-transform: translate(83px, 122px) rotate(108deg);
         transform: translate(83px, 122px) rotate(108deg);
     }
+
     80% {
         -webkit-transform: translate(-40px, 72px) rotate(144deg);
         transform: translate(-40px, 72px) rotate(144deg);
     }
+
     100% {
         -webkit-transform: translate(0px, 0px) rotate(0deg);
         transform: translate(0px, 0px) rotate(0deg);
@@ -1966,22 +1994,27 @@ Services Area CSS
         -webkit-transform: translate(0px, 0px) rotate(0deg);
         transform: translate(0px, 0px) rotate(0deg);
     }
+
     20% {
         -webkit-transform: translate(73px, -1px) rotate(36deg);
         transform: translate(73px, -1px) rotate(36deg);
     }
+
     40% {
         -webkit-transform: translate(141px, 72px) rotate(72deg);
         transform: translate(141px, 72px) rotate(72deg);
     }
+
     60% {
         -webkit-transform: translate(83px, 122px) rotate(108deg);
         transform: translate(83px, 122px) rotate(108deg);
     }
+
     80% {
         -webkit-transform: translate(-40px, 72px) rotate(144deg);
         transform: translate(-40px, 72px) rotate(144deg);
     }
+
     100% {
         -webkit-transform: translate(0px, 0px) rotate(0deg);
         transform: translate(0px, 0px) rotate(0deg);
@@ -1993,22 +2026,27 @@ Services Area CSS
         -webkit-transform: translate(0px, 0px) rotate(0deg);
         transform: translate(0px, 0px) rotate(0deg);
     }
+
     20% {
         -webkit-transform: translate(-73px, 1px) rotate(-36deg);
         transform: translate(-73px, 1px) rotate(-36deg);
     }
+
     40% {
         -webkit-transform: translate(-141px, -72px) rotate(-72deg);
         transform: translate(-141px, -72px) rotate(-72deg);
     }
+
     60% {
         -webkit-transform: translate(-83px, -122px) rotate(-108deg);
         transform: translate(-83px, -122px) rotate(-108deg);
     }
+
     80% {
         -webkit-transform: translate(40px, -72px) rotate(-144deg);
         transform: translate(40px, -72px) rotate(-144deg);
     }
+
     100% {
         -webkit-transform: translate(0px, 0px) rotate(0deg);
         transform: translate(0px, 0px) rotate(0deg);
@@ -2020,22 +2058,27 @@ Services Area CSS
         -webkit-transform: translate(0px, 0px) rotate(0deg);
         transform: translate(0px, 0px) rotate(0deg);
     }
+
     20% {
         -webkit-transform: translate(-73px, 1px) rotate(-36deg);
         transform: translate(-73px, 1px) rotate(-36deg);
     }
+
     40% {
         -webkit-transform: translate(-141px, -72px) rotate(-72deg);
         transform: translate(-141px, -72px) rotate(-72deg);
     }
+
     60% {
         -webkit-transform: translate(-83px, -122px) rotate(-108deg);
         transform: translate(-83px, -122px) rotate(-108deg);
     }
+
     80% {
         -webkit-transform: translate(40px, -72px) rotate(-144deg);
         transform: translate(40px, -72px) rotate(-144deg);
     }
+
     100% {
         -webkit-transform: translate(0px, 0px) rotate(0deg);
         transform: translate(0px, 0px) rotate(0deg);
@@ -2047,6 +2090,7 @@ Services Area CSS
         -webkit-transform: rotateY(0deg);
         transform: rotateY(0deg);
     }
+
     100% {
         -webkit-transform: rotateY(360deg);
         transform: rotateY(360deg);
@@ -2058,6 +2102,7 @@ Services Area CSS
         -webkit-transform: rotateY(0deg);
         transform: rotateY(0deg);
     }
+
     100% {
         -webkit-transform: rotateY(360deg);
         transform: rotateY(360deg);
@@ -2069,10 +2114,12 @@ Services Area CSS
         -webkit-transform: scale(0.6);
         transform: scale(0.6);
     }
+
     50% {
         -webkit-transform: scale(0.8);
         transform: scale(0.8);
     }
+
     100% {
         -webkit-transform: scale(0.6);
         transform: scale(0.6);
@@ -2084,10 +2131,12 @@ Services Area CSS
         -webkit-transform: scale(0.6);
         transform: scale(0.6);
     }
+
     50% {
         -webkit-transform: scale(0.8);
         transform: scale(0.8);
     }
+
     100% {
         -webkit-transform: scale(0.6);
         transform: scale(0.6);
@@ -2099,10 +2148,12 @@ Services Area CSS
         -webkit-transform: translateX(0px);
         transform: translateX(0px);
     }
+
     50% {
         -webkit-transform: translateX(20px);
         transform: translateX(20px);
     }
+
     100% {
         -webkit-transform: translateX(0px);
         transform: translateX(0px);
@@ -2114,10 +2165,12 @@ Services Area CSS
         -webkit-transform: translateX(0px);
         transform: translateX(0px);
     }
+
     50% {
         -webkit-transform: translateX(20px);
         transform: translateX(20px);
     }
+
     100% {
         -webkit-transform: translateX(0px);
         transform: translateX(0px);
@@ -2129,10 +2182,12 @@ Services Area CSS
         -webkit-transform: translateY(0px);
         transform: translateY(0px);
     }
+
     50% {
         -webkit-transform: translateY(20px);
         transform: translateY(20px);
     }
+
     100% {
         -webkit-transform: translateY(0px);
         transform: translateY(0px);
@@ -2144,10 +2199,12 @@ Services Area CSS
         -webkit-transform: translateY(0px);
         transform: translateY(0px);
     }
+
     50% {
         -webkit-transform: translateY(20px);
         transform: translateY(20px);
     }
+
     100% {
         -webkit-transform: translateY(0px);
         transform: translateY(0px);
@@ -2326,11 +2383,13 @@ Video Section CSS
         -webkit-transform: scale(1);
         transform: scale(1);
     }
+
     75% {
         -webkit-transform: scale(1.75);
         transform: scale(1.75);
         opacity: 1;
     }
+
     100% {
         -webkit-transform: scale(2);
         transform: scale(2);
@@ -8185,11 +8244,13 @@ Buy Now Btn
         -webkit-transform: scale3d(1, 1, 1);
         transform: scale3d(1, 1, 1);
     }
+
     10%,
     20% {
         -webkit-transform: scale3d(0.9, 0.9, 0.9) rotate3d(0, 0, 1, -3deg);
         transform: scale3d(0.9, 0.9, 0.9) rotate3d(0, 0, 1, -3deg);
     }
+
     30%,
     50%,
     70%,
@@ -8197,12 +8258,14 @@ Buy Now Btn
         -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
         transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
     }
+
     40%,
     60%,
     80% {
         -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
         transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
     }
+
     100% {
         -webkit-transform: scale3d(1, 1, 1);
         transform: scale3d(1, 1, 1);
@@ -8214,11 +8277,13 @@ Buy Now Btn
         -webkit-transform: scale3d(1, 1, 1);
         transform: scale3d(1, 1, 1);
     }
+
     10%,
     20% {
         -webkit-transform: scale3d(0.9, 0.9, 0.9) rotate3d(0, 0, 1, -3deg);
         transform: scale3d(0.9, 0.9, 0.9) rotate3d(0, 0, 1, -3deg);
     }
+
     30%,
     50%,
     70%,
@@ -8226,12 +8291,14 @@ Buy Now Btn
         -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
         transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
     }
+
     40%,
     60%,
     80% {
         -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
         transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
     }
+
     100% {
         -webkit-transform: scale3d(1, 1, 1);
         transform: scale3d(1, 1, 1);
@@ -8469,7 +8536,62 @@ img .sidebar-img {
 .startup-label {
     background-image: url(../../assets/img/startup2.png);
 }
-.input-group-text{
+
+.input-group-text {
     height: 35px;
     width: 55px;
+}
+
+.hidden {
+    display: none;
+}
+
+div#option_select select {
+    padding: 15px;
+    color: rgb(49, 179, 224);
+    border: noe;
+    border: 1px solid #000;
+    width: 100%;
+    font-weight: 800;
+    font-size: 18px;
+    margin-top: 15px;
+}
+div#option_select select:focus {
+    outline: 0;
+    border: none;
+}
+
+.same-card {
+    margin-bottom: 10px;
+    padding: 20px;
+    color: rgb(49, 179, 224);
+    align-items: center;
+    background: transparent;
+    display: flex;
+    padding-left: 10px;
+}
+
+#div#option_select label {
+    color: #000;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 700;
+}
+div#checkbox-group-1,div#checkbox-group-2,div#checkbox-group-3 {
+    border: 2px solid #f7f7f7;
+    margin-bottom: 10px;
+}
+input#checkbox1,
+#checkbox2,
+#checkbox3,
+#checkbox4,
+#checkbox5,
+#checkbox6 {
+    height: 25px;
+    width: 25px;
+    border: none;
+}
+
+#div#option_select li {
+    list-style: decimal;
 }

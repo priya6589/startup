@@ -3,11 +3,17 @@ import type { AppProps } from 'next/app'
 import FrontendLayout from '../components/Frontend/layouts/Layout'
 import AdminLayout from '../components/Admin/Layouts/Layouts'
 import { getCurrentUserData } from '@/lib/session';
+import 'bootstrap/dist/css/bootstrap.css';
 
 export default function App({ Component, pageProps }: AppProps) {
-  const current_user = getCurrentUserData();
+  let current_user = {};
+  try {
+    current_user = getCurrentUserData() || {};
+  } catch (error) {
+    console.error('Error getting current user data:', error);
+  }
   let Layout = FrontendLayout; // default layout is FrontendLayout
-  if (current_user && current_user.role === 'admin') {
+  if (current_user.role === 'admin') {
     Layout = AdminLayout;
   }
   return (

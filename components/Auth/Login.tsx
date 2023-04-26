@@ -18,6 +18,23 @@ export default function Login() {
     removeToken();
     removeStorageData();
   }, []);
+
+  register('password', {
+    required: 'Password is required',
+    minLength: {
+      value: 8,
+      message: 'Password must be at least 8 characters long',
+    },
+    maxLength: {
+      value: 16,
+      message: 'Password cannot be more 16 characters.',
+    },
+    pattern: {
+      value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?])/,
+      message: 'Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character',
+    },
+  });
+
   const submitForm = () => {
     const logindata = {
       email: email,
@@ -50,7 +67,9 @@ export default function Login() {
               }, 2000);
             } 
             if ( window.localStorage.getItem("user_role") == "investor") {
-              window.location.href = "/investor-steps/findbusiness";
+              setTimeout(() => {
+                window.location.href = "/investor-steps/findbusiness";
+              }, 2000);
             }
           } else {
             toast.success(res.message, {
@@ -129,22 +148,22 @@ export default function Login() {
                   <div className="form-group">
                     <input
                       type="password"
-                      {...register("password", { required: true })}
-                      name="password"
                       id="password"
-                      onChange={(e) => setPassword(e.target.value)}
+                      {...register("password", {
+                        onChange: (e) => setPassword(e.target.value),
+                      })}    name="password"
                       className="form-control"
                       placeholder="Password"
                     />
                     <div className="help-block with-errors" />
-                    {errors.password && errors.password.type === "required" && (
-                      <p
-                        className="text-danger"
-                        style={{ textAlign: "left", fontSize: "12px" }}
-                      >
-                        *Enter your valid password.
-                      </p>
-                    )}
+                     {errors.password && (
+                          <p
+                            className="text-danger"
+                            style={{ textAlign: "left", fontSize: "12px" }}
+                          >
+                            *{errors.password.message}
+                          </p>
+                        )}
                   </div>
                 </div>
                 <div className=" mt-2 d-flex align-items-left">
