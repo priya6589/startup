@@ -21,6 +21,8 @@ export default function customizereview() {
     cofounder:"",
     prev_investment_exp:"",
     experience:"",
+    net_worth:"",
+    no_requirements:""
 });
   const handleSubmit = (event: any) => {
     event.preventDefault();
