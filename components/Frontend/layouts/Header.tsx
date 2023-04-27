@@ -223,7 +223,7 @@ export default function HeaderFrontend() {
         <div className="sidebar-modal-inner">
           <div className="sidebar-about-area">
             <div className="title">
-              <h2>About Us</h2>
+            <h2>Contact</h2>
               <p>
                 Our team of experts has extensive experience in the finance and
                 investment industry, ensuring that you receive the best advice
@@ -232,7 +232,7 @@ export default function HeaderFrontend() {
             </div>
           </div>
           <div className="sidebar-contact-feed">
-            <h2>Contact</h2>
+           
             <div className="contact-form">
                 <form id="contactForm" onSubmit={handleSubmit(SubmitForm)}>
                   <div className="row">

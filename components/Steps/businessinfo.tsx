@@ -113,7 +113,6 @@ export default function businessinfo(props: any) {
 
   const SubmitForm = async () => {
     try {
-      console.log(businessDetails);
       const res = await businessInfoSave(businessDetails);
      
       if (res.status == true) {

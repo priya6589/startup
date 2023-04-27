@@ -324,8 +324,8 @@ function toggleTheme() {
 ga('create', 'UA-86308552-1', 'auto');
 ga('send', 'pageview');
 
-$(document).ready(function () {
-	// Initially hide all checkbox groups
+
+	// Terms & Conditions For Investors
 	$('#checkbox-group-1, #checkbox-group-2, #checkbox-group-3').hide();
 
 	// When the select option is changed
@@ -337,4 +337,3 @@ $(document).ready(function () {
 		var selectedOption = $(this).val();
 		$('#checkbox-group-' + selectedOption).show();
 	});
-});
